@@ -1,0 +1,56 @@
+package com.freshield.GAE;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import org.json.*;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class for Servlet: HelloServlet
+ *
+ */
+ public class HelloServlet extends javax.servlet.http.HttpServlet 
+     implements javax.servlet.Servlet {
+
+    /* (non-Java-doc)
+	 * @see javax.servlet.http.HttpServlet#HttpServlet()
+	 */
+	public HelloServlet() {
+		super();
+	}   	
+	 
+	/* (non-Java-doc)
+	 * @see javax.servlet.http.HttpServlet#doGet(HttpServletRequest request, 
+	     HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+	    throws ServletException, IOException {
+		String theValue = "{"
+				+ "'value':'"+Math.round((Math.random()*600))+"'}";
+		
+		JSONObject JSONvalue = new JSONObject(theValue);
+		//System.out.println(JSONvalue);
+		 response.setCharacterEncoding("UTF_8");//设置Response的编码方式为UTF-8
+
+		    response.setHeader("Content-type","text/html;charset=UTF-8");//向浏览器发送一个响应头，设置浏览器的解码方式为UTF-8,其实设置了本句，也默认设置了Response的编码方式为UTF-8，但是开发中最好两句结合起来使用
+
+		    //response.setContentType("text/html;charset=UTF-8");同上句代码作用一样
+
+		    PrintWriter writer = response.getWriter();
+
+		    writer.write("hello");
+	}  	
+	
+	/* (non-Java-doc)
+	 * @see javax.servlet.http.HttpServlet#doPost(HttpServletRequest request, 
+	     HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+	    throws ServletException, IOException {
+		// TODO Auto-generated method stub
+	}   	  	    
+}

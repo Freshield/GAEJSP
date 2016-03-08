@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="UTF-8">
+	<title>VIMMS</title>
+	<script type="text/javascript" src="ajax.js"> </script>
+    <style type="text/css">
+        html,body{
+            margin:0px;
+            height: 100%;
+            background-color: black;
+        }
+        body{
+
+            background-repeat: no-repeat;
+            background-image: url("background.jpg");
+            background-position: center;
+            background-size: cover;
+        }
+        /*--------------------HEADER PART-----------------------------*/
+        #top_header{
+            height:50px;
+            background:#fff;
+            background:rgba(255, 255, 255, 0) none repeat scroll 0 0 !important;/*瀹炵幇FF鑳屾櫙閫忔槑锛屾枃瀛椾笉閫忔槑*/
+            width:100%;
+            line-height:60px;
+            position:absolute;
+            z-index:99;
+            margin: 0px;
+            padding: 0px;
+        }
+        #LOGO,#LOGIN,#SIGNUP{
+            margin-top: 5px;
+            font-size: medium;
+            font-weight: bold;
+            font-family: Georgia, "Times New Roman", Times, serif;
+            color: #888888;
+            opacity: 0.9;
+            padding: 5px;
+            text-align:center;
+
+        }
+        #LOGO{
+            float: left;
+            line-height: 40px;
+            color: red;
+
+        }
+        #LOGO_white{
+            color: white;
+        }
+        #LOGIN{
+            float: right;
+            margin-right: 40px;
+            line-height: 40px;
+        }
+        #LOGIN:hover{
+            color: white;
+            cursor: pointer;
+        }
+        #SIGNUP{
+            color: white;
+            margin-right: 20px;
+            margin-top: 10px;
+            height: 20px;
+            float: right;
+            border: solid white 3px;
+            border-radius: 10px;
+            line-height: 20px;
+        }
+        #SIGNUP:hover{
+            background-color: white;
+            color: crimson;
+            cursor: pointer;
+        }
+        /*----------------WORD PART-------------------------*/
+        #WORD{
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            width: 800px;
+            margin: 0px 0px 0px -400px;
+            text-align: center;
+
+        }
+        #BIGSLOGEN{
+            color: #fefefe;
+            font-size: xx-large;
+            font-family: Verdana,sans-serif;
+
+        }
+        #LOWSLOGEN{
+            color: rgb(194,245,228);
+            font-family: Verdana,sans-serif;
+            font-size: large;
+        }
+        /*---------------------SIGN IN PLACE------------------*/
+        #SIGNIN{
+            position: absolute;
+            left: 50%;
+            width: 800px;
+            margin: 0px 0px 0px -400px;
+            bottom: 5px;
+            display: inline-table;
+        }
+        #USERNAME,#PASSWORD,#CONNECT{
+            float: left;
+            height: 50px;
+            margin: 0px 20px;
+            font-family: Verdana,sans-serif;
+        }
+        #USERNAME{
+            margin-left: 60px;
+        }
+        #usernametext,#passwordtext{
+            height: 40px;
+            border-radius: 5px;
+            border: 1px solid rgba(30,195,214,0.1);
+            background-color: rgba(30,195,214,0.6);
+            font-size: medium;
+            color: white;
+
+        }
+        #usernametext:focus,#passwordtext:focus{
+            outline: none;
+            border: 1px solid rgb(30,195,214);
+        }
+
+        ::-webkit-input-placeholder { /* WebKit browsers */
+            color: rgb(134,159,181);
+            font-size: small;
+        }
+        :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+            color: rgb(134,159,181);
+            font-size: small;
+        }
+        ::-moz-placeholder { /* Mozilla Firefox 19+ */
+            color: rgb(134,159,181);
+            font-size: small;
+        }
+        :-ms-input-placeholder { /* Internet Explorer 10+ */
+            color: rgb(134,159,181);
+            font-size: small;
+        }
+        #CONNECT{
+            height: 44px;
+            width: 200px;
+            border-radius: 5px;
+            background-color: rgb(30,195,214);
+            font-size: medium;
+            color: white;
+            text-align: center;
+            line-height: 40px;
+        }
+        #CONNECT:hover{
+            cursor: pointer;
+            background-color: rgb(26,169,185);
+        }
+    </style>
+</head>
+<body>
+<!------------------header part--------------->
+<header id="top_header">
+    <!-- left side-->
+    <span id="LOGO"><span id="LOGO_white">V I</span> M M S</span>
+    <!-- right side-->
+    <span id="SIGNUP">Sign up</span>
+    <span id="LOGIN">Login</span>
+</header>
+<div id="WORD">
+    <span id="BIGSLOGEN">To Control Your Cloud Upper the Cloud<br></span>
+    <span id="LOWSLOGEN">Monitor and Control remote;<br>on the upper Cloud</span>
+</div>
+<div id="SIGNIN">
+    <div id="USERNAME">
+        <input id="usernametext" type="text" placeholder="UserName"
+        onkeypress="if(event.keyCode==13) {signin();return false;}">
+    </div>
+    <div id="PASSWORD">
+        <input id="passwordtext" type="text" placeholder="Password"
+        onkeypress="if(event.keyCode==13) {signin();return false;}">
+    </div>
+    <div id="CONNECT" onclick="signin();">To Site</div>
+</div>
+
+<script type="text/javascript">
+
+	var ajaxReq = new AjaxRequest();
+	var xmlhttp;  
+
+	function signin(){
+		
+        var username = document.getElementById("usernametext").value;
+        var password = document.getElementById("passwordtext").value;
+        
+        str = "username=" + username + "&password=" + password;
+        
+        CreateXMLHttpRequest();  
+        xmlhttp.onreadystatechange = callhandle;  
+        //xmlhttp.open("GET","Default.aspx?goback=yes&arg=" + arg,true);  
+        xmlhttp.open("POST","/Redirction",true);  
+        
+        xmlhttp.setRequestHeader("Content-Length",str.length);  
+        xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded;");  //鐢≒OST鐨勬椂鍊欎竴瀹氳鏈夎繖鍙�  
+        
+        xmlhttp.send(str); 
+        
+        
+	}
+	function CreateXMLHttpRequest()  
+    {  
+        if (window.ActiveXObject)  
+         {  
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");  
+        }  
+        else if (window.XMLHttpRequest)  
+         {  
+            xmlhttp = new XMLHttpRequest();  
+         }  
+    }  
+    function callhandle()  
+    {  
+    	
+        if (xmlhttp.readyState == 4)  
+       {  
+            if(xmlhttp.status == 200)  
+             {  
+            	var jsonstr = xmlhttp.responseText;
+            	var obj = JSON.parse(jsonstr); 
+    			
+                if(obj.value != "error"){
+                	
+                	window.location.href=obj.value;
+                }else{
+                	alert("Username or Password is not right");
+                }
+            }  
+        }  
+    }  
+	
+
+    // Handle the Ajax request
+    function handleRequest() {
+      if (ajaxReq.getReadyState() == 4 && ajaxReq.getStatus() == 200) {
+        // Enable the Add button and clear the status
+        var getter = ajaxReq.ResponseText;
+        if(getter != "error"){
+        	
+        	window.location.href=getter;
+        }else{
+        	alert("Username or Password is not right");
+        }
+      }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="UTF-8">
+	<title>Test GAE</title>
+</head>
+<body>
+	<a href="/HelloServlet">TRY JSON</a>
+	<a href="tryJSON.html">tryJSON</a>
+
+</body>
+</html>

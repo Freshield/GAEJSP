@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html>
+<!-------------------head part---------------->
+<head lang="en">
+	<meta charset="UTF-8">
+	<title>VIMMS dashboard</title>
+    <script type="text/javascript" src="d3/d3.js"></script>
+    <link type="text/css" rel="stylesheet" href="dashboard.css">
+
+</head>
+<!------------------body part----------------->
+<body>
+<!------------------header part--------------->
+    <header id="top_header">
+        <!-- left side-->
+        <span id="LOGO"><span id="LOGO_white">V I</span> M M S</span>
+        <!-- right side-->
+        <div id="LOGO_table">
+            <div id="LOGO_row">
+                <div id="LOGO_message" class="LOGO_cell">
+                    <img id="top_mes" src="image/top_mes.png" height="24"
+                         onmouseover="top_mes_over();" onmouseout="top_mes_out();">
+                </div>
+                <div id="LOGO_email" class="LOGO_cell">
+                    <img id="top_email" src="image/top_email.png" height="24"
+                         onmouseover="top_email_over();" onmouseout="top_email_out();">
+                </div>
+                <div id="LOGO_person" class="LOGO_cell">
+                    <span id="person">YANG YU</span>
+                </div>
+                <div id="LOGO_menu" class="LOGO_cell">
+                    <img id="top_menu" src="image/top_menu.png" height="24"
+                         onmouseover="top_menu_over();" onmouseout="top_menu_out();">
+                </div>
+            </div>
+        </div>
+    </header>
+<!----------------navigator part------------------>
+<div id="navigator">
+    <div id="navi_ul">
+        <!-- menu part-->
+        <div id="none">
+            <img id="none_img" src="image/nav_menu.png" height="24">
+        </div>
+        <!-- search part-->
+        <div id="search">
+            <input type="text" id="input_search" placeholder="Search...">
+            <img src="image/nav_search.png" height="12">
+        </div>
+        <!-- user resources part-->
+        <div id="resources">
+            <div id="DashBoard" class="resources_row">
+                <div class="resources_cell cell_img"><img src="image/nav_home.png" height="24"></div>
+                <div class="resources_cell cell_word">Dashboard</div>
+                <div class="resources_cell cell_res"><</div>
+            </div>
+            <div id="VM1" class="resources_row">
+                <div class="resources_cell cell_img"><img src="image/nav_vm.png" height="24"></div>
+                <div class="resources_cell cell_word">VM1</div>
+                <div class="resources_cell cell_res"><</div>
+            </div>
+            <div id="VM2" class="resources_row">
+                <div class="resources_cell cell_img"><img src="image/nav_vm.png" height="24"></div>
+                <div class="resources_cell cell_word">VM2</div>
+                <div class="resources_cell cell_res"><</div>
+            </div>
+            <div id="VM3" class="resources_row">
+                <div class="resources_cell cell_img"><img src="image/nav_vm.png" height="24"></div>
+                <div class="resources_cell cell_word">VM3</div>
+                <div class="resources_cell cell_res"><</div>
+            </div>
+            <div id="VM4" class="resources_row">
+                <div class="resources_cell cell_img"><img src="image/nav_vm.png" height="24"></div>
+                <div class="resources_cell cell_word">VM4</div>
+                <div class="resources_cell cell_res"><</div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!---------------------------panel part--------------------------->
+<div id="PANEL">
+    <div id="PANEL_outline">
+        <!-- --------------------header----------------------------------->
+        <header id="PANEL_header">
+            <span id="PANEL_header_word">DASHBOARD</span>
+            <span id="PANEL_header_word2">statistics and more</span>
+            <img src="image/panel_config.png" id="PANEL_header_img">
+        </header>
+        <!-- ------------------------navigator------------------------->
+        <div id="PANEL_navigator">
+            <span id="PANEL_nav_path">
+                <img src="image/panel_home.png" id="PANEL_path_img" height="16">
+                <span id="PANEL_path_word">Home  >  Dashboard</span>
+            </span>
+            <span id="PANEL_calendar">
+                <img src="image/panel_calendar.png" id="PANEL_cal_img" height="16">
+                <span id="PANEL_cal_word">JAN 15th, 2016 - FEB 14th, 2016</span>
+                <img src="image/panel_cal_down.png" id="PANEL_cal_img2" height="16">
+            </span>
+
+        </div>
+        <!------------------------ data table------------------------------>
+        <div id="PANEL_data">
+            <div id="PANEL_data_firstrow">
+                <!-- VM1-->
+                <div id="PANEL_VM1" class="firstrow_cell">
+                    <div id="PANEL_VM1_up" class="panel_up">
+                        <img src="image/panel_data_vm.png" id="data_vm1_img">
+                        <span id="panel_vm1_word" class="panel_word">
+                            <span id="panel_vm1_bigword" class="panel_bigword">STATUS</span><br>
+                            <span id="panel_vm1_smallword" class="panel_smallword">Health</span>
+                        </span>
+                        <span id="panel_vm1_name" class="panel_name">VM1</span>
+                    </div>
+                    <div id="PANEL_VM1_down" class="panel_down">
+                        <!--<span id="panel_vm1_downword" class="panel_downword">View more</span>-->
+                        <nav class="nav">
+                            <ul class="nav_menu">
+                                <li class="nav_menu-item"><a  target="_blank">Control</a>
+                                    <ul class="nav_submenu">
+                                        <li class="nav_submenu-item"> <a onclick="CMD('shutdown');" target="_blank">Shutdown</a></li>
+                                        <li class="nav_submenu-item"> <a onclick="CMD('restart');" target="_blank">Restart</a></li>
+                                        <li class="nav_submenu-item"> <a  onclick="CMD('sleep');" target="_blank">Sleep</a></li>
+                                    </ul>
+                                </li>
+                                </ul>
+                        </nav>
+                        <!--<img src="image/data_right.png" class="data_right_img">-->
+                    </div>
+                </div>
+                <!-- VM2-->
+                <div id="PANEL_VM2" class="firstrow_cell">
+                    <div id="PANEL_VM2_up" class="panel_up">
+                        <img src="image/panel_data_vm.png" id="data_vm2_img">
+                        <span id="panel_vm2_word" class="panel_word">
+                            <span id="panel_vm2_bigword" class="panel_bigword">2 ERROR</span><br>
+                            <span id="panel_vm2_smallword" class="panel_smallword">PROBLEM</span>
+                        </span>
+                        <span id="panel_vm2_name" class="panel_name">VM2</span>
+                    </div>
+                    <div id="PANEL_VM2_down" class="panel_down">
+                        <span id="panel_vm2_downword" class="panel_downword">View more</span>
+                        <img src="image/data_right.png" class="data_right_img">
+                    </div>
+                </div>
+                <!-- VM3-->
+                <div id="PANEL_VM3" class="firstrow_cell">
+                    <div id="PANEL_VM3_up" class="panel_up">
+                        <img src="image/panel_data_vm.png" id="data_vm3_img">
+                        <span id="panel_vm3_word" class="panel_word">
+                            <span id="panel_vm3_bigword" class="panel_bigword">STATUS</span><br>
+                            <span id="panel_vm3_smallword" class="panel_smallword">Health</span>
+                        </span>
+                        <span id="panel_vm3_name" class="panel_name">VM3</span>
+                    </div>
+                    <div id="PANEL_VM3_down" class="panel_down">
+                        <span id="panel_vm3_downword" class="panel_downword">View more</span>
+                        <img src="image/data_right.png" class="data_right_img">
+                    </div>
+                </div>
+                <!-- VM4-->
+                <div id="PANEL_VM4" class="firstrow_cell">
+                    <div id="PANEL_VM4_up" class="panel_up">
+                        <img src="image/panel_data_vm.png" id="data_vm4_img">
+                        <span id="panel_vm4_word" class="panel_word">
+                            <span id="panel_vm4_bigword" class="panel_bigword">STATUS</span><br>
+                            <span id="panel_vm4_smallword" class="panel_smallword">Health</span>
+                        </span>
+                        <span id="panel_vm4_name" class="panel_name">VM4</span>
+                    </div>
+                    <div id="PANEL_VM4_down" class="panel_down">
+                        <span id="panel_vm4_downword" class="panel_downword">View more</span>
+                        <img src="image/data_right.png" class="data_right_img">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- ---------------------chart table----------------------------------->
+        <div id="PANEL_chart">
+            <div id="chart_row">
+                <div id="secondrow_chart1" class="secondrow_cell">
+                    <svg id="chart_cpu"></svg>
+                </div>
+                <div id="secondrow_chart2" class="secondrow_cell">
+                    <img src="image/data_chart2.png" width="490">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+//-----------------------------hover process----------------------------------------
+    function top_mes_over(){
+        document.getElementById("top_mes").src = "image/top_mes2.png";
+    }
+
+    function top_mes_out(){
+
+        document.getElementById("top_mes").src = "image/top_mes.png";
+    }
+
+    function top_email_over(){
+        document.getElementById("top_email").src = "image/top_email2.png";
+    }
+
+    function top_email_out(){
+
+        document.getElementById("top_email").src = "image/top_email.png";
+    }
+
+
+    function top_menu_over(){
+        document.getElementById("top_menu").src = "image/top_menu2.png";
+    }
+
+    function top_menu_out(){
+
+        document.getElementById("top_menu").src = "image/top_menu.png";
+    }
+//---------------------chart cpu----------------------------------------------------
+var padding = 30;
+var head_height = 20;
+var chart1_title = "CPU performance"
+var chart1_subtitle = "%";
+var foot_height = padding;
+
+var dataset = [];
+var xMarks = [];
+var w = 500;
+var h = 300;
+
+
+//create data
+
+getData();
+var data1 = [10,30,45,90,34,26,75,46,37,87,23,45,67,35];
+var data1 = [30,45,90,34,26,75,46,37,87,23,45,67,35,67];
+var data1 = [45,90,34,26,75,46,37,87,23,45,67,35,67,89];
+
+//create svg
+
+var svg = d3.select("#chart_cpu")
+    .attr("width",w)
+    .attr("height",h);
+
+//add background
+svg.append("g")
+    .append("rect")
+    .attr("x",0)
+    .attr("y",0)
+    .attr("width",w)
+    .attr("height",h)
+    .style("fill","#FFF")
+    .style("stroke-width",2)
+    .style("stroke","#E7E7E7");
+
+//add titles
+
+if(chart1_title != ""){
+    svg.append("g")
+        .append("text")
+        .text(chart1_title)
+        .attr("class","chart1_title")
+        .attr("x",w/2)
+        .attr("y",head_height);
+
+}
+
+if(chart1_subtitle != ""){
+    svg.append("g")
+        .append("text")
+        .text(chart1_subtitle)
+        .attr("class","chart1_subtitle")
+        .attr("x",20)
+        .attr("y",20);
+    head_height+=20;
+}
+
+
+//add scaleor
+
+var xScale = d3.scale.linear()
+    .domain([0,dataset.length-1])
+    .range([padding,w-padding]);
+
+var yScale = d3.scale.linear()
+    .domain([0,100])
+    .range([h-padding,padding]);
+
+//define inner line
+
+var xInner = d3.svg.axis()
+    .scale(xScale)
+    .tickSize(-(h-padding*2),0,0)
+    .orient("bottom")
+    .ticks(dataset.length);
+
+svg.append("g")
+    .attr("class","chart1_inner_line")
+    .attr("transform","translate(0,"+(h-padding)+")")
+    .call(xInner)
+    .selectAll("text")
+    .text("");
+
+var yInner = d3.svg.axis()
+    .scale(yScale)
+    .tickSize(-(w-padding*2),0,0)
+    .tickFormat("")
+    .orient("left")
+    .ticks(10);
+
+svg.append("g")
+    .attr("class","chart1_inner_line")
+    .attr("transform","translate("+padding+",0)")
+    .call(yInner);
+
+
+//define axis
+
+var xAxis = d3.svg.axis()
+    .scale(xScale)
+    .orient("bottom")
+    .ticks(dataset.length);
+
+//define axis bar
+
+var xBar = svg.append("g")
+    .attr("class","axis")
+    .attr("transform","translate(0,"+(h-padding)+")")
+    .call(xAxis)
+    .selectAll("text")
+    .text(function(d){
+        return xMarks[d];
+    });
+
+
+//define y axis
+var yAxis = d3.svg.axis()
+    .scale(yScale)
+    .orient("left")
+    .ticks(10);
+
+//define axis bar
+
+var yBar = svg.append("g")
+    .attr("class","axis")
+    .attr("transform","translate("+padding+",0)")
+    .call(yAxis);
+
+
+//add lines
+
+var lineFunction = d3.svg.line()
+    .interpolate("linear")
+    .x(function(d,i){
+        return xScale(i);
+    })
+    .y(function(d){
+        return yScale(d);
+    });
+
+//add polyline
+
+
+var path = svg.append("path")
+    .attr("d",lineFunction(dataset))
+    .attr("class","thepath")
+    .style("fill","none")
+    .style("stroke-width",1)
+    .style("stroke","#F00")
+    .style("stroke-opacity",0.9);
+
+//add point
+/*
+svg.selectAll("circle")
+    .data(dataset)
+    .enter()
+    .append("circle")
+    .attr("cx",function(d,i){
+        return xScale(i);
+    })
+    .attr("cy",function(d){
+        return yScale(d);
+    })
+    .attr("r",5)
+    .attr("fill","green");
+*/
+
+
+var timeNum;
+
+function getData(){
+    var dataNum = 40;
+    dataset = [];
+    xMarks = [];
+
+    for(var i = 1;i<dataNum;i++){
+        //dataset.push(Math.round(Math.random()*h));
+        dataset.push(0);
+        xMarks.push("");
+        timeNum = 0;
+    }
+
+}
+
+function changeData(){
+    dataset.shift();
+    //dataset.push(Math.round(Math.random()*h));
+    dataset.push(receJSON);
+    xMarks.shift();
+    if(timeNum%5 == 0){
+        xMarks.push(timeNum);
+    }else{
+        xMarks.push("");
+    }
+    timeNum ++;
+
+}
+
+function drawChart() {
+
+    changeData();
+
+
+    //yScale = d3.scale.linear()
+    //		.domain([0, d3.max(dataset)])
+    //		.range([h - padding, padding]);
+
+    yAxis = d3.svg.axis()
+        .scale(yScale)
+        .orient("left")
+        .ticks(10);
+
+    xScale = d3.scale.linear()
+        .domain([0,dataset.length-1])
+        .range([padding,w-padding]);
+
+    xAxis = d3.svg.axis()
+        .scale(xScale)
+        .orient("bottom")
+        .ticks(dataset.length);
+
+    xBar.transition()
+        .duration(300)
+        .text(function(d){
+
+                return xMarks[d];
+
+
+        })
+        .call(xAxis);
+
+    yBar.transition()
+        .duration(300)
+        .call(yAxis);
+
+    path//.transition()
+        //.duration(1000)
+        .attr("d", lineFunction(dataset));
+/*
+    svg.selectAll("circle")
+        .data(dataset)
+        //.transition()
+        //.duration(1000)
+        .attr("cy", function (d) {
+            return yScale(d);
+        });*/
+}
+
+                   //*********ajax********
+function CreateXHR(){
+    if (window.XMLHttpRequest)
+    {
+        //对浏览器 IE7+, Firefox, Chrome, Opera, Safari
+        return new XMLHttpRequest();
+    }
+    else
+    {
+        //对浏览器 IE6, IE5
+        return new ActiveXObject("Microsoft.XMLHTTP");
+    }
+}
+
+
+setTimeout(function(){
+
+    xmlhttp = CreateXHR();
+
+    xmlhttp.open("GET","/HelloServlet",true);
+    xmlhttp.send();
+
+    xmlhttp.onreadystatechange = function(){
+        if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+            var getedJSON = xmlhttp.responseText;
+            var obj = JSON.parse(getedJSON);
+            receJSON = obj.value;
+            drawChart();
+        }
+    }
+
+
+    setTimeout(arguments.callee,2000);
+},2000);
+
+var xmlhttp;
+var receJSON;
+
+var ajaxReq = new AjaxRequest();
+var xmlhttp2;
+
+function CMD(value){
+    var command = value;
+    str = "command=" + command;
+
+    CreateXMLHttpRequest();
+    xmlhttp2.onreadystatechange = callhandle;
+    //xmlhttp.open("GET","Default.aspx?goback=yes&arg=" + arg,true);
+    xmlhttp2.open("POST","/CMDinset",true);
+
+    xmlhttp2.setRequestHeader("Content-Length",str.length);
+    xmlhttp2.setRequestHeader("Content-Type","application/x-www-form-urlencoded;");  //鐢≒OST鐨勬椂鍊欎竴瀹氳鏈夎繖鍙�
+
+    xmlhttp2.send(str);
+}
+
+function CreateXMLHttpRequest()
+{
+    if (window.ActiveXObject)
+    {
+        xmlhttp2 = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    else if (window.XMLHttpRequest)
+    {
+        xmlhttp2 = new XMLHttpRequest();
+    }
+}
+function callhandle()
+{
+
+    if (xmlhttp2.readyState == 4)
+    {
+        if(xmlhttp2.status == 200)
+        {
+            var jsonstr = xmlhttp2.responseText;
+            var obj = JSON.parse(jsonstr);
+
+            if(obj.value != "error"){
+
+                alert(obj.value);
+            }else{
+                alert("Failure");
+            }
+        }
+    }
+}
+
+//---------------------/chart cpu----------------------------------------------------
+</script>
+
+</body>
+</html>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;tryGAESQL/war/testJSON.html&apos; to &apos;index.html&apos;" description="Rename resource &apos;testJSON.html&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="war/testJSON.html" name="index.html" stamp="1457573948498" updateReferences="true"/>
+</session>

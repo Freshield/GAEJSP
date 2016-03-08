@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://java.sun.com/xml/ns/javaee"
+xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <servlet>
+  	<servlet-name>HelloServlet</servlet-name>
+  	<servlet-class>com.freshield.GAE.HelloServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>Redirction</servlet-name>
+  	<servlet-class>com.freshield.GAE.Redirction</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>CMDinset</servlet-name>
+  	<servlet-class>com.freshield.GAE.CMDinset</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>HelloServlet</servlet-name>
+  	<url-pattern>/HelloServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Redirction</servlet-name>
+  	<url-pattern>/Redirction</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>CMDinset</servlet-name>
+  	<url-pattern>/CMDinset</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+</web-app>

@@ -1,0 +1,9 @@
+INDEX VERSION 1.3+D:\MEGA\LEARN_BYSELF\JSP\headfirst\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+1282047569.index
+1265309133.index
+612542071.index
+2319827280.index
+2722900087.index
+1041035535.index
+685214350.index
+627453037.index
