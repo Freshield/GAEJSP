@@ -304,12 +304,14 @@ header#top_header{
     display: table;
     width: 1050px;
     border-spacing: 0px 0px;
+    border: 1px black dashed;
 }
 #chart_row{
     display: table-row;
     width: 1050px;
     height: 300px;
 
+    border: 1px black dashed;
 }
 .secondrow_cell{
     display: table-cell;
@@ -319,10 +321,12 @@ header#top_header{
 
     vertical-align: top;
 
+    border: 1px black dashed;
 
 }
 #secondrow_chart1{
 
+    border: 1px black dashed;
     padding-left: 10px;
 
 }
