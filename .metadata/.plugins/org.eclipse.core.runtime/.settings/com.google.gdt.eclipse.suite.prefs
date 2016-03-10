@@ -4,3 +4,4 @@ versionForLastForcedRebuild_GAEtest=3.8.0.v201410302155-rel-r44
 versionForLastForcedRebuild_GAEtesting=3.8.0.v201410302155-rel-r44
 versionForLastForcedRebuild_GuestbookServlet=3.8.0.v201410302155-rel-r44
 versionForLastForcedRebuild_testGAESQL=3.8.0.v201410302155-rel-r44
+versionForLastForcedRebuild_tryGAESQL=3.8.0.v201410302155-rel-r44

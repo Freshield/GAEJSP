@@ -177,7 +177,7 @@
         onkeypress="if(event.keyCode==13) {signin();return false;}">
     </div>
     <div id="PASSWORD">
-        <input id="passwordtext" type="text" placeholder="Password"
+        <input id="passwordtext" type="password" placeholder="Password"
         onkeypress="if(event.keyCode==13) {signin();return false;}">
     </div>
     <div id="CONNECT" onclick="signin();">To Site</div>
@@ -186,58 +186,58 @@
 <script type="text/javascript">
 
 	var ajaxReq = new AjaxRequest();
-	var xmlhttp;  
+	var xmlhttp;
 
 	function signin(){
-		
+
         var username = document.getElementById("usernametext").value;
         var password = document.getElementById("passwordtext").value;
-        
+
         str = "username=" + username + "&password=" + password;
-        
-        CreateXMLHttpRequest();  
-        xmlhttp.onreadystatechange = callhandle;  
-        //xmlhttp.open("GET","Default.aspx?goback=yes&arg=" + arg,true);  
-        xmlhttp.open("POST","/Redirction",true);  
-        
-        xmlhttp.setRequestHeader("Content-Length",str.length);  
-        xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded;");  //鐢≒OST鐨勬椂鍊欎竴瀹氳鏈夎繖鍙�  
-        
-        xmlhttp.send(str); 
-        
-        
+
+        CreateXMLHttpRequest();
+        xmlhttp.onreadystatechange = callhandle;
+        //xmlhttp.open("GET","Default.aspx?goback=yes&arg=" + arg,true);
+        xmlhttp.open("POST","/Redirction",true);
+
+        xmlhttp.setRequestHeader("Content-Length",str.length);
+        xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded;");  //鐢≒OST鐨勬椂鍊欎竴瀹氳鏈夎繖鍙�
+
+        xmlhttp.send(str);
+
+
 	}
-	function CreateXMLHttpRequest()  
-    {  
-        if (window.ActiveXObject)  
-         {  
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");  
-        }  
-        else if (window.XMLHttpRequest)  
-         {  
-            xmlhttp = new XMLHttpRequest();  
-         }  
-    }  
-    function callhandle()  
-    {  
-    	
-        if (xmlhttp.readyState == 4)  
-       {  
-            if(xmlhttp.status == 200)  
-             {  
+	function CreateXMLHttpRequest()
+    {
+        if (window.ActiveXObject)
+         {
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        else if (window.XMLHttpRequest)
+         {
+            xmlhttp = new XMLHttpRequest();
+         }
+    }
+    function callhandle()
+    {
+
+        if (xmlhttp.readyState == 4)
+       {
+            if(xmlhttp.status == 200)
+             {
             	var jsonstr = xmlhttp.responseText;
-            	var obj = JSON.parse(jsonstr); 
-    			
+            	var obj = JSON.parse(jsonstr);
+
                 if(obj.value != "error"){
-                	
+
                 	window.location.href=obj.value;
                 }else{
                 	alert("Username or Password is not right");
                 }
-            }  
-        }  
-    }  
-	
+            }
+        }
+    }
+
 
     // Handle the Ajax request
     function handleRequest() {
@@ -245,7 +245,7 @@
         // Enable the Add button and clear the status
         var getter = ajaxReq.ResponseText;
         if(getter != "error"){
-        	
+
         	window.location.href=getter;
         }else{
         	alert("Username or Password is not right");
