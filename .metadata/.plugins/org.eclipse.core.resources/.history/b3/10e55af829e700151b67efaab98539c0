@@ -1,15 +1,10 @@
 package tryMySQL;
 
 import java.sql.DriverManager;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Connection;
 import java.sql.Statement;
-
-import java.io.*;
-import java.util.*;
-import java.text.*;
 
 public class test {
 	 public static void main(String[] args) throws Exception {
@@ -19,26 +14,9 @@ public class test {
 	        // 避免中文乱码要指定useUnicode和characterEncoding
 	        // 执行数据库操作之前要在数据库管理系统上创建一个数据库，名字自己定，
 	        // 下面语句之前就要先创建javademo数据库
-	        String url = "jdbc:mysql://173.194.82.26:3306/javademo?"
-	                + "user=yangyu&password=8888";
-	        
-	        long ct = System.currentTimeMillis();
-	        String t = String.valueOf(ct);
-	        
-	        System.out.println(ct);
-	        System.out.println(t);
-	        
-	        Date nowTime = new Date(System.currentTimeMillis());
-	        SimpleDateFormat sdFormatter = new SimpleDateFormat("yyyy-MM-dd");
-	        String retStrFormatNowDate = sdFormatter.format(nowTime);
-	        
-	        System.out.println(nowTime);
-	        System.out.println(sdFormatter);
-	        System.out.println(retStrFormatNowDate);
-	        
-	        
-	        
-	 /*
+	        String url = "jdbc:mysql://173.194.241.209:3306/realTimeValue?"
+	                + "user=yangyu&password=8888&useUnicode=true&characterEncoding=UTF8";
+	 
 	        try {
 	            // 之所以要使用下面这条语句，是因为要使用MySQL的驱动，所以我们要把它驱动起来，
 	            // 可以通过Class.forName把它加载进去，也可以通过初始化来驱动起来，下面三种形式都可以
@@ -116,7 +94,7 @@ public class test {
 	        	
 	            conn.close();
 	        }
-	 */
+	 
 	    }
 
 }

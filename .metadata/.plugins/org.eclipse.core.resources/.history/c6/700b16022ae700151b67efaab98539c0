@@ -8,8 +8,6 @@ import java.sql.Connection;
 import java.sql.Statement;
 
 import java.io.*;
-import java.util.*;
-import java.text.*;
 
 public class test {
 	 public static void main(String[] args) throws Exception {
@@ -25,17 +23,8 @@ public class test {
 	        long ct = System.currentTimeMillis();
 	        String t = String.valueOf(ct);
 	        
-	        System.out.println(ct);
+	        System.out.println(ct));
 	        System.out.println(t);
-	        
-	        Date nowTime = new Date(System.currentTimeMillis());
-	        SimpleDateFormat sdFormatter = new SimpleDateFormat("yyyy-MM-dd");
-	        String retStrFormatNowDate = sdFormatter.format(nowTime);
-	        
-	        System.out.println(nowTime);
-	        System.out.println(sdFormatter);
-	        System.out.println(retStrFormatNowDate);
-	        
 	        
 	        
 	 /*

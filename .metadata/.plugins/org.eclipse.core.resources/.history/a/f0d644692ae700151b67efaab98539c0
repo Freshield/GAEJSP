@@ -29,7 +29,7 @@ public class test {
 	        System.out.println(t);
 	        
 	        Date nowTime = new Date(System.currentTimeMillis());
-	        SimpleDateFormat sdFormatter = new SimpleDateFormat("yyyy-MM-dd");
+	        SimpleDateFormat sdFormatter = new SimpleDateFormat("MM-dd");
 	        String retStrFormatNowDate = sdFormatter.format(nowTime);
 	        
 	        System.out.println(nowTime);
