@@ -105,7 +105,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
        System.out.println("success connect");
        conn = DriverManager.getConnection(url);
        Statement stmt = conn.createStatement();
-       sql = "insert into cmd (timestamp,cmd,host,flag) values('"+timeNow+"','"+command+"','"+name+"','true')";
+       sql = "insert into cmd (timestamp,cmd,host,flag) values('"+command+"','true')";
        System.out.println(sql);
        Boolean rs = stmt.execute(sql);// executeQuery会返回结果的集合，否则返回空值
        System.out.println(rs);

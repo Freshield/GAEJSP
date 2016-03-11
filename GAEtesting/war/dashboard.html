@@ -102,26 +102,26 @@
         </div>
         <!------------------------ data table------------------------------>
         <div id="PANEL_data">
-            <div id="PANEL_data_firstrow">
+
                 <!-- VM1-->
                 <div id="PANEL_VM1" class="firstrow_cell">
                     <div id="PANEL_VM1_up" class="panel_up">
-                        <img src="image/panel_data_vm.png" id="data_vm1_img">
+                        <img src="image/panel_data_pm.png" id="data_vm1_img" class="data_vm_img">
                         <span id="panel_vm1_word" class="panel_word">
                             <span id="panel_vm1_bigword" class="panel_bigword">STATUS</span><br>
-                            <span id="panel_vm1_smallword" class="panel_smallword">Health</span>
+                            <span id="panel_vm1_smallword" class="panel_smallword">Reading...</span>
                         </span>
-                        <span id="panel_vm1_name" class="panel_name">VM1</span>
+                        <span id="panel_vm1_name" class="panel_name">PM1</span>
                     </div>
                     <div id="PANEL_VM1_down" class="panel_down">
                         <!--<span id="panel_vm1_downword" class="panel_downword">View more</span>-->
                         <nav class="nav">
                             <ul class="nav_menu">
-                                <li class="nav_menu-item"><a  target="_blank">Control</a>
-                                    <ul class="nav_submenu">
-                                        <li class="nav_submenu-item"> <a onclick="CMD('shutdown');" target="_blank">Shutdown</a></li>
-                                        <li class="nav_submenu-item"> <a onclick="CMD('restart');" target="_blank">Restart</a></li>
-                                        <li class="nav_submenu-item"> <a  onclick="CMD('sleep');" target="_blank">Sleep</a></li>
+                                <li class="nav_menu-item"><a  target="_blank">Control<img src="image/data_right.png" class="data_right_img"></a>
+                                    <ul id="nav_submenu_1" class="nav_submenu">
+                                        <li class="nav_submenu-item"> <a onclick="CMD('shutdown','PM1');" target="_blank">Shutdown</a></li>
+                                        <li class="nav_submenu-item"> <a onclick="CMD('restart','PM1');" target="_blank">Restart</a></li>
+                                        <li class="nav_submenu-item"> <a  onclick="CMD('stop','PM1');" target="_blank">Stop</a></li>
                                     </ul>
                                 </li>
                                 </ul>
@@ -132,63 +132,80 @@
                 <!-- VM2-->
                 <div id="PANEL_VM2" class="firstrow_cell">
                     <div id="PANEL_VM2_up" class="panel_up">
-                        <img src="image/panel_data_vm.png" id="data_vm2_img">
+                        <img src="image/panel_data_pm.png" id="data_vm2_img" class="data_vm_img">
                         <span id="panel_vm2_word" class="panel_word">
-                            <span id="panel_vm2_bigword" class="panel_bigword">2 ERROR</span><br>
-                            <span id="panel_vm2_smallword" class="panel_smallword">PROBLEM</span>
+                            <span id="panel_vm2_bigword" class="panel_bigword">STATUS</span><br>
+                            <span id="panel_vm2_smallword" class="panel_smallword">Reading...</span>
                         </span>
-                        <span id="panel_vm2_name" class="panel_name">VM2</span>
+                        <span id="panel_vm2_name" class="panel_name">PM2</span>
                     </div>
                     <div id="PANEL_VM2_down" class="panel_down">
-                        <span id="panel_vm2_downword" class="panel_downword">View more</span>
-                        <img src="image/data_right.png" class="data_right_img">
+                        <nav class="nav">
+                            <ul class="nav_menu">
+                                <li class="nav_menu-item"><a  target="_blank">Control<img src="image/data_right.png" class="data_right_img"></a>
+                                    <ul id="nav_submenu_2" class="nav_submenu">
+                                        <li class="nav_submenu-item"> <a onclick="CMD('shutdown','PM2');" target="_blank">Shutdown</a></li>
+                                        <li class="nav_submenu-item"> <a onclick="CMD('restart','PM2');" target="_blank">Restart</a></li>
+                                        <li class="nav_submenu-item"> <a  onclick="CMD('stop','PM2');" target="_blank">Stop</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
                     </div>
                 </div>
                 <!-- VM3-->
                 <div id="PANEL_VM3" class="firstrow_cell">
                     <div id="PANEL_VM3_up" class="panel_up">
-                        <img src="image/panel_data_vm.png" id="data_vm3_img">
+                        <img src="image/panel_data_vm.png" id="data_vm3_img" class="data_vm_img">
                         <span id="panel_vm3_word" class="panel_word">
                             <span id="panel_vm3_bigword" class="panel_bigword">STATUS</span><br>
-                            <span id="panel_vm3_smallword" class="panel_smallword">Health</span>
+                            <span id="panel_vm3_smallword" class="panel_smallword">Reading...</span>
                         </span>
-                        <span id="panel_vm3_name" class="panel_name">VM3</span>
+                        <span id="panel_vm3_name" class="panel_name">VM1</span>
                     </div>
                     <div id="PANEL_VM3_down" class="panel_down">
-                        <span id="panel_vm3_downword" class="panel_downword">View more</span>
-                        <img src="image/data_right.png" class="data_right_img">
+                        <nav class="nav">
+                            <ul class="nav_menu">
+                                <li class="nav_menu-item"><a  target="_blank">Control<img src="image/data_right.png" class="data_right_img"></a>
+                                    <ul id="nav_submenu_3" class="nav_submenu">
+                                        <li class="nav_submenu-item"> <a onclick="CMD('shutdown','VM1');" target="_blank">Shutdown</a></li>
+                                        <li class="nav_submenu-item"> <a onclick="CMD('restart','VM1');" target="_blank">Restart</a></li>
+                                        <li class="nav_submenu-item"> <a  onclick="CMD('stop','VM1');" target="_blank">Stop</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
                     </div>
                 </div>
                 <!-- VM4-->
                 <div id="PANEL_VM4" class="firstrow_cell">
                     <div id="PANEL_VM4_up" class="panel_up">
-                        <img src="image/panel_data_vm.png" id="data_vm4_img">
+                        <img src="image/panel_data_vm.png" id="data_vm4_img" class="data_vm_img">
                         <span id="panel_vm4_word" class="panel_word">
                             <span id="panel_vm4_bigword" class="panel_bigword">STATUS</span><br>
-                            <span id="panel_vm4_smallword" class="panel_smallword">Health</span>
+                            <span id="panel_vm4_smallword" class="panel_smallword">Reading...</span>
                         </span>
-                        <span id="panel_vm4_name" class="panel_name">VM4</span>
+                        <span id="panel_vm4_name" class="panel_name">VM2</span>
                     </div>
                     <div id="PANEL_VM4_down" class="panel_down">
-                        <span id="panel_vm4_downword" class="panel_downword">View more</span>
-                        <img src="image/data_right.png" class="data_right_img">
+                        <nav class="nav">
+                            <ul class="nav_menu">
+                                <li class="nav_menu-item"><a  target="_blank">Control<img src="image/data_right.png" class="data_right_img"></a>
+                                    <ul id="nav_submenu_4" class="nav_submenu">
+                                        <li class="nav_submenu-item"> <a onclick="CMD('shutdown','VM2');" target="_blank">Shutdown</a></li>
+                                        <li class="nav_submenu-item"> <a onclick="CMD('restart','VM2');" target="_blank">Restart</a></li>
+                                        <li class="nav_submenu-item"> <a  onclick="CMD('sleep','VM2');" target="_blank">Sleep</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
                     </div>
                 </div>
 
             </div>
         </div>
-        <!-- ---------------------chart table----------------------------------->
-        <div id="PANEL_chart">
-            <div id="chart_row">
-                <div id="secondrow_chart1" class="secondrow_cell">
-                    <svg id="chart_cpu"></svg>
-                </div>
-                <div id="secondrow_chart2" class="secondrow_cell">
-                    <img src="image/data_chart2.png" width="490">
-                </div>
-            </div>
-        </div>
-    </div>
+
+
 
 </div>
 
@@ -221,255 +238,7 @@
 
         document.getElementById("top_menu").src = "image/top_menu.png";
     }
-//---------------------chart cpu----------------------------------------------------
-var padding = 30;
-var head_height = 20;
-var chart1_title = "CPU performance"
-var chart1_subtitle = "%";
-var foot_height = padding;
 
-var dataset = [];
-var xMarks = [];
-var w = 500;
-var h = 300;
-
-
-//create data
-
-getData();
-var data1 = [10,30,45,90,34,26,75,46,37,87,23,45,67,35];
-var data1 = [30,45,90,34,26,75,46,37,87,23,45,67,35,67];
-var data1 = [45,90,34,26,75,46,37,87,23,45,67,35,67,89];
-
-//create svg
-
-var svg = d3.select("#chart_cpu")
-    .attr("width",w)
-    .attr("height",h);
-
-//add background
-svg.append("g")
-    .append("rect")
-    .attr("x",0)
-    .attr("y",0)
-    .attr("width",w)
-    .attr("height",h)
-    .style("fill","#FFF")
-    .style("stroke-width",2)
-    .style("stroke","#E7E7E7");
-
-//add titles
-
-if(chart1_title != ""){
-    svg.append("g")
-        .append("text")
-        .text(chart1_title)
-        .attr("class","chart1_title")
-        .attr("x",w/2)
-        .attr("y",head_height);
-
-}
-
-if(chart1_subtitle != ""){
-    svg.append("g")
-        .append("text")
-        .text(chart1_subtitle)
-        .attr("class","chart1_subtitle")
-        .attr("x",20)
-        .attr("y",20);
-    head_height+=20;
-}
-
-
-//add scaleor
-
-var xScale = d3.scale.linear()
-    .domain([0,dataset.length-1])
-    .range([padding,w-padding]);
-
-var yScale = d3.scale.linear()
-    .domain([0,100])
-    .range([h-padding,padding]);
-
-//define inner line
-
-var xInner = d3.svg.axis()
-    .scale(xScale)
-    .tickSize(-(h-padding*2),0,0)
-    .orient("bottom")
-    .ticks(dataset.length);
-
-svg.append("g")
-    .attr("class","chart1_inner_line")
-    .attr("transform","translate(0,"+(h-padding)+")")
-    .call(xInner)
-    .selectAll("text")
-    .text("");
-
-var yInner = d3.svg.axis()
-    .scale(yScale)
-    .tickSize(-(w-padding*2),0,0)
-    .tickFormat("")
-    .orient("left")
-    .ticks(10);
-
-svg.append("g")
-    .attr("class","chart1_inner_line")
-    .attr("transform","translate("+padding+",0)")
-    .call(yInner);
-
-
-//define axis
-
-var xAxis = d3.svg.axis()
-    .scale(xScale)
-    .orient("bottom")
-    .ticks(dataset.length);
-
-//define axis bar
-
-var xBar = svg.append("g")
-    .attr("class","axis")
-    .attr("transform","translate(0,"+(h-padding)+")")
-    .call(xAxis)
-    .selectAll("text")
-    .text(function(d){
-        return xMarks[d];
-    });
-
-
-//define y axis
-var yAxis = d3.svg.axis()
-    .scale(yScale)
-    .orient("left")
-    .ticks(10);
-
-//define axis bar
-
-var yBar = svg.append("g")
-    .attr("class","axis")
-    .attr("transform","translate("+padding+",0)")
-    .call(yAxis);
-
-
-//add lines
-
-var lineFunction = d3.svg.line()
-    .interpolate("linear")
-    .x(function(d,i){
-        return xScale(i);
-    })
-    .y(function(d){
-        return yScale(d);
-    });
-
-//add polyline
-
-
-var path = svg.append("path")
-    .attr("d",lineFunction(dataset))
-    .attr("class","thepath")
-    .style("fill","none")
-    .style("stroke-width",1)
-    .style("stroke","#F00")
-    .style("stroke-opacity",0.9);
-
-//add point
-/*
-svg.selectAll("circle")
-    .data(dataset)
-    .enter()
-    .append("circle")
-    .attr("cx",function(d,i){
-        return xScale(i);
-    })
-    .attr("cy",function(d){
-        return yScale(d);
-    })
-    .attr("r",5)
-    .attr("fill","green");
-*/
-
-
-var timeNum;
-
-function getData(){
-    var dataNum = 40;
-    dataset = [];
-    xMarks = [];
-
-    for(var i = 1;i<dataNum;i++){
-        //dataset.push(Math.round(Math.random()*h));
-        dataset.push(0);
-        xMarks.push("");
-        timeNum = 0;
-    }
-
-}
-
-function changeData(){
-    dataset.shift();
-    //dataset.push(Math.round(Math.random()*h));
-    dataset.push(receJSON);
-    xMarks.shift();
-    if(timeNum%5 == 0){
-        xMarks.push(timeNum);
-    }else{
-        xMarks.push("");
-    }
-    timeNum ++;
-
-}
-
-function drawChart() {
-
-    changeData();
-
-
-    //yScale = d3.scale.linear()
-    //		.domain([0, d3.max(dataset)])
-    //		.range([h - padding, padding]);
-
-    yAxis = d3.svg.axis()
-        .scale(yScale)
-        .orient("left")
-        .ticks(10);
-
-    xScale = d3.scale.linear()
-        .domain([0,dataset.length-1])
-        .range([padding,w-padding]);
-
-    xAxis = d3.svg.axis()
-        .scale(xScale)
-        .orient("bottom")
-        .ticks(dataset.length);
-
-    xBar.transition()
-        .duration(300)
-        .text(function(d){
-
-                return xMarks[d];
-
-
-        })
-        .call(xAxis);
-
-    yBar.transition()
-        .duration(300)
-        .call(yAxis);
-
-    path//.transition()
-        //.duration(1000)
-        .attr("d", lineFunction(dataset));
-/*
-    svg.selectAll("circle")
-        .data(dataset)
-        //.transition()
-        //.duration(1000)
-        .attr("cy", function (d) {
-            return yScale(d);
-        });*/
-}
 
                    //*********ajax********
 function CreateXHR(){
@@ -486,35 +255,13 @@ function CreateXHR(){
 }
 
 
-setTimeout(function(){
-
-    xmlhttp = CreateXHR();
-
-    xmlhttp.open("GET","/HelloServlet",true);
-    xmlhttp.send();
-
-    xmlhttp.onreadystatechange = function(){
-        if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
-            var getedJSON = xmlhttp.responseText;
-            var obj = JSON.parse(getedJSON);
-            receJSON = obj.value;
-            drawChart();
-        }
-    }
-
-
-    setTimeout(arguments.callee,2000);
-},2000);
-
-var xmlhttp;
-var receJSON;
 
 var ajaxReq = new AjaxRequest();
 var xmlhttp2;
 
-function CMD(value){
+function CMD(value,name){
     var command = value;
-    str = "command=" + command;
+    str = "command=" + command + "&name=" + name;
 
     CreateXMLHttpRequest();
     xmlhttp2.onreadystatechange = callhandle;

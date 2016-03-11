@@ -1,8 +1,14 @@
 package com.freshield.GAE;
 
+import java.io.IOException;
+
+
 import java.io.*;
 import java.util.*;
 import java.text.*;
+
+
+
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,7 +21,6 @@ import org.json.*;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 
 
 
@@ -52,10 +57,6 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
 */
 protected void doPost(HttpServletRequest request, HttpServletResponse response) 
    throws ServletException, IOException {
-	//generate the timestamp
-	
-	long timeNow = System.currentTimeMillis()/1000;
-	
 	//store the info get
 	
 	response.setContentType("charset=UTF-8");
@@ -105,7 +106,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
        System.out.println("success connect");
        conn = DriverManager.getConnection(url);
        Statement stmt = conn.createStatement();
-       sql = "insert into cmd (timestamp,cmd,host,flag) values('"+timeNow+"','"+command+"','"+name+"','true')";
+       sql = "insert into Command (CMD,flag) values('"+command+"','true')";
        System.out.println(sql);
        Boolean rs = stmt.execute(sql);// executeQuery会返回结果的集合，否则返回空值
        System.out.println(rs);

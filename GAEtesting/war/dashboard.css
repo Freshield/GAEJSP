@@ -218,19 +218,20 @@ header#top_header{
 }
 /*data table part*/
 #PANEL_data{
-    display: table;
+    width: 1050px;
+    height: 470px;
     border-spacing: 10px;
-}
-/*first row*/
-#PANEL_data_firstrow{
-    display: table-row;
+
 }
 
+
 .firstrow_cell{
-    display: table-cell;
-    width: 250px;
-    height: 150px;
+    float: left;
+    width: 400px;
+    height: 220px;
+    margin: 10px 0px 0px 80px;
     color: white;
+    border-radius: 10px;
 
 }
 
@@ -238,37 +239,45 @@ header#top_header{
     background-color: rgb(39,196,227);
 }
 #PANEL_VM1_up, .panel_up{
-    height: 120px;
+    height: 180px;
 }
 #panel_vm1_word, .panel_word{
     float: right;
     margin: 10px;
-    margin-top: 30px;
     text-align: right;
 }
 #panel_vm1_bigword, .panel_bigword{
-
+    font-family: Verdana;
     font-size: xx-large;
 }
 #panel_vm1_smallword, .panel_smallword{
 
-
+    font-family: Verdana;
+    font-size: x-large;
+}
+#data_vm1_img,#data_vm2_img{
+    margin-left: 10px;
 }
 #panel_vm1_name, .panel_name{
-
+    font-family: Verdana;
     font-size: xx-large;
     float: left;
     margin-top: 10px;
     margin-left: 5px;
 }
 #PANEL_VM1_down, .panel_down{
-    height: 30px;
+    height: 40px;
     line-height: 30px;
+    border-radius: 0px 0px 10px 10px;
     background-color: rgb(33,149,201);
 }
 .panel_downword{
 
     margin-left: 5px;
+}
+.data_vm_img{
+
+    float: left;
 }
 .data_right_img{
     height: 16px;
@@ -281,9 +290,7 @@ header#top_header{
 #PANEL_VM2_down{
     background-color: rgb(23,166,104);
 }
-#panel_vm2_word{
-    color: red;
-}
+
 
 #PANEL_VM3{
     background-color: rgb(133,43,153);
@@ -368,6 +375,8 @@ a,a:hover{color:#FFF;text-decoration:none}
 
 
 nav ul {
+
+    font-family: Verdana;
     list-style: none;
     padding-left: 0;
     margin-top: 0;
@@ -405,8 +414,24 @@ nav ul {
     display: none;
     position: absolute;
 
-    background-color: rgb(33,149,201);
 }
 .nav_submenu-item:hover {
     background: rgba(0, 0, 0, 0.1);
+}
+
+#nav_submenu_1{
+
+    background-color: rgb(33,149,201);
+}
+#nav_submenu_2{
+
+    background-color: rgb(23,166,104);
+}
+#nav_submenu_3{
+
+    background-color: rgb(116,29,136);
+}
+#nav_submenu_4{
+
+    background-color: rgb(224,167,74);
 }

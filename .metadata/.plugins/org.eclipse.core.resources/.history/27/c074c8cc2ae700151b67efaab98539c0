@@ -1,8 +1,14 @@
 package com.freshield.GAE;
 
+import java.io.IOException;
+
+
 import java.io.*;
 import java.util.*;
 import java.text.*;
+
+
+
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,7 +21,6 @@ import org.json.*;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 
 
 
@@ -52,19 +57,13 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
 */
 protected void doPost(HttpServletRequest request, HttpServletResponse response) 
    throws ServletException, IOException {
-	//generate the timestamp
-	
-	long timeNow = System.currentTimeMillis()/1000;
-	
 	//store the info get
 	
 	response.setContentType("charset=UTF-8");
     PrintWriter writer = response.getWriter();
 	System.out.println("post");
 	String command = request.getParameter("command");
-	String name = request.getParameter("name");
 	System.out.println(command);
-	System.out.println(name);
 	
 	
 	//to get into sql
@@ -80,7 +79,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
            SystemProperty.Environment.Value.Production) {
          // Load the class that provides the new "jdbc:google:mysql://" prefix.
          Class.forName("com.mysql.jdbc.GoogleDriver");
-         
+         //url = "jdbc:mysql://yangyufreshield:3306/javademo";
          url = "jdbc:google:mysql://vimms-yangyu:yangyufreshield/javademo?user=root";
          System.out.println("here1");
         
@@ -102,10 +101,11 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
        
        //Class.forName("com.mysql.jdbc.Driver");// 动态加载mysql驱动
    	//Class.forName("com.mysql.jdbc.GoogleDriver");
+       //url = "jdbc:google:mysql://vimms-project:userinfo/realTimeValue?user=yangyu&password=8888&useUnicode=true&characterEncoding=UTF8";
        System.out.println("success connect");
        conn = DriverManager.getConnection(url);
        Statement stmt = conn.createStatement();
-       sql = "insert into cmd (timestamp,cmd,host,flag) values('"+timeNow+"','"+command+"','"+name+"','true')";
+       sql = "insert into Command (CMD,flag) values('"+command+"','true')";
        System.out.println(sql);
        Boolean rs = stmt.execute(sql);// executeQuery会返回结果的集合，否则返回空值
        System.out.println(rs);
