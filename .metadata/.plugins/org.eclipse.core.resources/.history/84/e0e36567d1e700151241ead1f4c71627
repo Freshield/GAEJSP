@@ -6,10 +6,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Connection;
 import java.sql.Statement;
+
 import java.io.*;
 import java.util.*;
 import java.text.*;
-
 
 public class test {
 	 public static void main(String[] args) throws Exception {
@@ -35,29 +35,7 @@ public class test {
 	        System.out.println(nowTime);
 	        System.out.println(sdFormatter);
 	        System.out.println(retStrFormatNowDate);
-	        long timeNow = System.currentTimeMillis()/1000;
-	        try {
-	            
-	            //Class.forName("com.mysql.jdbc.Driver");// 动态加载mysql驱动
-	        	//Class.forName("com.mysql.jdbc.GoogleDriver");
-	            System.out.println("success connect");
-	            conn = DriverManager.getConnection(url);
-	            Statement stmt = conn.createStatement();
-	            sql = "insert into vm_table (timestamp,vmname,status) values('"+timeNow+"','flak','terminated')";
-	            Boolean rs = stmt.execute(sql);
-	            System.out.println(rs);
-	                
-	            	stmt.close();
-	            	conn.close();
-	            
-	        } catch (SQLException e) {
-	            System.out.println("MySQL操作错误");
-	            e.printStackTrace();
-	        } catch (Exception e) {
-	            e.printStackTrace();
-	        } finally {
-	            
-	        }
+	        
 	        
 	        
 	 /*

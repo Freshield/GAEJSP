@@ -43,8 +43,8 @@ public class test {
 	            System.out.println("success connect");
 	            conn = DriverManager.getConnection(url);
 	            Statement stmt = conn.createStatement();
-	            sql = "insert into vm_table (timestamp,vmname,status) values('"+timeNow+"','flak','terminated')";
-	            Boolean rs = stmt.execute(sql);
+	            sql = "insert into host_table (timestamp,hostname,status) values('"+timeNow+"','unhand','running')";
+	            rs = stmt.execute(sql);
 	            System.out.println(rs);
 	                
 	            	stmt.close();
