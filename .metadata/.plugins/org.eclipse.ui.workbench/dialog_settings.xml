@@ -14,7 +14,14 @@
 	</section>
 	<section name="WorkbenchPreferenceDialogSettings">
 		<item value="16" key="DIALOG_Y_ORIGIN"/>
-		<item value="196" key="DIALOG_X_ORIGIN"/>
+		<item value="265" key="DIALOG_X_ORIGIN"/>
+	</section>
+	<section name="InstallationDialogSettings">
+		<item value="1642" key="DIALOG_WIDTH"/>
+		<item value="16" key="DIALOG_Y_ORIGIN"/>
+		<item value="1700" key="DIALOG_HEIGHT"/>
+		<item value="795" key="DIALOG_X_ORIGIN"/>
+		<item value="1|Microsoft YaHei UI|9.0|0|WINDOWS|1|-30|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft YaHei UI" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="NewWizardAction">
 		<item value="org.eclipse.jst.servlet.ui.internal.wizard.AddServletWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
@@ -42,11 +49,9 @@
 			<item value="org.eclipse.wst.web.ui"/>
 		</list>
 	</section>
-	<section name="InstallationDialogSettings">
-		<item value="1642" key="DIALOG_WIDTH"/>
-		<item value="16" key="DIALOG_Y_ORIGIN"/>
-		<item value="795" key="DIALOG_X_ORIGIN"/>
-		<item value="1700" key="DIALOG_HEIGHT"/>
-		<item value="1|Microsoft YaHei UI|9.0|0|WINDOWS|1|-30|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft YaHei UI" key="DIALOG_FONT_NAME"/>
+	<section name="org.eclipse.ui.preferences.keysPreferencePage">
+		<item value="true" key="uncategorizedFilter"/>
+		<item value="true" key="internalFilter"/>
+		<item value="true" key="actionSetFilter"/>
 	</section>
 </section>
