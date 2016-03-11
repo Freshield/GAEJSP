@@ -89,7 +89,7 @@ import com.google.appengine.api.utils.SystemProperty;
                 while (rs.next()) {
                 	System.out.println("2");
                 	temp = rs.getString("value");
-                    System.out.println(rs.getInt("ID")+"\t"+rs.getString("time")+"\t"+theValue );//+ "\t" + rs.getString() 入如果返回的是int类型可以用getInt()
+                    System.out.println(rs.getInt("ID")+"\t"+rs.getString("time")+"\t"+temp );//+ "\t" + rs.getString() 入如果返回的是int类型可以用getInt()
                 }
                 
                 ID++;

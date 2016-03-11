@@ -4164,3 +4164,63 @@ user global configuration and to define the default location to store repositori
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.google.gdt.eclipse.core 4 0 2016-03-11 17:39:02.943
+!MESSAGE Could not change permissions on the launch config file
+
+!ENTRY com.google.gdt.eclipse.core 4 0 2016-03-11 17:40:52.414
+!MESSAGE Could not change permissions on the launch config file
+
+!ENTRY com.google.gdt.eclipse.core 4 0 2016-03-11 17:42:49.387
+!MESSAGE Could not change permissions on the launch config file
+
+!ENTRY com.google.gdt.eclipse.core 4 0 2016-03-11 17:46:30.825
+!MESSAGE Could not change permissions on the launch config file
+
+!ENTRY com.google.gdt.eclipse.core 4 0 2016-03-11 17:48:20.418
+!MESSAGE Could not change permissions on the launch config file
+
+!ENTRY com.google.gdt.eclipse.core 4 0 2016-03-11 17:51:36.376
+!MESSAGE Could not change permissions on the launch config file
+
+!ENTRY com.google.gdt.eclipse.core 4 0 2016-03-11 17:54:46.178
+!MESSAGE Could not change permissions on the launch config file
+
+!ENTRY com.google.gdt.eclipse.core 4 0 2016-03-11 17:57:04.546
+!MESSAGE Could not change permissions on the launch config file
+
+!ENTRY com.google.gdt.eclipse.core 4 0 2016-03-11 17:59:13.486
+!MESSAGE Could not change permissions on the launch config file
+
+!ENTRY com.google.gdt.eclipse.core 4 0 2016-03-11 17:59:18.557
+!MESSAGE Could not change permissions on the launch config file
+
+!ENTRY com.google.gdt.eclipse.core 4 0 2016-03-11 18:12:17.434
+!MESSAGE Could not change permissions on the launch config file
+
+!ENTRY com.google.gdt.eclipse.core 4 0 2016-03-11 18:15:48.857
+!MESSAGE Could not change permissions on the launch config file
+
+!ENTRY com.google.gdt.eclipse.core 4 0 2016-03-11 18:15:52.986
+!MESSAGE Could not change permissions on the launch config file
+
+!ENTRY com.google.gdt.eclipse.core 4 0 2016-03-11 18:17:56.765
+!MESSAGE Could not change permissions on the launch config file
+
+!ENTRY com.google.gdt.eclipse.core 4 0 2016-03-11 18:19:10.065
+!MESSAGE Could not change permissions on the launch config file
+
+!ENTRY com.google.gdt.eclipse.core 4 0 2016-03-11 18:20:49.923
+!MESSAGE Could not change permissions on the launch config file
+
+!ENTRY com.google.gdt.eclipse.core 4 0 2016-03-11 18:32:59.382
+!MESSAGE Could not change permissions on the launch config file
+
+!ENTRY com.google.gdt.eclipse.core 4 0 2016-03-11 18:37:49.142
+!MESSAGE Could not change permissions on the launch config file
+
+!ENTRY com.google.gdt.eclipse.core 4 0 2016-03-11 18:39:01.880
+!MESSAGE Could not change permissions on the launch config file
+
+!ENTRY com.google.gdt.eclipse.core 4 0 2016-03-11 18:40:02.199
+!MESSAGE Could not change permissions on the launch config file

@@ -29,12 +29,13 @@ public class test {
 	        System.out.println(t);
 	        
 	        Date nowTime = new Date(System.currentTimeMillis());
-	        SimpleDateFormat sdFormatter = new SimpleDateFormat("yyyy-MM-dd");
+	        SimpleDateFormat sdFormatter = new SimpleDateFormat("MMM d'th', yyyy",Locale.ENGLISH);
 	        String retStrFormatNowDate = sdFormatter.format(nowTime);
 	        
 	        System.out.println(nowTime);
 	        System.out.println(sdFormatter);
 	        System.out.println(retStrFormatNowDate);
+	        /*
 	        long timeNow = System.currentTimeMillis()/1000;
 	        try {
 	            
@@ -58,7 +59,7 @@ public class test {
 	        } finally {
 	            
 	        }
-	        
+	        */
 	        
 	 /*
 	        try {

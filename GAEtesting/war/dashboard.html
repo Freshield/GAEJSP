@@ -95,7 +95,7 @@
             </span>
             <span id="PANEL_calendar">
                 <img src="image/panel_calendar.png" id="PANEL_cal_img" height="16">
-                <span id="PANEL_cal_word">JAN 15th, 2016 - FEB 14th, 2016</span>
+                <span id="PANEL_cal_word">Dates</span>
                 <img src="image/panel_cal_down.png" id="PANEL_cal_img2" height="16">
             </span>
 
@@ -254,10 +254,51 @@ function CreateXHR(){
     }
 }
 
+//---------ajax for getting status task
+
+var jVM1_name = "";
+var jVM1_status = "";
+var jVM2_name = "";
+var jVM2_status = "";
+var jPM1_name = "";
+var jPM1_status = "";
+var jPM2_name = "";
+var jPM2_status = "";
+var jTime = "";
+
+var xmlhttp3 = CreateXHR();
+xmlhttp3.open("GET","/STATUSget",true);
+xmlhttp3.send();
+
+xmlhttp3.onreadystatechange = function(){
+    if(xmlhttp3.readyState == 4 && xmlhttp3.status == 200){
+        var getedJSON = xmlhttp3.responseText;
+        var obj = JSON.parse(getedJSON);
+
+        jVM1_name = obj.vm1_name;
+         jVM1_status = obj.vm1_status;
+         jVM2_name = obj.vm2_name;
+         jVM2_status = obj.vm2_status;
+         jPM1_name = obj.pm1_name;
+         jPM1_status =  obj.pm1_status;
+         jPM2_name =  obj.pm2_name;
+         jPM2_status =  obj.pm2_status;
+        jTime = obj.time_now;
+
+        document.getElementById("panel_vm1_smallword").innerText = jPM1_name + "\n" + jPM1_status;
+        document.getElementById("panel_vm2_smallword").innerText = jPM2_name +  "\n" + jPM2_status;
+        document.getElementById("panel_vm3_smallword").innerText = jVM1_name +  "\n"  + jVM1_status;
+        document.getElementById("panel_vm4_smallword").innerText = jVM2_name +  "\n"  + jVM2_status;
+        document.getElementById("PANEL_cal_word").innerText = jTime;
+
+
+    }
+}
 
 
 var ajaxReq = new AjaxRequest();
 var xmlhttp2;
+//---------ajax for the command task
 
 function CMD(value,name){
     var command = value;

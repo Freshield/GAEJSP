@@ -148,7 +148,7 @@ header#top_header{
 
 .cell_word{
     text-align: center;
-    width: 150px;
+    /*width: 70px;*/
 }
 
 .cell_res{
@@ -207,7 +207,7 @@ header#top_header{
     color: #555555;
 }
 #PANEL_calendar{
-    width: 300px;
+    /*width: 150px;*/
     float: right;
     background-color:rgb(231,81,81);
     color: white;
