@@ -49,7 +49,7 @@
         </div>
         <!-- user resources part-->
         <div id="resources">
-            <div id="DashBoard" class="resources_row">
+            <div id="DashBoard" class="resources_row" style="background-color: red">
                 <div class="resources_cell cell_img"><img src="image/nav_home.png" height="24"></div>
                 <div class="resources_cell cell_word">Dashboard</div>
                 <div class="resources_cell cell_res"><</div>
@@ -107,6 +107,58 @@
         <!------------------------ data table------------------------------>
         <div id="PANEL_data">
 
+            <!-- VM3-->
+            <div id="PANEL_VM3" class="firstrow_cell">
+                <div id="PANEL_VM3_up" class="panel_up">
+                    <img src="image/panel_data_vm.png" id="data_vm3_img" class="data_vm_img"
+                         onclick="toVmLocation('3');">
+                        <span id="panel_vm3_word" class="panel_word">
+                            <span id="panel_vm3_bigword" class="panel_bigword">STATUS</span><br>
+                            <span id="panel_vm3_smallword" class="panel_smallword">Reading...</span>
+                        </span>
+                        <span id="panel_vm3_name" class="panel_name"
+                              onclick="toVmLocation('3');">VM1</span>
+                </div>
+                <div id="PANEL_VM3_down" class="panel_down">
+                    <nav class="nav">
+                        <ul class="nav_menu">
+                            <li class="nav_menu-item"><a  target="_blank">Control<img src="image/data_right.png" class="data_right_img"></a>
+                                <ul id="nav_submenu_3" class="nav_submenu">
+                                    <li class="nav_submenu-item"> <a onclick="CMD('shutdown','VM1');" target="_blank">Shutdown</a></li>
+                                    <li class="nav_submenu-item"> <a onclick="CMD('restart','VM1');" target="_blank">Restart</a></li>
+                                    <li class="nav_submenu-item"> <a  onclick="CMD('stop','VM1');" target="_blank">Stop</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!-- VM4-->
+            <div id="PANEL_VM4" class="firstrow_cell">
+                <div id="PANEL_VM4_up" class="panel_up">
+                    <img src="image/panel_data_vm.png" id="data_vm4_img" class="data_vm_img"
+                         onclick="toVmLocation('4');">
+                        <span id="panel_vm4_word" class="panel_word">
+                            <span id="panel_vm4_bigword" class="panel_bigword">STATUS</span><br>
+                            <span id="panel_vm4_smallword" class="panel_smallword">Reading...</span>
+                        </span>
+                        <span id="panel_vm4_name" class="panel_name"
+                              onclick="toVmLocation('4');">VM2</span>
+                </div>
+                <div id="PANEL_VM4_down" class="panel_down">
+                    <nav class="nav">
+                        <ul class="nav_menu">
+                            <li class="nav_menu-item"><a  target="_blank">Control<img src="image/data_right.png" class="data_right_img"></a>
+                                <ul id="nav_submenu_4" class="nav_submenu">
+                                    <li class="nav_submenu-item"> <a onclick="CMD('shutdown','VM2');" target="_blank">Shutdown</a></li>
+                                    <li class="nav_submenu-item"> <a onclick="CMD('restart','VM2');" target="_blank">Restart</a></li>
+                                    <li class="nav_submenu-item"> <a  onclick="CMD('sleep','VM2');" target="_blank">Sleep</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
                 <!-- VM1-->
                 <div id="PANEL_VM1" class="firstrow_cell">
                     <div id="PANEL_VM1_up" class="panel_up">
@@ -124,11 +176,7 @@
                         <nav class="nav">
                             <ul class="nav_menu">
                                 <li class="nav_menu-item"><a  target="_blank">Control<img src="image/data_right.png" class="data_right_img"></a>
-                                    <ul id="nav_submenu_1" class="nav_submenu">
-                                        <li class="nav_submenu-item"> <a onclick="CMD('shutdown','PM1');" target="_blank">Shutdown</a></li>
-                                        <li class="nav_submenu-item"> <a onclick="CMD('restart','PM1');" target="_blank">Restart</a></li>
-                                        <li class="nav_submenu-item"> <a  onclick="CMD('stop','PM1');" target="_blank">Stop</a></li>
-                                    </ul>
+
                                 </li>
                                 </ul>
                         </nav>
@@ -151,68 +199,13 @@
                         <nav class="nav">
                             <ul class="nav_menu">
                                 <li class="nav_menu-item"><a  target="_blank">Control<img src="image/data_right.png" class="data_right_img"></a>
-                                    <ul id="nav_submenu_2" class="nav_submenu">
-                                        <li class="nav_submenu-item"> <a onclick="CMD('shutdown','PM2');" target="_blank">Shutdown</a></li>
-                                        <li class="nav_submenu-item"> <a onclick="CMD('restart','PM2');" target="_blank">Restart</a></li>
-                                        <li class="nav_submenu-item"> <a  onclick="CMD('stop','PM2');" target="_blank">Stop</a></li>
-                                    </ul>
+
                                 </li>
                             </ul>
                         </nav>
                     </div>
                 </div>
-                <!-- VM3-->
-                <div id="PANEL_VM3" class="firstrow_cell">
-                    <div id="PANEL_VM3_up" class="panel_up">
-                        <img src="image/panel_data_vm.png" id="data_vm3_img" class="data_vm_img"
-                             onclick="toVmLocation('3');">
-                        <span id="panel_vm3_word" class="panel_word">
-                            <span id="panel_vm3_bigword" class="panel_bigword">STATUS</span><br>
-                            <span id="panel_vm3_smallword" class="panel_smallword">Reading...</span>
-                        </span>
-                        <span id="panel_vm3_name" class="panel_name"
-                              onclick="toVmLocation('3');">VM1</span>
-                    </div>
-                    <div id="PANEL_VM3_down" class="panel_down">
-                        <nav class="nav">
-                            <ul class="nav_menu">
-                                <li class="nav_menu-item"><a  target="_blank">Control<img src="image/data_right.png" class="data_right_img"></a>
-                                    <ul id="nav_submenu_3" class="nav_submenu">
-                                        <li class="nav_submenu-item"> <a onclick="CMD('shutdown','VM1');" target="_blank">Shutdown</a></li>
-                                        <li class="nav_submenu-item"> <a onclick="CMD('restart','VM1');" target="_blank">Restart</a></li>
-                                        <li class="nav_submenu-item"> <a  onclick="CMD('stop','VM1');" target="_blank">Stop</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-                <!-- VM4-->
-                <div id="PANEL_VM4" class="firstrow_cell">
-                    <div id="PANEL_VM4_up" class="panel_up">
-                        <img src="image/panel_data_vm.png" id="data_vm4_img" class="data_vm_img"
-                             onclick="toVmLocation('4');">
-                        <span id="panel_vm4_word" class="panel_word">
-                            <span id="panel_vm4_bigword" class="panel_bigword">STATUS</span><br>
-                            <span id="panel_vm4_smallword" class="panel_smallword">Reading...</span>
-                        </span>
-                        <span id="panel_vm4_name" class="panel_name"
-                              onclick="toVmLocation('4');">VM2</span>
-                    </div>
-                    <div id="PANEL_VM4_down" class="panel_down">
-                        <nav class="nav">
-                            <ul class="nav_menu">
-                                <li class="nav_menu-item"><a  target="_blank">Control<img src="image/data_right.png" class="data_right_img"></a>
-                                    <ul id="nav_submenu_4" class="nav_submenu">
-                                        <li class="nav_submenu-item"> <a onclick="CMD('shutdown','VM2');" target="_blank">Shutdown</a></li>
-                                        <li class="nav_submenu-item"> <a onclick="CMD('restart','VM2');" target="_blank">Restart</a></li>
-                                        <li class="nav_submenu-item"> <a  onclick="CMD('sleep','VM2');" target="_blank">Sleep</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
+
 
             </div>
         </div>

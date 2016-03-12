@@ -57,22 +57,22 @@
             </div>
             <div id="VM1" class="resources_row">
                 <div class="resources_cell cell_img"><img src="image/nav_vm.png" height="24"></div>
-                <div class="resources_cell cell_word">VM1</div>
+                <div class="resources_cell cell_word">PM1</div>
                 <div class="resources_cell cell_res"><</div>
             </div>
-            <div id="VM2" class="resources_row">
+            <div id="VM2" class="resources_row" style="background-color: red">
                 <div class="resources_cell cell_img"><img src="image/nav_vm.png" height="24"></div>
-                <div class="resources_cell cell_word">VM2</div>
+                <div class="resources_cell cell_word">PM2</div>
                 <div class="resources_cell cell_res"><</div>
             </div>
             <div id="VM3" class="resources_row">
                 <div class="resources_cell cell_img"><img src="image/nav_vm.png" height="24"></div>
-                <div class="resources_cell cell_word">VM3</div>
+                <div class="resources_cell cell_word">VM1</div>
                 <div class="resources_cell cell_res"><</div>
             </div>
             <div id="VM4" class="resources_row">
                 <div class="resources_cell cell_img"><img src="image/nav_vm.png" height="24"></div>
-                <div class="resources_cell cell_word">VM4</div>
+                <div class="resources_cell cell_word">VM2</div>
                 <div class="resources_cell cell_res"><</div>
             </div>
 
@@ -84,7 +84,7 @@
     <div id="PANEL_outline">
         <!-- --------------------header----------------------------------->
         <header id="PANEL_header">
-            <span id="PANEL_header_word">DASHBOARD</span>
+            <span id="PANEL_header_word">PM2</span>
             <span id="PANEL_header_word2">statistics and more</span>
             <img src="image/panel_config.png" id="PANEL_header_img">
         </header>
@@ -92,11 +92,11 @@
         <div id="PANEL_navigator">
             <span id="PANEL_nav_path">
                 <img src="image/panel_home.png" id="PANEL_path_img" height="16">
-                <span id="PANEL_path_word">Home  >  Dashboard</span>
+                <span id="PANEL_path_word">Home  >  PM2</span>
             </span>
             <span id="PANEL_calendar">
                 <img src="image/panel_calendar.png" id="PANEL_cal_img" height="16">
-                <span id="PANEL_cal_word">JAN 15th, 2016 - FEB 14th, 2016</span>
+                <span id="PANEL_cal_word">Date</span>
                 <img src="image/panel_cal_down.png" id="PANEL_cal_img2" height="16">
             </span>
 
@@ -104,14 +104,17 @@
 
         <!-- ---------------------chart table----------------------------------->
         <div id="PANEL_chart">
-            <div id="chart_row">
+
                 <div id="secondrow_chart1" class="secondrow_cell">
                     <svg id="chart_cpu"></svg>
                 </div>
                 <div id="secondrow_chart2" class="secondrow_cell">
-                    <img src="image/data_chart2.png" width="490">
+                    <svg id="chart_mem"></svg>
                 </div>
-            </div>
+                <div id="secondrow_chart3" class="secondrow_cell">
+                    <svg id="chart_net"></svg>
+                </div>
+
         </div>
     </div>
 
@@ -151,6 +154,10 @@ var padding = 30;
 var head_height = 20;
 var chart1_title = "CPU performance";
 var chart1_subtitle = "%";
+var chartm_title = "Mem performance";
+var chartm_subtitle = "GB";
+var chartn_title = "Network performance";
+var chartn_subtitle = "kbs";
 var foot_height = padding;
 
 var xmlhttp;
@@ -160,41 +167,26 @@ var receMem1 = [];
 var receNetwork1 = [];
 var receTime1 = [];
 var receID1 = [];
-var receCpu2;
-var receMem2;
-var receNetwork2;
-var receTime2;
-var receID2;
-var receCpu3;
-var receMem3;
-var receNetwork3;
-var receTime3;
-var receID3;
-var receCpu4;
-var receMem4;
-var receNetwork4;
-var receTime4;
-var receID4;
-var receCpu5;
-var receMem5;
-var receNetwork5;
-var receTime5;
-var receID5;
 var receAmount;
+var finalTime = 0;
 
 var ajaxReq = new AjaxRequest();
 var xmlhttp2;
 
 var dataset = [];
 var xMarks = [];
+var datasetm = [];
+var xMarksm = [];
+var datasetn = [];
+var xMarksn = [];
 var w = 500;
-var h = 250;
+var h = 225;
 
 
 //create data
 
 getData();
-
+//-----------------------------for cpu chart
 //create svg
 
 var svg = d3.select("#chart_cpu")
@@ -231,7 +223,7 @@ if(chart1_subtitle != ""){
         .attr("class","chart1_subtitle")
         .attr("x",20)
         .attr("y",20);
-    head_height+=20;
+
 }
 
 
@@ -324,9 +316,291 @@ var path = svg.append("path")
     .attr("d",lineFunction(dataset))
     .attr("class","thepath")
     .style("fill","none")
-    .style("stroke-width",1)
+    .style("stroke-width",2)
     .style("stroke","#F00")
     .style("stroke-opacity",0.9);
+
+//-----------------------------for cpu chart end-----------------
+
+
+//-----------------------------for mem chart------------------------
+//create svg
+
+var svg_m = d3.select("#chart_mem")
+    .attr("width",w)
+    .attr("height",h);
+
+//add background
+svg_m.append("g")
+    .append("rect")
+    .attr("x",0)
+    .attr("y",0)
+    .attr("width",w)
+    .attr("height",h)
+    .style("fill","#FFF")
+    .style("stroke-width",2)
+    .style("stroke","#E7E7E7");
+
+//add titles
+
+if(chartm_title != ""){
+    svg_m.append("g")
+        .append("text")
+        .text(chartm_title)
+        .attr("class","chart1_title")
+        .attr("x",w/2)
+        .attr("y",head_height);
+
+}
+
+if(chartm_subtitle != ""){
+    svg_m.append("g")
+        .append("text")
+        .text(chartm_subtitle)
+        .attr("class","chart1_subtitle")
+        .attr("x",20)
+        .attr("y",20);
+
+}
+
+
+//add scaleor
+
+var xScalem = d3.scale.linear()
+    .domain([0,datasetm.length-1])
+    .range([padding,w-padding]);
+
+var yScalem = d3.scale.linear()
+    .domain([0,100])
+    .range([h-padding,padding]);
+
+//define inner line
+
+var xInnerm = d3.svg.axis()
+    .scale(xScalem)
+    .tickSize(-(h-padding*2),0,0)
+    .orient("bottom")
+    .ticks(datasetm.length);
+
+
+svg_m.append("g")
+    .attr("class","chart1_inner_line")
+    .attr("transform","translate(0,"+(h-padding)+")")
+    .call(xInnerm)
+    .selectAll("text")
+    .text("");
+
+var yInnerm = d3.svg.axis()
+    .scale(yScalem)
+    .tickSize(-(w-padding*2),0,0)
+    .tickFormat("")
+    .orient("left")
+    .ticks(10);
+
+svg_m.append("g")
+    .attr("class","chart1_inner_line")
+    .attr("transform","translate("+padding+",0)")
+    .call(yInnerm);
+
+
+//define axis
+
+var xAxism = d3.svg.axis()
+    .scale(xScalem)
+    .orient("bottom")
+    .ticks(datasetm.length);
+
+//define axis bar
+
+var xBarm = svg_m.append("g")
+    .attr("class","axis")
+    .attr("transform","translate(0,"+(h-padding)+")")
+    .call(xAxism)
+    .selectAll("text")
+    .text(function(d){
+        return xMarksm[d];
+    });
+
+
+//define y axis
+var yAxism = d3.svg.axis()
+    .scale(yScalem)
+    .orient("left")
+    .ticks(10);
+
+//define axis bar
+
+var yBarm = svg_m.append("g")
+    .attr("class","axis")
+    .attr("transform","translate("+padding+",0)")
+    .call(yAxism);
+
+
+//add lines
+
+
+var lineFunctionm = d3.svg.line()
+    .interpolate("linear")
+    .x(function(d,i){
+        return xScalem(i);
+    })
+    .y(function(d){
+        return yScalem(d);
+    });
+
+//add polyline
+
+
+var pathm = svg_m.append("path")
+    .attr("d",lineFunctionm(datasetm))
+    .attr("class","thepath")
+    .style("fill","none")
+    .style("stroke-width",2)
+    .style("stroke","#0F0")
+    .style("stroke-opacity",0.9);
+
+//-----------------------------for mem chart end-----------------
+
+
+
+//-----------------------------for network chart------------------------
+//create svg
+
+var svg_n = d3.select("#chart_net")
+    .attr("width",w)
+    .attr("height",h);
+
+//add background
+svg_n.append("g")
+    .append("rect")
+    .attr("x",0)
+    .attr("y",0)
+    .attr("width",w)
+    .attr("height",h)
+    .style("fill","#FFF")
+    .style("stroke-width",2)
+    .style("stroke","#E7E7E7");
+
+//add titles
+
+if(chartn_title != ""){
+    svg_n.append("g")
+        .append("text")
+        .text(chartn_title)
+        .attr("class","chart1_title")
+        .attr("x",w/2)
+        .attr("y",head_height);
+
+}
+
+if(chartn_subtitle != ""){
+    svg_n.append("g")
+        .append("text")
+        .text(chartn_subtitle)
+        .attr("class","chart1_subtitle")
+        .attr("x",20)
+        .attr("y",20);
+
+}
+
+
+//add scaleor
+
+var xScalen = d3.scale.linear()
+    .domain([0,datasetn.length-1])
+    .range([padding,w-padding]);
+
+var yScalen = d3.scale.linear()
+    .domain([0,100])
+    .range([h-padding,padding]);
+
+//define inner line
+
+var xInnern = d3.svg.axis()
+    .scale(xScalen)
+    .tickSize(-(h-padding*2),0,0)
+    .orient("bottom")
+    .ticks(datasetn.length);
+
+
+svg_n.append("g")
+    .attr("class","chart1_inner_line")
+    .attr("transform","translate(0,"+(h-padding)+")")
+    .call(xInnern)
+    .selectAll("text")
+    .text("");
+
+var yInnern = d3.svg.axis()
+    .scale(yScalen)
+    .tickSize(-(w-padding*2),0,0)
+    .tickFormat("")
+    .orient("left")
+    .ticks(10);
+
+svg_n.append("g")
+    .attr("class","chart1_inner_line")
+    .attr("transform","translate("+padding+",0)")
+    .call(yInnern);
+
+
+//define axis
+
+var xAxisn = d3.svg.axis()
+    .scale(xScalen)
+    .orient("bottom")
+    .ticks(datasetn.length);
+
+//define axis bar
+
+var xBarn = svg_n.append("g")
+    .attr("class","axis")
+    .attr("transform","translate(0,"+(h-padding)+")")
+    .call(xAxisn)
+    .selectAll("text")
+    .text(function(d){
+        return xMarksn[d];
+    });
+
+
+//define y axis
+var yAxisn = d3.svg.axis()
+    .scale(yScalen)
+    .orient("left")
+    .ticks(10);
+
+//define axis bar
+
+var yBarn = svg_n.append("g")
+    .attr("class","axis")
+    .attr("transform","translate("+padding+",0)")
+    .call(yAxisn);
+
+
+//add lines
+
+
+var lineFunctionn = d3.svg.line()
+    .interpolate("linear")
+    .x(function(d,i){
+        return xScalen(i);
+    })
+    .y(function(d){
+        return yScalen(d);
+    });
+
+//add polyline
+
+
+var pathn = svg_n.append("path")
+    .attr("d",lineFunctionn(datasetn))
+    .attr("class","thepath")
+    .style("fill","none")
+    .style("stroke-width",2)
+    .style("stroke","#00F")
+    .style("stroke-opacity",0.9);
+
+//-----------------------------for network chart end-----------------
+
 
 //add point
 /*
@@ -351,32 +625,55 @@ function getData(){
     var dataNum = 40;
     dataset = [];
     xMarks = [];
+    datasetm = [];
+    xMarksm = [];
+    datasetn = [];
+    xMarksn = [];
 
     for(var i = 1;i<dataNum;i++){
         //dataset.push(Math.round(Math.random()*h));
         dataset.push(0);
         xMarks.push("");
+        datasetm.push(0);
+        xMarksm.push("");
+        datasetn.push(0);
+        xMarksn.push("");
         timeNum = 0;
     }
 
 }
 
 function changeData(){
+
+
     for(var i = 0;i<receAmount;i++){
         dataset.shift();
+        datasetm.shift();
+        datasetn.shift();
         //dataset.push(Math.round(Math.random()*h));
         dataset.push(receCpu1[i].cpu);
+        datasetm.push(receMem1[i].mem);
+        datasetn.push(receNetwork1[i].network);
+        finalTime = receTime1[i].timestamp;
 
+        //alert(finalTime);
         xMarks.shift();
+        xMarksm.shift();
+        xMarksn.shift();
         if(receID1[i].ID % 5 == 0){
             var newDate = new Date();
             newDate.setTime(receTime1[i].timestamp);
             xMarks.push(newDate.getHours()+":"+newDate.getMinutes()+":"+newDate.getSeconds());
-           
+            xMarksm.push(newDate.getHours()+":"+newDate.getMinutes()+":"+newDate.getSeconds());
+            xMarksn.push(newDate.getHours()+":"+newDate.getMinutes()+":"+newDate.getSeconds());
+
         }else{
             xMarks.push("");
+            xMarksm.push("");
+            xMarksn.push("");
         }
     }
+
 
 }
 
@@ -390,6 +687,8 @@ function drawChart() {
     //		.domain([0, d3.max(dataset)])
     //		.range([h - padding, padding]);
 
+
+    //----------------------------for cpu chart----------------------------
     yAxis = d3.svg.axis()
         .scale(yScale)
         .orient("left")
@@ -421,6 +720,79 @@ function drawChart() {
     path//.transition()
         //.duration(1000)
         .attr("d", lineFunction(dataset));
+
+    //--------------------------------for cpu chart end--------------------------
+
+
+    //----------------------------for mem chart----------------------------
+    yAxism = d3.svg.axis()
+        .scale(yScale)
+        .orient("left")
+        .ticks(10);
+
+    xScalem = d3.scale.linear()
+        .domain([0,datasetm.length-1])
+        .range([padding,w-padding]);
+
+    xAxism = d3.svg.axis()
+        .scale(xScalem)
+        .orient("bottom")
+        .ticks(datasetm.length);
+
+    xBarm.transition()
+        .duration(300)
+        .text(function(d){
+
+            return xMarksm[d];
+
+
+        })
+        .call(xAxism);
+
+    yBarm.transition()
+        .duration(300)
+        .call(yAxism);
+
+    pathm//.transition()
+        //.duration(1000)
+        .attr("d", lineFunctionm(datasetm));
+
+    //--------------------------------for mem chart end--------------------------
+
+    //----------------------------for network chart----------------------------
+    yAxisn = d3.svg.axis()
+        .scale(yScalen)
+        .orient("left")
+        .ticks(10);
+
+    xScalen = d3.scale.linear()
+        .domain([0,datasetn.length-1])
+        .range([padding,w-padding]);
+
+    xAxisn = d3.svg.axis()
+        .scale(xScalen)
+        .orient("bottom")
+        .ticks(datasetn.length);
+
+    xBarn.transition()
+        .duration(300)
+        .text(function(d){
+
+            return xMarksn[d];
+
+
+        })
+        .call(xAxisn);
+
+    yBarn.transition()
+        .duration(300)
+        .call(yAxisn);
+
+    pathn//.transition()
+        //.duration(1000)
+        .attr("d", lineFunctionn(datasetn));
+
+    //--------------------------------for network chart end--------------------------
 /*
     svg.selectAll("circle")
         .data(dataset)
@@ -429,6 +801,7 @@ function drawChart() {
         .attr("cy", function (d) {
             return yScale(d);
         });*/
+
 }
 
                    //*********ajax********
@@ -444,7 +817,7 @@ function CreateXHR(){
         return new ActiveXObject("Microsoft.XMLHTTP");
     }
 }
-
+/*
 xmlhttp = CreateXHR();
 
 xmlhttp.open("GET","/HelloServlet",true);
@@ -462,40 +835,28 @@ xmlhttp.onreadystatechange = function(){
             receTime1 = obj.jtimestamp1;
             receID1 = obj.jID1;
 
-/*
-        receNetwork2 = obj.jnetwork2;
-        receMem2 = obj.jmem2;
-        receCpu2 = obj.jcpu2;
-        receTime2 = obj.jtime2;
-        receID2 = obj.jID2;
 
-        receNetwork3 = obj.jnetwork3;
-        receMem3 = obj.jmem3;
-        receCpu3 = obj.jcpu3;
-        receTime3 = obj.jtime3;
-        receID3 = obj.jID3;
-
-        receNetwork4 = obj.jnetwork4;
-        receMem4 = obj.jmem4;
-        receCpu4 = obj.jcpu4;
-        receTime4 = obj.jtime4;
-        receID4 = obj.jID4;
-
-        receNetwork5 = obj.jnetwork5;
-        receMem5 = obj.jmem5;
-        receCpu5 = obj.jcpu5;
-        receTime5 = obj.jtime5;
-        receID5 = obj.jID5;
-*/
 
     }
 
         drawChart();
     }
 
-/*
-setTimeout(function(){
+*/
 
+str = "name=unhand" + "&timestamp=" + finalTime;
+
+CreateXMLHttpRequest();
+xmlhttp2.onreadystatechange = callhandle;
+//xmlhttp.open("GET","Default.aspx?goback=yes&arg=" + arg,true);
+xmlhttp2.open("POST","/HelloServlet",true);
+
+xmlhttp2.setRequestHeader("Content-Length",str.length);
+xmlhttp2.setRequestHeader("Content-Type","application/x-www-form-urlencoded;");  //鐢≒OST鐨勬椂鍊欎竴瀹氳鏈夎繖鍙�
+
+xmlhttp2.send(str);
+setTimeout(function(){
+/*
     xmlhttp = CreateXHR();
 
     xmlhttp.open("GET","/HelloServlet",true);
@@ -508,13 +869,28 @@ setTimeout(function(){
             receJSON = obj.value;
             drawChart();
         }
-    }
+    }*/
+
+    str = "name=unhand" + "&timestamp=" + finalTime;
+
+    CreateXMLHttpRequest();
+    xmlhttp2.onreadystatechange = callhandle;
+    //xmlhttp.open("GET","Default.aspx?goback=yes&arg=" + arg,true);
+    xmlhttp2.open("POST","/HelloServlet",true);
+
+    xmlhttp2.setRequestHeader("Content-Length",str.length);
+    xmlhttp2.setRequestHeader("Content-Type","application/x-www-form-urlencoded;");  //鐢≒OST鐨勬椂鍊欎竴瀹氳鏈夎繖鍙�
+
+    xmlhttp2.send(str);
 
 
-    setTimeout(arguments.callee,2000);
-},2000);
-*/
+
+    setTimeout(arguments.callee,5000);
+},5000);
+
 function CMD(value){
+
+    alert("cmd");
     var command = value;
     str = "command=" + command;
 
@@ -543,21 +919,24 @@ function CreateXMLHttpRequest()
 function callhandle()
 {
 
-    if (xmlhttp2.readyState == 4)
-    {
-        if(xmlhttp2.status == 200)
-        {
-            var jsonstr = xmlhttp2.responseText;
-            var obj = JSON.parse(jsonstr);
 
-            if(obj.value != "error"){
+    if(xmlhttp2.readyState == 4 && (xmlhttp2.status == 200|| xmlhttp2.status == 0)){
+        var getedJSON = xmlhttp2.responseText;
+        var obj = JSON.parse(getedJSON);
+        receAmount = obj.jamount;
 
-                alert(obj.value);
-            }else{
-                alert("Failure");
-            }
-        }
+        receNetwork1 = obj.jnetwork1;
+        receMem1 = obj.jmem1;
+        receCpu1 = obj.jcpu1;
+        receTime1 = obj.jtimestamp1;
+        receID1 = obj.jID1;
+
+
+        drawChart();
     }
+
+
+
 }
 
 //---------------------/chart cpu----------------------------------------------------

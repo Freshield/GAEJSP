@@ -174,7 +174,7 @@ import com.google.appengine.api.utils.SystemProperty;
 		String rtimestamp = request.getParameter("timestamp");
 		String rname = request.getParameter("name");
 		System.out.println(rtimestamp);
-		if(rtimestamp.equals("0")){
+		if(rtimestamp == "0"){
 			rtimestamp = "1457836774045";
 		}
 		System.out.println(rtimestamp);

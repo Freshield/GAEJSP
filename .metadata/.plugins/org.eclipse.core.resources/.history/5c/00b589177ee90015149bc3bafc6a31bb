@@ -50,7 +50,7 @@ import com.google.appengine.api.utils.SystemProperty;
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 	    throws ServletException, IOException {
-		/*
+		
 		String theValue = "";
 		Connection conn = null;
         String sql;
@@ -156,7 +156,7 @@ import com.google.appengine.api.utils.SystemProperty;
         } finally {
             
         }
-        */
+        
 	}  	
 	
 	/* (non-Java-doc)
@@ -173,8 +173,8 @@ import com.google.appengine.api.utils.SystemProperty;
 		System.out.println("helloservlet_post");
 		String rtimestamp = request.getParameter("timestamp");
 		String rname = request.getParameter("name");
-		System.out.println(rtimestamp);
-		if(rtimestamp.equals("0")){
+		
+		if(rtimestamp == "0"){
 			rtimestamp = "1457836774045";
 		}
 		System.out.println(rtimestamp);
@@ -225,7 +225,7 @@ import com.google.appengine.api.utils.SystemProperty;
             System.out.println("success connect");
             conn = DriverManager.getConnection(url);
             Statement stmt = conn.createStatement();
-            sql = "select * from performance_"+rname+" where timestamp>"+rtimestamp;
+            sql = "select * from performance_"+rname+" where timestamp>="+rtimestamp;
             System.out.println(sql);
             ResultSet rs = stmt.executeQuery(sql);// executeQuery会返回结果的集合，否则返回空值
             String temp = "";

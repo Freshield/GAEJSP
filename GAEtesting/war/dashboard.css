@@ -155,9 +155,7 @@ header#top_header{
     width: 15px;
 }
 
-#DashBoard{
-    background-color: red;
-}
+
 #DashBoard:hover,#VM1:hover,#VM2:hover,#VM3:hover,#VM4:hover{
     background-color: red;
     cursor: pointer;
@@ -310,29 +308,25 @@ header#top_header{
 }
 /*-------------------------chart------------------------------------*/
 #PANEL_chart{
-    display: table;
+
     width: 1050px;
     border-spacing: 0px 0px;
 }
-#chart_row{
-    display: table-row;
-    width: 1050px;
-    height: 300px;
 
-}
 .secondrow_cell{
-    display: table-cell;
+    float: left;
     width: 500px;
-    padding: 0px;
-    height: 300px;
+    height: 225px;
 
     vertical-align: top;
+
+    padding: 5px 5px 0px 5px;
 
 
 }
 #secondrow_chart1{
 
-    padding-left: 10px;
+
 
 }
 #secondrow_chart2{

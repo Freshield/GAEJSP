@@ -133,7 +133,7 @@
         <tags>org.eclipse.e4.primaryDataStack</tags>
         <tags>EditorStack</tags>
         <children xsi:type="basic:Part" xmi:id="_X5JkWOfuEeWz-dISZUYgCg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="HelloServlet.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.gif" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;HelloServlet.java&quot; partName=&quot;HelloServlet.java&quot; title=&quot;HelloServlet.java&quot; tooltip=&quot;GAEtesting/src/com/freshield/GAE/HelloServlet.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/GAEtesting/src/com/freshield/GAE/HelloServlet.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;1395&quot; selectionTopPixel=&quot;660&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;HelloServlet.java&quot; partName=&quot;HelloServlet.java&quot; title=&quot;HelloServlet.java&quot; tooltip=&quot;GAEtesting/src/com/freshield/GAE/HelloServlet.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/GAEtesting/src/com/freshield/GAE/HelloServlet.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;9601&quot; selectionTopPixel=&quot;8949&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
           <tags>removeOnHide</tags>
@@ -155,7 +155,7 @@
           </menus>
         </children>
         <children xsi:type="basic:Part" xmi:id="_X5JkqufuEeWz-dISZUYgCg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="STATUSget.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.gif" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;STATUSget.java&quot; partName=&quot;STATUSget.java&quot; title=&quot;STATUSget.java&quot; tooltip=&quot;GAEtesting/src/com/freshield/GAE/STATUSget.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/GAEtesting/src/com/freshield/GAE/STATUSget.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;5954&quot; selectionTopPixel=&quot;1112&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;STATUSget.java&quot; partName=&quot;STATUSget.java&quot; title=&quot;STATUSget.java&quot; tooltip=&quot;GAEtesting/src/com/freshield/GAE/STATUSget.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/GAEtesting/src/com/freshield/GAE/STATUSget.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;5954&quot; selectionTopPixel=&quot;5468&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
           <tags>removeOnHide</tags>
@@ -205,7 +205,7 @@
           </menus>
         </children>
         <children xsi:type="basic:Part" xmi:id="_X5JlAefuEeWz-dISZUYgCg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="CMDinset.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.gif" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;CMDinset.java&quot; partName=&quot;CMDinset.java&quot; title=&quot;CMDinset.java&quot; tooltip=&quot;GAEtesting/src/com/freshield/GAE/CMDinset.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/GAEtesting/src/com/freshield/GAE/CMDinset.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;50&quot; selectionOffset=&quot;1296&quot; selectionTopPixel=&quot;924&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;CMDinset.java&quot; partName=&quot;CMDinset.java&quot; title=&quot;CMDinset.java&quot; tooltip=&quot;GAEtesting/src/com/freshield/GAE/CMDinset.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/GAEtesting/src/com/freshield/GAE/CMDinset.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;315&quot; selectionOffset=&quot;1349&quot; selectionTopPixel=&quot;3829&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
           <tags>removeOnHide</tags>
@@ -227,7 +227,7 @@
           </menus>
         </children>
         <children xsi:type="basic:Part" xmi:id="_X5JlBefuEeWz-dISZUYgCg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="test.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.gif" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;test.java&quot; partName=&quot;test.java&quot; title=&quot;test.java&quot; tooltip=&quot;tryMySQL/src/tryMySQL/test.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/tryMySQL/src/tryMySQL/test.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;18&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;3674&quot; selectionTopPixel=&quot;2974&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;test.java&quot; partName=&quot;test.java&quot; title=&quot;test.java&quot; tooltip=&quot;tryMySQL/src/tryMySQL/test.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/tryMySQL/src/tryMySQL/test.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;3674&quot; selectionTopPixel=&quot;2608&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
           <tags>removeOnHide</tags>
@@ -515,7 +515,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_X5JmSOfuEeWz-dISZUYgCg" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_UGl3YOiyEeW54N2wqyJPzw" elementId="print" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" enabled="false" command="_X5Jwo-fuEeWz-dISZUYgCg"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_6393F-lGEeWLuL0GybGRsA" elementId="print" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" enabled="false" command="_X5Jwo-fuEeWz-dISZUYgCg"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_X5JmWefuEeWz-dISZUYgCg" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -545,7 +545,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_X5Jmp-fuEeWz-dISZUYgCg" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_UGqI0uiyEeW54N2wqyJPzw" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_X5JvZ-fuEeWz-dISZUYgCg"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_64HoFOlGEeWLuL0GybGRsA" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_X5JvZ-fuEeWz-dISZUYgCg"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_X5JmsufuEeWz-dISZUYgCg" elementId="org.eclipse.wst.css.core.csssource.source" visible="false">
         <tags>Draggable</tags>
