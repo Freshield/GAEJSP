@@ -4255,3 +4255,63 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY com.google.gdt.eclipse.core 4 0 2016-03-11 20:26:01.064
 !MESSAGE Could not change permissions on the launch config file
+
+!ENTRY com.google.gdt.eclipse.core 4 0 2016-03-11 20:34:56.975
+!MESSAGE Could not change permissions on the launch config file
+
+!ENTRY com.google.gdt.eclipse.core 4 0 2016-03-11 20:36:28.972
+!MESSAGE Could not change permissions on the launch config file
+
+!ENTRY com.google.gdt.eclipse.core 4 0 2016-03-11 20:38:29.941
+!MESSAGE Could not change permissions on the launch config file
+
+!ENTRY com.google.gdt.eclipse.core 4 0 2016-03-11 20:40:06.317
+!MESSAGE Could not change permissions on the launch config file
+
+!ENTRY com.google.appengine.eclipse.core 1 0 2016-03-11 20:41:38.085
+!MESSAGE GAEtesting successfully deployed to Google App Engine
+
+!ENTRY com.google.gdt.eclipse.suite.ext 1 0 2016-03-11 20:41:38.192
+!MESSAGE Sending POST request to Analytics: {cd7=USED_IN_DEVSERVER_AND_PRODUCTION, cd5=true, cd6=GAE 1.9.30, cd3=3.9.1.v20140825-1431, cd4=com.google.gdt.eclipse.suite.e44.feature_3.8.0.v201410302155-rel-r44, cd1=org.eclipse.epp.package.jee.product, cd2=68C92E2169B88C0256AEF266CB61264ADBC05209, ea=DEPLOY_GAE, cid=1457392086831, cd9=false, ec=com.google.gdt.eclipse.core, v=1, t=event, el=id=1457392086831&ev=3.9.1.v20140825-1431&v=com.google.gdt.eclipse.suite.e44.feature_3.8.0.v201410302155-rel-r44&gaev=1.9.30&p=org.eclipse.epp.package.jee.product&action=gae_backend_deploy&appIdHash=68C92E2169B88C0256AEF266CB61264ADBC05209&isGoogleCloudSqlUsed=true&isGoogleCloudSqlUsedWithMysql=false&isSignedIn=true, cd10=1457392086831, an=Google Plugin for Eclipse, tid=UA-43239122-1}
+
+!ENTRY com.google.gdt.eclipse.suite.ext 1 0 2016-03-11 20:41:38.196
+!MESSAGE Analytics ping request parameters: cd7=USED_IN_DEVSERVER_AND_PRODUCTION&cd5=true&cd6=GAE%201.9.30&cd3=3.9.1.v20140825-1431&cd4=com.google.gdt.eclipse.suite.e44.feature_3.8.0.v201410302155-rel-r44&cd1=org.eclipse.epp.package.jee.product&cd2=68C92E2169B88C0256AEF266CB61264ADBC05209&ea=DEPLOY_GAE&cid=1457392086831&cd9=false&ec=com.google.gdt.eclipse.core&v=1&t=event&el=id%3D1457392086831%26ev%3D3.9.1.v20140825-1431%26v%3Dcom.google.gdt.eclipse.suite.e44.feature_3.8.0.v201410302155-rel-r44%26gaev%3D1.9.30%26p%3Dorg.eclipse.epp.package.jee.product%26action%3Dgae_backend_deploy%26appIdHash%3D68C92E2169B88C0256AEF266CB61264ADBC05209%26isGoogleCloudSqlUsed%3Dtrue%26isGoogleCloudSqlUsedWithMysql%3Dfalse%26isSignedIn%3Dtrue&cd10=1457392086831&an=Google%20Plugin%20for%20Eclipse&tid=UA-43239122-1
+
+!ENTRY com.google.gdt.eclipse.suite.ext 1 0 2016-03-11 20:41:38.354
+!MESSAGE Analytics ping response: 200: OK
+GIF89a  � ��  ,       D ;
+
+!ENTRY com.google.gdt.eclipse.core 4 0 2016-03-11 21:09:10.091
+!MESSAGE Could not change permissions on the launch config file
+
+!ENTRY com.google.appengine.eclipse.core 1 0 2016-03-11 21:09:51.273
+!MESSAGE GAEtesting successfully deployed to Google App Engine
+
+!ENTRY com.google.gdt.eclipse.suite.ext 1 0 2016-03-11 21:09:51.352
+!MESSAGE Sending POST request to Analytics: {cd7=USED_IN_DEVSERVER_AND_PRODUCTION, cd5=true, cd6=GAE 1.9.30, cd3=3.9.1.v20140825-1431, cd4=com.google.gdt.eclipse.suite.e44.feature_3.8.0.v201410302155-rel-r44, cd1=org.eclipse.epp.package.jee.product, cd2=68C92E2169B88C0256AEF266CB61264ADBC05209, ea=DEPLOY_GAE, cid=1457392086831, cd9=false, ec=com.google.gdt.eclipse.core, v=1, t=event, el=id=1457392086831&ev=3.9.1.v20140825-1431&v=com.google.gdt.eclipse.suite.e44.feature_3.8.0.v201410302155-rel-r44&gaev=1.9.30&p=org.eclipse.epp.package.jee.product&action=gae_backend_deploy&appIdHash=68C92E2169B88C0256AEF266CB61264ADBC05209&isGoogleCloudSqlUsed=true&isGoogleCloudSqlUsedWithMysql=false&isSignedIn=true, cd10=1457392086831, an=Google Plugin for Eclipse, tid=UA-43239122-1}
+
+!ENTRY com.google.gdt.eclipse.suite.ext 1 0 2016-03-11 21:09:51.356
+!MESSAGE Analytics ping request parameters: cd7=USED_IN_DEVSERVER_AND_PRODUCTION&cd5=true&cd6=GAE%201.9.30&cd3=3.9.1.v20140825-1431&cd4=com.google.gdt.eclipse.suite.e44.feature_3.8.0.v201410302155-rel-r44&cd1=org.eclipse.epp.package.jee.product&cd2=68C92E2169B88C0256AEF266CB61264ADBC05209&ea=DEPLOY_GAE&cid=1457392086831&cd9=false&ec=com.google.gdt.eclipse.core&v=1&t=event&el=id%3D1457392086831%26ev%3D3.9.1.v20140825-1431%26v%3Dcom.google.gdt.eclipse.suite.e44.feature_3.8.0.v201410302155-rel-r44%26gaev%3D1.9.30%26p%3Dorg.eclipse.epp.package.jee.product%26action%3Dgae_backend_deploy%26appIdHash%3D68C92E2169B88C0256AEF266CB61264ADBC05209%26isGoogleCloudSqlUsed%3Dtrue%26isGoogleCloudSqlUsedWithMysql%3Dfalse%26isSignedIn%3Dtrue&cd10=1457392086831&an=Google%20Plugin%20for%20Eclipse&tid=UA-43239122-1
+
+!ENTRY com.google.gdt.eclipse.suite.ext 1 0 2016-03-11 21:09:51.426
+!MESSAGE Analytics ping response: 200: OK
+GIF89a  � ��  ,       D ;
+
+!ENTRY com.google.gdt.eclipse.core 4 0 2016-03-11 21:23:40.790
+!MESSAGE Could not change permissions on the launch config file
+
+!ENTRY com.google.gdt.eclipse.core 4 0 2016-03-11 21:25:46.969
+!MESSAGE Could not change permissions on the launch config file
+
+!ENTRY com.google.appengine.eclipse.core 1 0 2016-03-11 21:28:58.256
+!MESSAGE GAEtesting successfully deployed to Google App Engine
+
+!ENTRY com.google.gdt.eclipse.suite.ext 1 0 2016-03-11 21:28:58.347
+!MESSAGE Sending POST request to Analytics: {cd7=USED_IN_DEVSERVER_AND_PRODUCTION, cd5=true, cd6=GAE 1.9.30, cd3=3.9.1.v20140825-1431, cd4=com.google.gdt.eclipse.suite.e44.feature_3.8.0.v201410302155-rel-r44, cd1=org.eclipse.epp.package.jee.product, cd2=68C92E2169B88C0256AEF266CB61264ADBC05209, ea=DEPLOY_GAE, cid=1457392086831, cd9=false, ec=com.google.gdt.eclipse.core, v=1, t=event, el=id=1457392086831&ev=3.9.1.v20140825-1431&v=com.google.gdt.eclipse.suite.e44.feature_3.8.0.v201410302155-rel-r44&gaev=1.9.30&p=org.eclipse.epp.package.jee.product&action=gae_backend_deploy&appIdHash=68C92E2169B88C0256AEF266CB61264ADBC05209&isGoogleCloudSqlUsed=true&isGoogleCloudSqlUsedWithMysql=false&isSignedIn=true, cd10=1457392086831, an=Google Plugin for Eclipse, tid=UA-43239122-1}
+
+!ENTRY com.google.gdt.eclipse.suite.ext 1 0 2016-03-11 21:28:58.350
+!MESSAGE Analytics ping request parameters: cd7=USED_IN_DEVSERVER_AND_PRODUCTION&cd5=true&cd6=GAE%201.9.30&cd3=3.9.1.v20140825-1431&cd4=com.google.gdt.eclipse.suite.e44.feature_3.8.0.v201410302155-rel-r44&cd1=org.eclipse.epp.package.jee.product&cd2=68C92E2169B88C0256AEF266CB61264ADBC05209&ea=DEPLOY_GAE&cid=1457392086831&cd9=false&ec=com.google.gdt.eclipse.core&v=1&t=event&el=id%3D1457392086831%26ev%3D3.9.1.v20140825-1431%26v%3Dcom.google.gdt.eclipse.suite.e44.feature_3.8.0.v201410302155-rel-r44%26gaev%3D1.9.30%26p%3Dorg.eclipse.epp.package.jee.product%26action%3Dgae_backend_deploy%26appIdHash%3D68C92E2169B88C0256AEF266CB61264ADBC05209%26isGoogleCloudSqlUsed%3Dtrue%26isGoogleCloudSqlUsedWithMysql%3Dfalse%26isSignedIn%3Dtrue&cd10=1457392086831&an=Google%20Plugin%20for%20Eclipse&tid=UA-43239122-1
+
+!ENTRY com.google.gdt.eclipse.suite.ext 1 0 2016-03-11 21:28:58.415
+!MESSAGE Analytics ping response: 200: OK
+GIF89a  � ��  ,       D ;

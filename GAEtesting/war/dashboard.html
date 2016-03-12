@@ -285,11 +285,19 @@ xmlhttp3.onreadystatechange = function(){
          jPM2_status =  obj.pm2_status;
         jTime = obj.time_now;
 
-        document.getElementById("panel_vm1_smallword").innerText = jPM1_name + "\n" + jPM1_status;
-        document.getElementById("panel_vm2_smallword").innerText = jPM2_name +  "\n" + jPM2_status;
-        document.getElementById("panel_vm3_smallword").innerText = jVM1_name +  "\n"  + jVM1_status;
-        document.getElementById("panel_vm4_smallword").innerText = jVM2_name +  "\n"  + jVM2_status;
+        document.getElementById("panel_vm1_smallword").innerText = jPM1_name + "\n" + jPM1_status.toUpperCase();
+        document.getElementById("panel_vm2_smallword").innerText = jPM2_name +  "\n" + jPM2_status.toUpperCase();
+        document.getElementById("panel_vm3_smallword").innerText = jVM1_name +  "\n"  + jVM1_status.toUpperCase();
+        document.getElementById("panel_vm4_smallword").innerText = jVM2_name +  "\n"  + jVM2_status.toUpperCase();
         document.getElementById("PANEL_cal_word").innerText = jTime;
+
+        for(var i = 1;i<=4;i++){
+            if(document.getElementById("panel_vm"+i+"_smallword").innerText.indexOf("TERMINATED")>-1){
+                document.getElementById("PANEL_VM"+i).style.color = "#333333";
+            }else{
+                document.getElementById("PANEL_VM"+i).style.color = "white";
+            }
+        }
 
 
     }
@@ -302,7 +310,26 @@ var xmlhttp2;
 
 function CMD(value,name){
     var command = value;
-    str = "command=" + command + "&name=" + name;
+    var truename = "";
+
+    switch (name){
+        case "PM1": truename = jPM1_name;
+
+            break;
+        case "PM2": truename = jPM2_name;
+
+            break;
+        case "VM1": truename = jVM1_name;
+
+            break;
+        case "VM2": truename = jVM2_name;
+
+            break;
+        default :alert("error");
+            break;
+    }
+    str = "command=" + command + "&name=" + truename;
+
 
     CreateXMLHttpRequest();
     xmlhttp2.onreadystatechange = callhandle;
