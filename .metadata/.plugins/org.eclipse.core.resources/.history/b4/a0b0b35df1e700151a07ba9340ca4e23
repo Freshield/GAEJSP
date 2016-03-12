@@ -50,7 +50,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
 		
 		response.setContentType("charset=UTF-8");
 	    PrintWriter writer = response.getWriter();
-		System.out.println("statusget_get");
+		System.out.println("get");
 		
 		//to get into sql
 		String theValue = "";// = "{"
@@ -67,13 +67,13 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	         Class.forName("com.mysql.jdbc.GoogleDriver");
 	         
 	         url = "jdbc:google:mysql://vimms-yangyu:yangyufreshield/javademo?user=root";
-	         System.out.println("statusget_here1");
+	         System.out.println("here1");
 	        
 	       } else {
 	         // Local MySQL instance to use during development.
 	         Class.forName("com.mysql.jdbc.Driver");
 	         url = "jdbc:mysql://173.194.82.26:3306/javademo?user=yangyu&password=8888";
-	         System.out.println("statusget_here2");
+	         System.out.println("here2");
 	         
 	         // Alternatively, connect to a Google Cloud SQL instance using:
 	         // jdbc:mysql://ip-address-of-google-cloud-sql-instance:3306/guestbook?user=root
@@ -82,7 +82,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	       e.printStackTrace();
 	       return;
 	     }
-	   System.out.println("statusget_success begin");
+	   System.out.println("success begin");
 	   try {
 		   String jVM1_name = "";
 		   String jVM1_status = "";
@@ -96,7 +96,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
 		   ArrayList<String> PMs = new ArrayList<String>(); 
 	       //Class.forName("com.mysql.jdbc.Driver");// ¶¯Ì¬¼ÓÔØmysqlÇý¶¯
 	   	//Class.forName("com.mysql.jdbc.GoogleDriver");
-		   System.out.println("statusget_success connect");
+		   System.out.println("success connect");
            conn = DriverManager.getConnection(url);
            Statement stmt = conn.createStatement();
            //get all data from vm_table
@@ -106,6 +106,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
            System.out.println(rs);
            String temp = "";
            while (rs.next()) {
+           	System.out.println("2");
            	System.out.println(rs);
            	temp = rs.getString("vmname");
            	VMs.add(temp);
@@ -123,6 +124,8 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
            System.out.println(rs);
            temp = "";
            while (rs.next()) {
+           	System.out.println("2");
+           	System.out.println(rs);
            	temp = rs.getString("hostname");
            	PMs.add(temp);
            	temp = rs.getString("status");
@@ -170,7 +173,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	    		    writer.write(JSONvalue.toString());
 	       
 	   } catch (SQLException e) {
-	       System.out.println("statusget_MySQL²Ù×÷´íÎó");
+	       System.out.println("MySQL²Ù×÷´íÎó");
 	       e.printStackTrace();
 	   } catch (Exception e) {
 	       e.printStackTrace();

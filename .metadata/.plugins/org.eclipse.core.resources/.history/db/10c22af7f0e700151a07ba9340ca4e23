@@ -48,7 +48,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	// TODO Auto-generated method stub
 	response.setContentType("charset=UTF-8");
     PrintWriter writer = response.getWriter();
-	System.out.println("redirection_post");
+	System.out.println("post");
 	String username = request.getParameter("username");
 	String password = request.getParameter("password");
 	String url = "jdbc:mysql://173.194.241.209:3306/realTimeValue?"
@@ -66,13 +66,13 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
               Class.forName("com.mysql.jdbc.GoogleDriver");
               //url = "jdbc:mysql://yangyufreshield:3306/javademo";
               url = "jdbc:google:mysql://vimms-yangyu:yangyufreshield/javademo?user=root";
-              System.out.println("redirection_here1");
+              System.out.println("here1");
              
             } else {
               // Local MySQL instance to use during development.
               Class.forName("com.mysql.jdbc.Driver");
               url = "jdbc:mysql://173.194.82.26:3306/javademo?user=yangyu&password=8888";
-              System.out.println("redirection_here2");
+              System.out.println("here2");
               
               // Alternatively, connect to a Google Cloud SQL instance using:
               // jdbc:mysql://ip-address-of-google-cloud-sql-instance:3306/guestbook?user=root
@@ -86,7 +86,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
         // or：
         // new com.mysql.jdbc.Driver();
 
-        System.out.println("redirection_成功加载MySQL驱动程序");
+        System.out.println("成功加载MySQL驱动程序");
         // 一个Connection代表一个数据库连接
         conn = DriverManager.getConnection(url);
         // Statement里面带有很多方法，比如executeUpdate可以实现插入，更新和删除等
@@ -116,7 +116,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
             conn.close();
         
     } catch (SQLException e) {
-        System.out.println("redirection_MySQL操作错误");
+        System.out.println("MySQL操作错误");
         e.printStackTrace();
     } catch (Exception e) {
         e.printStackTrace();

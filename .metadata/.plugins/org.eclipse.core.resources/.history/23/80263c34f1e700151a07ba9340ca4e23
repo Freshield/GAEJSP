@@ -61,7 +61,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	
 	response.setContentType("charset=UTF-8");
     PrintWriter writer = response.getWriter();
-	System.out.println("cmdinsert_post");
+	System.out.println("post");
 	String command = request.getParameter("command");
 	String name = request.getParameter("name");
 	System.out.println(command);
@@ -83,13 +83,13 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
          Class.forName("com.mysql.jdbc.GoogleDriver");
          
          url = "jdbc:google:mysql://vimms-yangyu:yangyufreshield/javademo?user=root";
-         System.out.println("cmdinsert_here1");
+         System.out.println("here1");
         
        } else {
          // Local MySQL instance to use during development.
          Class.forName("com.mysql.jdbc.Driver");
          url = "jdbc:mysql://173.194.82.26:3306/javademo?user=yangyu&password=8888";
-         System.out.println("cmdinsert_here2");
+         System.out.println("here2");
          
          // Alternatively, connect to a Google Cloud SQL instance using:
          // jdbc:mysql://ip-address-of-google-cloud-sql-instance:3306/guestbook?user=root
@@ -98,12 +98,12 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
        e.printStackTrace();
        return;
      }
-   System.out.println("cmdinsert_success begin");
+   System.out.println("success begin");
    try {
        
        //Class.forName("com.mysql.jdbc.Driver");// ¶¯Ì¬¼ÓÔØmysqlÇý¶¯
    	//Class.forName("com.mysql.jdbc.GoogleDriver");
-       System.out.println("cmdinsert_success connect");
+       System.out.println("success connect");
        conn = DriverManager.getConnection(url);
        Statement stmt = conn.createStatement();
        sql = "insert into cmd (timestamp,cmd,host,flag) values('"+timeNow+"','"+command+"','"+name+"','true')";
@@ -129,7 +129,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
    		    writer.write(JSONvalue.toString());
        
    } catch (SQLException e) {
-       System.out.println("cmdinsert_MySQL²Ù×÷´íÎó");
+       System.out.println("MySQL²Ù×÷´íÎó");
        e.printStackTrace();
    } catch (Exception e) {
        e.printStackTrace();

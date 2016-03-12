@@ -74,7 +74,7 @@ import com.google.appengine.api.utils.SystemProperty;
             e.printStackTrace();
             return;
           }
-        System.out.println("helloservlet_success begin");
+        System.out.println("success begin");
         try {
             
             //Class.forName("com.mysql.jdbc.Driver");// 动态加载mysql驱动
@@ -112,7 +112,7 @@ import com.google.appengine.api.utils.SystemProperty;
 	    		    writer.write(JSONvalue.toString());
             
         } catch (SQLException e) {
-            System.out.println("helloservlet_MySQL操作错误");
+            System.out.println("MySQL操作错误");
             e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
