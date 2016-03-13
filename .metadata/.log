@@ -4451,3 +4451,12 @@ org.osgi.framework.BundleException: Unable to acquire the state change lock for 
 
 !ENTRY com.google.gdt.eclipse.core 4 0 2016-03-12 20:37:46.077
 !MESSAGE Could not change permissions on the launch config file
+
+!ENTRY com.google.gdt.eclipse.core 4 0 2016-03-12 20:42:56.471
+!MESSAGE Could not change permissions on the launch config file
+
+!ENTRY com.google.gdt.eclipse.core 4 0 2016-03-12 20:52:50.137
+!MESSAGE Could not change permissions on the launch config file
+
+!ENTRY com.google.gdt.eclipse.core 4 0 2016-03-12 20:54:11.132
+!MESSAGE Could not change permissions on the launch config file
