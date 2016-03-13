@@ -259,6 +259,7 @@ header#top_header{
     margin-left: 10px;
 }
 #panel_vm1_name, .panel_name{
+    cursor: pointer;
     font-family: Verdana;
     font-size: xx-large;
     float: left;
@@ -276,6 +277,7 @@ header#top_header{
     margin-left: 5px;
 }
 .data_vm_img{
+    cursor: pointer;
 
     float: left;
 }

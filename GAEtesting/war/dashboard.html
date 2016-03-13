@@ -106,12 +106,14 @@
                 <!-- VM1-->
                 <div id="PANEL_VM1" class="firstrow_cell">
                     <div id="PANEL_VM1_up" class="panel_up">
-                        <img src="image/panel_data_pm.png" id="data_vm1_img" class="data_vm_img">
+                        <img src="image/panel_data_pm.png" id="data_vm1_img" class="data_vm_img"
+                             onclick="toVmLocation('1');">
                         <span id="panel_vm1_word" class="panel_word">
                             <span id="panel_vm1_bigword" class="panel_bigword">STATUS</span><br>
                             <span id="panel_vm1_smallword" class="panel_smallword">Reading...</span>
                         </span>
-                        <span id="panel_vm1_name" class="panel_name">PM1</span>
+                        <span id="panel_vm1_name" class="panel_name"
+                              onclick="toVmLocation('1');">PM1</span>
                     </div>
                     <div id="PANEL_VM1_down" class="panel_down">
                         <!--<span id="panel_vm1_downword" class="panel_downword">View more</span>-->
@@ -132,12 +134,14 @@
                 <!-- VM2-->
                 <div id="PANEL_VM2" class="firstrow_cell">
                     <div id="PANEL_VM2_up" class="panel_up">
-                        <img src="image/panel_data_pm.png" id="data_vm2_img" class="data_vm_img">
+                        <img src="image/panel_data_pm.png" id="data_vm2_img" class="data_vm_img"
+                            onclick="toVmLocation('2');">
                         <span id="panel_vm2_word" class="panel_word">
                             <span id="panel_vm2_bigword" class="panel_bigword">STATUS</span><br>
                             <span id="panel_vm2_smallword" class="panel_smallword">Reading...</span>
                         </span>
-                        <span id="panel_vm2_name" class="panel_name">PM2</span>
+                        <span id="panel_vm2_name" class="panel_name"
+                              onclick="toVmLocation('2');">PM2</span>
                     </div>
                     <div id="PANEL_VM2_down" class="panel_down">
                         <nav class="nav">
@@ -156,12 +160,14 @@
                 <!-- VM3-->
                 <div id="PANEL_VM3" class="firstrow_cell">
                     <div id="PANEL_VM3_up" class="panel_up">
-                        <img src="image/panel_data_vm.png" id="data_vm3_img" class="data_vm_img">
+                        <img src="image/panel_data_vm.png" id="data_vm3_img" class="data_vm_img"
+                             onclick="toVmLocation('3');">
                         <span id="panel_vm3_word" class="panel_word">
                             <span id="panel_vm3_bigword" class="panel_bigword">STATUS</span><br>
                             <span id="panel_vm3_smallword" class="panel_smallword">Reading...</span>
                         </span>
-                        <span id="panel_vm3_name" class="panel_name">VM1</span>
+                        <span id="panel_vm3_name" class="panel_name"
+                              onclick="toVmLocation('3');">VM1</span>
                     </div>
                     <div id="PANEL_VM3_down" class="panel_down">
                         <nav class="nav">
@@ -180,12 +186,14 @@
                 <!-- VM4-->
                 <div id="PANEL_VM4" class="firstrow_cell">
                     <div id="PANEL_VM4_up" class="panel_up">
-                        <img src="image/panel_data_vm.png" id="data_vm4_img" class="data_vm_img">
+                        <img src="image/panel_data_vm.png" id="data_vm4_img" class="data_vm_img"
+                             onclick="toVmLocation('4');">
                         <span id="panel_vm4_word" class="panel_word">
                             <span id="panel_vm4_bigword" class="panel_bigword">STATUS</span><br>
                             <span id="panel_vm4_smallword" class="panel_smallword">Reading...</span>
                         </span>
-                        <span id="panel_vm4_name" class="panel_name">VM2</span>
+                        <span id="panel_vm4_name" class="panel_name"
+                              onclick="toVmLocation('4');">VM2</span>
                     </div>
                     <div id="PANEL_VM4_down" class="panel_down">
                         <nav class="nav">
@@ -256,6 +264,8 @@ function CreateXHR(){
 
 //---------ajax for getting status task
 
+
+
 var jVM1_name = "";
 var jVM1_status = "";
 var jVM2_name = "";
@@ -274,6 +284,7 @@ xmlhttp3.onreadystatechange = function(){
     if(xmlhttp3.readyState == 4 && xmlhttp3.status == 200){
         var getedJSON = xmlhttp3.responseText;
         var obj = JSON.parse(getedJSON);
+
 
         jVM1_name = obj.vm1_name;
          jVM1_status = obj.vm1_status;
@@ -294,11 +305,25 @@ xmlhttp3.onreadystatechange = function(){
         for(var i = 1;i<=4;i++){
             if(document.getElementById("panel_vm"+i+"_smallword").innerText.indexOf("TERMINATED")>-1){
                 document.getElementById("PANEL_VM"+i).style.color = "#333333";
-            }else{
+
+            }else if(document.getElementById("panel_vm"+i+"_smallword").innerText.indexOf("RUNNING")>-1){
                 document.getElementById("PANEL_VM"+i).style.color = "white";
+
+            }else{
+
             }
         }
 
+
+    }
+}
+
+function toVmLocation(locationNumber){
+    if(document.getElementById("panel_vm"+locationNumber+"_smallword").innerText.indexOf("TERMINATED")>-1){
+        alert("Sorry, the panel is Terminated");
+    }else if(document.getElementById("panel_vm"+locationNumber+"_smallword").innerText.indexOf("RUNNING")>-1) {
+        window.location.href = "VM" + locationNumber + ".html";
+    }else{
 
     }
 }
