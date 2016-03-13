@@ -5,6 +5,7 @@
 	<meta charset="UTF-8">
 	<title>VIMMS dashboard</title>
     <script type="text/javascript" src="d3/d3.js"></script>
+    <script type="text/javascript" src="ajax.js"></script>
     <link type="text/css" rel="stylesheet" href="dashboard.css">
 
 </head>
@@ -148,9 +149,41 @@
 //---------------------chart cpu----------------------------------------------------
 var padding = 30;
 var head_height = 20;
-var chart1_title = "CPU performance"
+var chart1_title = "CPU performance";
 var chart1_subtitle = "%";
 var foot_height = padding;
+
+var xmlhttp;
+var receJSON1 = [];
+var receCpu1 = [];
+var receMem1 = [];
+var receNetwork1 = [];
+var receTime1 = [];
+var receID1 = [];
+var receCpu2;
+var receMem2;
+var receNetwork2;
+var receTime2;
+var receID2;
+var receCpu3;
+var receMem3;
+var receNetwork3;
+var receTime3;
+var receID3;
+var receCpu4;
+var receMem4;
+var receNetwork4;
+var receTime4;
+var receID4;
+var receCpu5;
+var receMem5;
+var receNetwork5;
+var receTime5;
+var receID5;
+var receAmount;
+
+var ajaxReq = new AjaxRequest();
+var xmlhttp2;
 
 var dataset = [];
 var xMarks = [];
@@ -329,20 +362,26 @@ function getData(){
 }
 
 function changeData(){
-    dataset.shift();
-    //dataset.push(Math.round(Math.random()*h));
-    dataset.push(receJSON);
-    xMarks.shift();
-    if(timeNum%5 == 0){
-        xMarks.push(timeNum);
-    }else{
-        xMarks.push("");
+    for(var i = 0;i<receAmount;i++){
+        dataset.shift();
+        //dataset.push(Math.round(Math.random()*h));
+        dataset.push(receCpu1[i].cpu);
+
+        xMarks.shift();
+        if(receID1[i].ID % 5 == 0){
+            var newDate = new Date();
+            newDate.setTime(receTime1[i].timestamp);
+            xMarks.push(newDate.getHours()+":"+newDate.getMinutes()+":"+newDate.getSeconds());
+           
+        }else{
+            xMarks.push("");
+        }
     }
-    timeNum ++;
 
 }
 
 function drawChart() {
+
 
     changeData();
 
@@ -406,7 +445,55 @@ function CreateXHR(){
     }
 }
 
+xmlhttp = CreateXHR();
 
+xmlhttp.open("GET","/HelloServlet",true);
+xmlhttp.send();
+
+xmlhttp.onreadystatechange = function(){
+    if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+        var getedJSON = xmlhttp.responseText;
+        var obj = JSON.parse(getedJSON);
+        receAmount = obj.jamount;
+
+            receNetwork1 = obj.jnetwork1;
+            receMem1 = obj.jmem1;
+            receCpu1 = obj.jcpu1;
+            receTime1 = obj.jtimestamp1;
+            receID1 = obj.jID1;
+
+/*
+        receNetwork2 = obj.jnetwork2;
+        receMem2 = obj.jmem2;
+        receCpu2 = obj.jcpu2;
+        receTime2 = obj.jtime2;
+        receID2 = obj.jID2;
+
+        receNetwork3 = obj.jnetwork3;
+        receMem3 = obj.jmem3;
+        receCpu3 = obj.jcpu3;
+        receTime3 = obj.jtime3;
+        receID3 = obj.jID3;
+
+        receNetwork4 = obj.jnetwork4;
+        receMem4 = obj.jmem4;
+        receCpu4 = obj.jcpu4;
+        receTime4 = obj.jtime4;
+        receID4 = obj.jID4;
+
+        receNetwork5 = obj.jnetwork5;
+        receMem5 = obj.jmem5;
+        receCpu5 = obj.jcpu5;
+        receTime5 = obj.jtime5;
+        receID5 = obj.jID5;
+*/
+
+    }
+
+        drawChart();
+    }
+
+/*
 setTimeout(function(){
 
     xmlhttp = CreateXHR();
@@ -426,13 +513,7 @@ setTimeout(function(){
 
     setTimeout(arguments.callee,2000);
 },2000);
-
-var xmlhttp;
-var receJSON;
-
-var ajaxReq = new AjaxRequest();
-var xmlhttp2;
-
+*/
 function CMD(value){
     var command = value;
     str = "command=" + command;

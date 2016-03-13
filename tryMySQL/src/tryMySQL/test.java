@@ -35,7 +35,7 @@ public class test {
 	        System.out.println(nowTime);
 	        System.out.println(sdFormatter);
 	        System.out.println(retStrFormatNowDate);
-	        
+	        /*
 	        try {
 	            // 之所以要使用下面这条语句，是因为要使用MySQL的驱动，所以我们要把它驱动起来，
 	            // 可以通过Class.forName把它加载进去，也可以通过初始化来驱动起来，下面三种形式都可以
@@ -76,19 +76,27 @@ public class test {
 	        } finally {
 	        	
 	            conn.close();
-	        }
-	        /*
-	        long timeNow = System.currentTimeMillis()/1000;
+	        }*/
+	        
+	        
 	        try {
-	            
+	            long timeNow = System.currentTimeMillis();
 	            //Class.forName("com.mysql.jdbc.Driver");// 动态加载mysql驱动
 	        	//Class.forName("com.mysql.jdbc.GoogleDriver");
 	            System.out.println("success connect");
 	            conn = DriverManager.getConnection(url);
 	            Statement stmt = conn.createStatement();
-	            sql = "insert into vm_table (timestamp,vmname,status) values('"+timeNow+"','flak','terminated')";
+	            for(int i = 0;i<256;i++){
+	            	
+	            	long cpu = Math.round(Math.random()*100);
+	            long mem = Math.round(Math.random()*100);
+	            long network = Math.round(Math.random()*100);
+	            sql = "insert into performance_worth (timestamp,cpu,mem,network) values('"+timeNow+"','"+cpu+"','"+mem+"','"+network+"')";
 	            Boolean rs = stmt.execute(sql);
-	            System.out.println(rs);
+	            timeNow += 5000;
+	           
+	            }
+	             System.out.println("finish");
 	                
 	            	stmt.close();
 	            	conn.close();
@@ -101,7 +109,7 @@ public class test {
 	        } finally {
 	            
 	        }
-	        */
+	        
 	        
 	 /*
 	        try {

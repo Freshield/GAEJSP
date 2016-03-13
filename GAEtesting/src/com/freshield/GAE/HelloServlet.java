@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Connection;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.io.PrintWriter;
 
 import org.json.*;
@@ -17,6 +18,8 @@ import org.json.*;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+
 
 
 
@@ -50,8 +53,8 @@ import com.google.appengine.api.utils.SystemProperty;
 		//about sql databse
 		Connection conn = null;
         String sql;
-        String url = "jdbc:mysql://173.194.241.209:3306/realTimeValue?"
-               + "user=yangyu&password=8888&useUnicode=true&characterEncoding=UTF8";
+        String url = "jdbc:mysql://173.194.82.26:3306/javademo?"
+               + "user=yangyu&password=8888";
         try {
             if (SystemProperty.environment.value() ==
                 SystemProperty.Environment.Value.Production) {
@@ -76,29 +79,62 @@ import com.google.appengine.api.utils.SystemProperty;
           }
         System.out.println("helloservlet_success begin");
         try {
-            
+        	
+        	long timeNow = System.currentTimeMillis();
+        	ArrayList<String> cpu = new ArrayList<String>();
+        	ArrayList<String> network = new ArrayList<String>();
+        	ArrayList<String> ID = new ArrayList<String>();
+        	ArrayList<String> mem = new ArrayList<String>();
+        	ArrayList<String> timestamp = new ArrayList<String>();
+        	int amount = 0;
             //Class.forName("com.mysql.jdbc.Driver");// 动态加载mysql驱动
         	//Class.forName("com.mysql.jdbc.GoogleDriver");
             //url = "jdbc:google:mysql://vimms-project:userinfo/realTimeValue?user=yangyu&password=8888&useUnicode=true&characterEncoding=UTF8";
             System.out.println("success connect");
             conn = DriverManager.getConnection(url);
             Statement stmt = conn.createStatement();
-            sql = "select * from sampleValue where ID="+ID;
+            sql = "select * from performance_worth where timestamp>=1457836886910";
             System.out.println(sql);
             ResultSet rs = stmt.executeQuery(sql);// executeQuery会返回结果的集合，否则返回空值
             String temp = "";
                 while (rs.next()) {
-                	
-                	temp = rs.getString("value");
+                	cpu.add(rs.getString("cpu"));
+                	network.add(rs.getString("network"));
+                	ID.add(rs.getString("ID"));
+                	mem.add(rs.getString("mem"));
+                	timestamp.add(rs.getString("timestamp"));
+                	amount++;
                 }
                 
-                ID++;
+                for(int i = 0;i<amount;i++){
+                	String temped = cpu.get(i);
+                	cpu.set(i, "{\"cpu\":\""+temped+"\"}");
+                	temped = network.get(i);
+                	network.set(i, "{\"network\":\""+temped+"\"}");
+                	 temped = ID.get(i);
+                	 ID.set(i, "{\"ID\":\""+temped+"\"}");
+                	 temped = mem.get(i);
+                	 mem.set(i, "{\"mem\":\""+temped+"\"}");
+                	 temped = timestamp.get(i);
+                	 timestamp.set(i, "{\"timestamp\":\""+temped+"\"}");
+                }
+                System.out.println(cpu);
+                System.out.println(network);
+                System.out.println(ID);
+                System.out.println(mem);
+                System.out.println(timestamp);
                 rs.close();
 	        	stmt.close();
 	        	conn.close();
 	        
-	        	theValue = "{'value':'"+temp+"'}";
-
+	        	theValue = "{\"jamount\":\""+amount+"\","
+	        			+ "\"jcpu1\":"+cpu+","
+	        			+"\"jmem1\":"+mem+","
+	        			+"\"jnetwork1\":"+network+","
+	        			+"\"jtimestamp1\":"+timestamp+","
+	        			+"\"jID1\":"+ID
+	        			+"}";
+	        	System.out.println(theValue);
 	    		JSONObject JSONvalue = new JSONObject(theValue);
 	    		System.out.println(JSONvalue);
 	    		 //response.setCharacterEncoding("UTF-8");//设置Response的编码方式为UTF-8
