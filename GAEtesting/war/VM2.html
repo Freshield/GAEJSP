@@ -52,27 +52,32 @@
         <div id="resources">
             <div id="DashBoard" class="resources_row">
                 <div class="resources_cell cell_img"><img src="image/nav_home.png" height="24"></div>
-                <div class="resources_cell cell_word">Dashboard</div>
+                <div class="resources_cell cell_word"
+                     onclick="window.location.href='dashboard.html'">Dashboard</div>
                 <div class="resources_cell cell_res"><</div>
             </div>
             <div id="VM1" class="resources_row">
                 <div class="resources_cell cell_img"><img src="image/nav_vm.png" height="24"></div>
-                <div class="resources_cell cell_word">PM1</div>
+                <div id="navname_vm1" class="resources_cell cell_word"
+                     onclick="toVmLocation('1');">PM1</div>
                 <div class="resources_cell cell_res"><</div>
             </div>
             <div id="VM2" class="resources_row" style="background-color: red">
                 <div class="resources_cell cell_img"><img src="image/nav_vm.png" height="24"></div>
-                <div class="resources_cell cell_word">PM2</div>
+                <div id="navname_vm2" class="resources_cell cell_word"
+                     onclick="toVmLocation('2');">PM2</div>
                 <div class="resources_cell cell_res"><</div>
             </div>
             <div id="VM3" class="resources_row">
                 <div class="resources_cell cell_img"><img src="image/nav_vm.png" height="24"></div>
-                <div class="resources_cell cell_word">VM1</div>
+                <div id="navname_vm3" class="resources_cell cell_word"
+                     onclick="toVmLocation('3');">VM1</div>
                 <div class="resources_cell cell_res"><</div>
             </div>
             <div id="VM4" class="resources_row">
                 <div class="resources_cell cell_img"><img src="image/nav_vm.png" height="24"></div>
-                <div class="resources_cell cell_word">VM2</div>
+                <div id="navname_vm4" class="resources_cell cell_word"
+                     onclick="toVmLocation('4');">VM2</div>
                 <div class="resources_cell cell_res"><</div>
             </div>
 
@@ -153,6 +158,74 @@
 
         document.getElementById("top_menu").src = "image/top_menu.png";
     }
+
+
+//---------ajax for getting status task
+
+
+
+var jVM1_name = "";
+var jVM1_status = "";
+var jVM2_name = "";
+var jVM2_status = "";
+var jPM1_name = "";
+var jPM1_status = "";
+var jPM2_name = "";
+var jPM2_status = "";
+var jTime = "";
+
+var statusQueue = [];
+
+var xmlhttp3 = CreateXHR();
+xmlhttp3.open("GET","/STATUSget",true);
+xmlhttp3.send();
+
+xmlhttp3.onreadystatechange = function(){
+    if(xmlhttp3.readyState == 4 && xmlhttp3.status == 200){
+        var getedJSON = xmlhttp3.responseText;
+        var obj = JSON.parse(getedJSON);
+
+
+
+        jVM1_name = obj.vm1_name;
+        jVM1_status = obj.vm1_status;
+        jVM2_name = obj.vm2_name;
+        jVM2_status = obj.vm2_status;
+        jPM1_name = obj.pm1_name;
+        jPM1_status =  obj.pm1_status;
+        jPM2_name =  obj.pm2_name;
+        jPM2_status =  obj.pm2_status;
+        jTime = obj.time_now;
+
+        statusQueue.push(jPM1_status);
+        statusQueue.push(jPM2_status);
+        statusQueue.push(jVM1_status);
+        statusQueue.push(jVM2_status);
+
+        document.getElementById("navname_vm1").innerText = jPM1_name;
+        document.getElementById("navname_vm2").innerText = jPM2_name;
+        document.getElementById("navname_vm3").innerText = jVM1_name;
+        document.getElementById("navname_vm4").innerText = jVM2_name;
+        document.getElementById("PANEL_header_word").innerText = jPM2_name;
+        document.getElementById("PANEL_path_word").innerText = "Home  >  "+jPM2_name;
+
+        document.getElementById("PANEL_cal_word").innerText = jTime;
+
+
+
+    }
+}
+
+function toVmLocation(locationNumber){
+    if(statusQueue[locationNumber-1] == "halted"){
+        alert("Sorry, the panel is Halted");
+    }else if(statusQueue[locationNumber-1] == "running") {
+        window.location.href = "VM" + locationNumber + ".html";
+    }else{
+        alert("status error");
+    }
+}
+
 //---------------------chart cpu----------------------------------------------------
 var padding = 30;
 var head_height = 20;
