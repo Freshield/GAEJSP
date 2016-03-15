@@ -88,7 +88,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
        } else {
          // Local MySQL instance to use during development.
          Class.forName("com.mysql.jdbc.Driver");
-         url = "jdbc:mysql://173.194.108.109:3306/coen691?user=yangyu&password=8888";
+         url = "jdbc:mysql://mysql://173.194.108.109:3306/coen691?user=yangyu&password=8888";
          System.out.println("cmdinsert_here2");
          
          // Alternatively, connect to a Google Cloud SQL instance using:

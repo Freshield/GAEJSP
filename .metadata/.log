@@ -4785,3 +4785,12 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY com.google.gdt.eclipse.core 4 0 2016-03-14 20:32:44.937
 !MESSAGE Could not change permissions on the launch config file
+
+!ENTRY com.google.gdt.eclipse.core 4 0 2016-03-14 20:58:13.611
+!MESSAGE Could not change permissions on the launch config file
+
+!ENTRY com.google.gdt.eclipse.core 4 0 2016-03-14 21:02:11.860
+!MESSAGE Could not change permissions on the launch config file
+
+!ENTRY com.google.gdt.eclipse.core 4 0 2016-03-14 21:05:45.179
+!MESSAGE Could not change permissions on the launch config file

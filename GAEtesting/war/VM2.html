@@ -114,6 +114,10 @@
                 <div id="secondrow_chart3" class="secondrow_cell">
                     <svg id="chart_net"></svg>
                 </div>
+                <div id="secondrow_chart4" class="secondrow_cell">
+                    <svg id="chart_net_rx"></svg>
+                </div>
+
 
         </div>
     </div>
@@ -158,6 +162,8 @@ var chartm_title = "Mem performance";
 var chartm_subtitle = "GB";
 var chartn_title = "Network transferred ";
 var chartn_subtitle = "kbs";
+var chartrx_title = "Network received ";
+var chartrx_subtitle = "kbs";
 var foot_height = 50;
 
 var xmlhttp;
@@ -168,6 +174,7 @@ var receCpu2 = [];
 var receCpu3 = [];
 var receMem1 = [];
 var receNetwork1 = [];
+var receNetworkrx = [];
 var receTime1 = [];
 var receID1 = [];
 var receAmount;
@@ -181,8 +188,8 @@ var lineNamesm=["Memory"];
 var lineColorm=["#9F79EE"];
 var lineNamesn=["Net tx"];
 var lineColorn=["#FF4040"];
-var lineNamesr=["Net rx"];
-var lineColorr=["#87CEFA"];
+var lineNamesrx=["Net rx"];
+var lineColorrx=["#87CEFA"];
 
 var dataset = [];
 var dataset1 = [];
@@ -193,6 +200,8 @@ var datasetm = [];
 var xMarksm = [];
 var datasetn = [];
 var xMarksn = [];
+var datasetrx = [];
+var xMarksrx = [];
 var w = 500;
 var h = 225;
 
@@ -751,6 +760,181 @@ var pathn = svg_n.append("path")
 //-----------------------------for network chart end-----------------
 
 
+//-----------------------------for network rx chart------------------------
+//create svg
+
+var svg_rx = d3.select("#chart_net_rx")
+    .attr("width",w)
+    .attr("height",h);
+
+//add background
+svg_rx.append("g")
+    .append("rect")
+    .attr("x",0)
+    .attr("y",0)
+    .attr("width",w)
+    .attr("height",h)
+    .style("fill","#FFF")
+    .style("stroke-width",2)
+    .style("stroke","#E7E7E7");
+
+//add titles
+
+if(chartrx_title != ""){
+    svg_rx.append("g")
+        .append("text")
+        .text(chartrx_title)
+        .attr("class","chart1_title")
+        .attr("x",w/2)
+        .attr("y",head_height);
+
+}
+
+if(chartrx_subtitle != ""){
+    svg_rx.append("g")
+        .append("text")
+        .text(chartrx_subtitle)
+        .attr("class","chart1_subtitle")
+        .attr("x",20)
+        .attr("y",20);
+
+}
+
+
+//add scaleor
+
+var xScalerx = d3.scale.linear()
+    .domain([0,datasetrx.length-1])
+    .range([padding,w-padding]);
+
+var yScalerx = d3.scale.linear()
+    .domain([0,100])
+    .range([h-foot_height,padding]);
+
+//define inner line
+
+var xInnerrx = d3.svg.axis()
+    .scale(xScalerx)
+    .tickSize(-(h-padding-foot_height),0,0)
+    .orient("bottom")
+    .ticks(datasetrx.length);
+
+
+svg_rx.append("g")
+    .attr("class","chart1_inner_line")
+    .attr("transform","translate(0,"+(h-foot_height)+")")
+    .call(xInnerrx)
+    .selectAll("text")
+    .text("");
+
+var yInnerrx = d3.svg.axis()
+    .scale(yScalerx)
+    .tickSize(-(w-padding*2),0,0)
+    .tickFormat("")
+    .orient("left")
+    .ticks(10);
+
+svg_rx.append("g")
+    .attr("class","chart1_inner_line")
+    .attr("transform","translate("+padding+",0)")
+    .call(yInnerrx);
+
+
+//define axis
+
+var xAxisrx = d3.svg.axis()
+    .scale(xScalerx)
+    .orient("bottom")
+    .ticks(datasetrx.length);
+
+//define axis bar
+
+var xBarrx = svg_rx.append("g")
+    .attr("class","axis")
+    .attr("transform","translate(0,"+(h-foot_height)+")")
+    .call(xAxisrx)
+    .selectAll("text")
+    .text(function(d){
+        return xMarksrx[d];
+    });
+
+
+//define y axis
+var yAxisrx = d3.svg.axis()
+    .scale(yScalerx)
+    .orient("left")
+    .ticks(10);
+
+//define axis bar
+
+var yBarrx = svg_rx.append("g")
+    .attr("class","axis")
+    .attr("transform","translate("+padding+",0)")
+    .call(yAxisrx);
+
+
+var legendrx=svg_rx.append("g");
+addLegendrx();
+
+
+//添加图例
+function addLegendrx()
+{
+    var textGroup=legendrx.selectAll("text")
+        .data(lineNamesrx);
+    textGroup.exit().remove();
+    legendrx.selectAll("text")
+        .data(lineNamesrx)
+        .enter()
+        .append("text")
+        .text(function(d){return d;})
+        .attr("class","legend")
+        .attr("x", function(d,i) {return i*100;})
+        .attr("y",0)
+        .attr("fill",function(d,i){ return lineColorrx[i];});
+    var rectGroup=legendrx.selectAll("rect")
+        .data(lineNamesrx);
+    rectGroup.exit().remove();
+    legendrx.selectAll("rect")
+        .data(lineNamesrx)
+        .enter()
+        .append("rect")
+        .attr("x", function(d,i) {return i*100-20;})
+        .attr("y",-10)
+        .attr("width",12)
+        .attr("height",12)
+        .attr("fill",function(d,i){ return lineColorrx[i];});
+    legendrx.attr("transform","translate("+((w-lineNamesrx.length*100)/2)+","+(h-10)+")");
+}
+
+
+//add lines
+
+
+var lineFunctionrx = d3.svg.line()
+    .interpolate("linear")
+    .x(function(d,i){
+        return xScalerx(i);
+    })
+    .y(function(d){
+        return yScalerx(d);
+    });
+
+//add polyline
+
+
+var pathrx = svg_rx.append("path")
+    .attr("d",lineFunctionrx(datasetrx))
+    .attr("class","thepath")
+    .style("fill","none")
+    .style("stroke-width",2)
+    .style("stroke",lineColorrx[0])
+    .style("stroke-opacity",0.9);
+
+//-----------------------------for network rx chart end-----------------
+
+
+
 //add point
 /*
 svg.selectAll("circle")
@@ -781,6 +965,8 @@ function getData(){
     xMarksm = [];
     datasetn = [];
     xMarksn = [];
+    datasetrx = [];
+    xMarksrx = [];
 
     for(var i = 1;i<dataNum;i++){
         //dataset.push(Math.round(Math.random()*h));
@@ -793,6 +979,8 @@ function getData(){
         xMarksm.push("");
         datasetn.push(0);
         xMarksn.push("");
+        datasetrx.push(0);
+        xMarksrx.push("");
         timeNum = 0;
     }
 
@@ -808,6 +996,7 @@ function changeData(){
         dataset3.shift();
         datasetm.shift();
         datasetn.shift();
+        datasetrx.shift();
         //dataset.push(Math.round(Math.random()*h));
         dataset.push(receCpu0[i].cpu0);
         dataset1.push(receCpu1[i].cpu1);
@@ -815,23 +1004,27 @@ function changeData(){
         dataset3.push(receCpu3[i].cpu3);
         datasetm.push(receMem1[i].mem);
         datasetn.push(receNetwork1[i].network);
+        datasetrx.push(receNetworkrx[i].network_rx);
         finalTime = receTime1[i].timestamp;
 
         //alert(finalTime);
         xMarks.shift();
         xMarksm.shift();
         xMarksn.shift();
+        xMarksrx.shift();
         if(receID1[i].ID % 5 == 0){
             var newDate = new Date();
             newDate.setTime(receTime1[i].timestamp);
             xMarks.push(newDate.getHours()+":"+newDate.getMinutes()+":"+newDate.getSeconds());
             xMarksm.push(newDate.getHours()+":"+newDate.getMinutes()+":"+newDate.getSeconds());
             xMarksn.push(newDate.getHours()+":"+newDate.getMinutes()+":"+newDate.getSeconds());
+            xMarksrx.push(newDate.getHours()+":"+newDate.getMinutes()+":"+newDate.getSeconds());
 
         }else{
             xMarks.push("");
             xMarksm.push("");
             xMarksn.push("");
+            xMarksrx.push("");
         }
     }
 
@@ -965,6 +1158,43 @@ function drawChart() {
         .attr("d", lineFunctionn(datasetn));
 
     //--------------------------------for network chart end--------------------------
+
+
+    //----------------------------for network rx chart----------------------------
+    yAxisrx = d3.svg.axis()
+        .scale(yScalerx)
+        .orient("left")
+        .ticks(10);
+
+    xScalerx = d3.scale.linear()
+        .domain([0,datasetrx.length-1])
+        .range([padding,w-padding]);
+
+    xAxisrx = d3.svg.axis()
+        .scale(xScalerx)
+        .orient("bottom")
+        .ticks(datasetrx.length);
+
+    xBarrx.transition()
+        .duration(300)
+        .text(function(d){
+
+            return xMarksrx[d];
+
+
+        })
+        .call(xAxisrx);
+
+    yBarrx.transition()
+        .duration(300)
+        .call(yAxisrx);
+
+    pathrx//.transition()
+        //.duration(1000)
+        .attr("d", lineFunctionrx(datasetrx));
+
+    //--------------------------------for network rx chart end--------------------------
+
 /*
     svg.selectAll("circle")
         .data(dataset)
@@ -1098,6 +1328,7 @@ function callhandle()
         receAmount = obj.jamount;
 
         receNetwork1 = obj.jnetwork1;
+        receNetworkrx = obj.jnetwork_rx;
         receMem1 = obj.jmem1;
         receCpu0 = obj.jcpu0;
         receCpu1 = obj.jcpu1;
