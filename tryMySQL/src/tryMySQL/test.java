@@ -19,11 +19,17 @@ public class test {
 	        // 避免中文乱码要指定useUnicode和characterEncoding
 	        // 执行数据库操作之前要在数据库管理系统上创建一个数据库，名字自己定，
 	        // 下面语句之前就要先创建javademo数据库
-	        String url = "jdbc:mysql://173.194.82.26:3306/javademo?"
+	        String url = "jdbc:mysql://173.194.108.109:3306/coen691?"
 	                + "user=yangyu&password=8888";
 	        
 	        long ct = System.currentTimeMillis();
 	        String t = String.valueOf(ct);
+	        
+	        ArrayList<String> timestampB = new ArrayList<String>();
+	        ArrayList<String> cpu0B = new ArrayList<String>();
+	        ArrayList<String> cpu1B = new ArrayList<String>();
+	        ArrayList<String> cpu2B = new ArrayList<String>();
+	        ArrayList<String> cpu3B = new ArrayList<String>();
 	        
 	        System.out.println(ct);
 	        System.out.println(t);
@@ -35,7 +41,7 @@ public class test {
 	        System.out.println(nowTime);
 	        System.out.println(sdFormatter);
 	        System.out.println(retStrFormatNowDate);
-	        /*
+	        
 	        try {
 	            // 之所以要使用下面这条语句，是因为要使用MySQL的驱动，所以我们要把它驱动起来，
 	            // 可以通过Class.forName把它加载进去，也可以通过初始化来驱动起来，下面三种形式都可以
@@ -53,14 +59,20 @@ public class test {
 	            
 	                //System.out.println("创建数据表成功");
 	                
-	                sql = "select * from userprofile where name='yang_yu'";
+	                sql = "select * from performance_unhand where id<660";
 	                ResultSet rs = stmt.executeQuery(sql);// executeQuery会返回结果的集合，否则返回空值
 	                System.out.println("ID\ttime\tvalue");
-	                if(rs.next() == true){
-	                	System.out.println(rs.getString("name")+rs.getString("password"));
-	                }else{
-	                	System.out.println("error");
-	                }
+	                while(rs.next() == true){
+	                	timestampB.add(rs.getString("timestamp"));
+	                	cpu0B.add(rs.getString("cpu0"));
+	                	cpu1B.add(rs.getString("cpu1"));
+	                	cpu2B.add(rs.getString("cpu2"));
+	                	cpu3B.add(rs.getString("cpu3"));
+	                	System.out.println(rs.getString("timestamp"));
+	                	//System.out.println(rs.getString("name")+rs.getString("password"));
+	                }//else{
+	                //	System.out.println("error");
+	                //}
 	                
 	                //while (rs.next()) {
 	                //    System.out.println(rs.getInt("ID")+"\t"+rs.getString("time")+"\t"+rs.getString("value") );//+ "\t" + rs.getString() 入如果返回的是int类型可以用getInt()
@@ -76,8 +88,17 @@ public class test {
 	        } finally {
 	        	
 	            conn.close();
-	        }*/
+	        }
 	        
+	        url = "jdbc:mysql://173.194.82.26:3306/javademo?"
+	                + "user=yangyu&password=8888";
+	        
+	        Class.forName("com.mysql.jdbc.Driver");// 动态加载mysql驱动
+            // or:
+            // com.mysql.jdbc.Driver driver = new com.mysql.jdbc.Driver();
+            // or：
+            // new com.mysql.jdbc.Driver();
+ 
 	        
 	        try {
 	            long timeNow = System.currentTimeMillis();
@@ -86,16 +107,18 @@ public class test {
 	            System.out.println("success connect");
 	            conn = DriverManager.getConnection(url);
 	            Statement stmt = conn.createStatement();
-	            for(int i = 0;i<256;i++){
-	            	
-	            	long cpu = Math.round(Math.random()*100);
-	            long mem = Math.round(Math.random()*100);
-	            long network = Math.round(Math.random()*100);
-	            sql = "insert into performance_worth (timestamp,cpu,mem,network) values('"+timeNow+"','"+cpu+"','"+mem+"','"+network+"')";
-	            Boolean rs = stmt.execute(sql);
+	            for(int i = 0;i<cpu0B.size();i++){
+	            	long mem = Math.round(Math.random()*100);
+	            	long network_tx = Math.round(Math.random()*100);
+	            	long network_rx = Math.round(Math.random()*100);
+	            	sql = "insert into tryunhand (timestamp,cpu0,cpu1,cpu2,cpu3,mem,network_tx,network_rx) values('"+timestampB.get(i)+"','"+cpu0B.get(i)+"','"+cpu1B.get(i)+"',"
+	            		+ "'"+cpu2B.get(i)+"','"+cpu3B.get(i)+"','"+mem+"','"+network_tx+"','"+network_rx+"')";
+	            	Boolean rs = stmt.execute(sql);
+	            }
+	           
+	            
 	            timeNow += 5000;
 	           
-	            }
 	             System.out.println("finish");
 	                
 	            	stmt.close();

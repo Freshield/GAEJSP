@@ -51,7 +51,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	System.out.println("redirection_post");
 	String username = request.getParameter("username");
 	String password = request.getParameter("password");
-	String url = "jdbc:mysql://173.194.241.209:3306/realTimeValue?"
+	String url = "jdbc:mysql://173.194.108.109:3306/coen691?"
             + "user=yangyu&password=8888&useUnicode=true&characterEncoding=UTF8";
 	Connection conn = null;
     String sql;
@@ -65,13 +65,13 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
               // Load the class that provides the new "jdbc:google:mysql://" prefix.
               Class.forName("com.mysql.jdbc.GoogleDriver");
               //url = "jdbc:mysql://yangyufreshield:3306/javademo";
-              url = "jdbc:google:mysql://vimms-yangyu:yangyufreshield/javademo?user=root";
+              url = "jdbc:google:mysql://vimms-project:userinfo/coen691?user=root";
               System.out.println("redirection_here1");
              
             } else {
               // Local MySQL instance to use during development.
               Class.forName("com.mysql.jdbc.Driver");
-              url = "jdbc:mysql://173.194.82.26:3306/javademo?user=yangyu&password=8888";
+              url = "jdbc:mysql://173.194.108.109:3306/coen691?user=yangyu&password=8888";
               System.out.println("redirection_here2");
               
               // Alternatively, connect to a Google Cloud SQL instance using:

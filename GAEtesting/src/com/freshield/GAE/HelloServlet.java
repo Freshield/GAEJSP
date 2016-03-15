@@ -175,7 +175,7 @@ import com.google.appengine.api.utils.SystemProperty;
 		String rname = request.getParameter("name");
 		System.out.println(rtimestamp);
 		if(rtimestamp.equals("0")){
-			rtimestamp = "1457836774045";
+			rtimestamp = "1457935421398";
 		}
 		System.out.println(rtimestamp);
 		System.out.println(rname);
@@ -213,8 +213,12 @@ import com.google.appengine.api.utils.SystemProperty;
         try {
         	
         	
-        	ArrayList<String> cpu = new ArrayList<String>();
+        	ArrayList<String> cpu0 = new ArrayList<String>();
+        	ArrayList<String> cpu1 = new ArrayList<String>();
+        	ArrayList<String> cpu2 = new ArrayList<String>();
+        	ArrayList<String> cpu3 = new ArrayList<String>();
         	ArrayList<String> network = new ArrayList<String>();
+        	ArrayList<String> network_rx = new ArrayList<String>();
         	ArrayList<String> ID = new ArrayList<String>();
         	ArrayList<String> mem = new ArrayList<String>();
         	ArrayList<String> timestamp = new ArrayList<String>();
@@ -225,60 +229,90 @@ import com.google.appengine.api.utils.SystemProperty;
             System.out.println("success connect");
             conn = DriverManager.getConnection(url);
             Statement stmt = conn.createStatement();
-            sql = "select * from performance_"+rname+" where timestamp>"+rtimestamp;
+            sql = "select * from tryunhand where timestamp>"+rtimestamp;
             System.out.println(sql);
-            ResultSet rs = stmt.executeQuery(sql);// executeQuery会返回结果的集合，否则返回空值
-            String temp = "";
-                while (rs.next() && (amount <5)) {
-                	cpu.add(rs.getString("cpu"));
-                	network.add(rs.getString("network"));
-                	ID.add(rs.getString("id"));
-                	mem.add(rs.getString("mem"));
-                	timestamp.add(rs.getString("timestamp"));
-                	amount++;
-                	
-                }
-                
-                for(int i = 0;i<amount;i++){
-                	String temped = cpu.get(i);
-                	cpu.set(i, "{\"cpu\":\""+temped+"\"}");
-                	temped = network.get(i);
-                	network.set(i, "{\"network\":\""+temped+"\"}");
-                	 temped = ID.get(i);
-                	 ID.set(i, "{\"ID\":\""+temped+"\"}");
-                	 temped = mem.get(i);
-                	 mem.set(i, "{\"mem\":\""+temped+"\"}");
-                	 temped = timestamp.get(i);
-                	 timestamp.set(i, "{\"timestamp\":\""+temped+"\"}");
-                }
-                System.out.println(cpu);
-                System.out.println(network);
-                System.out.println(ID);
-                System.out.println(mem);
-                System.out.println(timestamp);
-                rs.close();
-	        	stmt.close();
-	        	conn.close();
-	        
-	        	theValue = "{\"jamount\":\""+amount+"\","
-	        			+ "\"jcpu1\":"+cpu+","
-	        			+"\"jmem1\":"+mem+","
-	        			+"\"jnetwork1\":"+network+","
-	        			+"\"jtimestamp1\":"+timestamp+","
-	        			+"\"jID1\":"+ID
-	        			+"}";
-	        	System.out.println(theValue);
-	    		JSONObject JSONvalue = new JSONObject(theValue);
-	    		System.out.println(JSONvalue);
-	    		 //response.setCharacterEncoding("UTF-8");//设置Response的编码方式为UTF-8
+            
+            //for the pysical machines
+            if((rname.equals("unhand")) || (rname.equals("worth"))){
+            	ResultSet rs = stmt.executeQuery(sql);// executeQuery会返回结果的集合，否则返回空值
+                String temp = "";
+                System.out.println("1");
+                    while (rs.next() && (amount <1)) {
+                    	cpu0.add(rs.getString("cpu0"));
+                    	cpu1.add(rs.getString("cpu1"));
+                    	cpu2.add(rs.getString("cpu2"));
+                    	cpu3.add(rs.getString("cpu3"));
+                    	network.add(rs.getString("network_tx"));
+                    	network_rx.add(rs.getString("network_rx"));
+                    	ID.add(rs.getString("id"));
+                    	mem.add(rs.getString("mem"));
+                    	timestamp.add(rs.getString("timestamp"));
+                    	amount++;
 
-	    		    //response.setHeader("Content-type","text/html;charset=UTF-8");//向浏览器发送一个响应头，设置浏览器的解码方式为UTF-8,其实设置了本句，也默认设置了Response的编码方式为UTF-8，但是开发中最好两句结合起来使用
+                        System.out.println("2");
+                    }
 
-	    		    //response.setContentType("text/html;charset=UTF-8");同上句代码作用一样
+                    System.out.println("3");
+                    for(int i = 0;i<amount;i++){
+                    	String temped = cpu0.get(i);
+                    	cpu0.set(i, "{\"cpu0\":\""+temped+"\"}");
+                    	 temped = cpu1.get(i);
+                    	cpu1.set(i, "{\"cpu1\":\""+temped+"\"}");
+                    	 temped = cpu2.get(i);
+                    	cpu2.set(i, "{\"cpu2\":\""+temped+"\"}");
+                    	 temped = cpu3.get(i);
+                    	cpu3.set(i, "{\"cpu3\":\""+temped+"\"}");
+                    	temped = network.get(i);
+                    	network.set(i, "{\"network\":\""+temped+"\"}");
+                    	temped = network_rx.get(i);
+                    	network_rx.set(i, "{\"network_rx\":\""+temped+"\"}");
+                    	 temped = ID.get(i);
+                    	 ID.set(i, "{\"ID\":\""+temped+"\"}");
+                    	 temped = mem.get(i);
+                    	 mem.set(i, "{\"mem\":\""+temped+"\"}");
+                    	 temped = timestamp.get(i);
+                    	 timestamp.set(i, "{\"timestamp\":\""+temped+"\"}");
 
-	    		    //PrintWriter writer = response.getWriter();
+                         System.out.println("4");
+                    }
+                    System.out.println(cpu0);
+                    System.out.println(cpu1);
+                    System.out.println(cpu2);
+                    System.out.println(cpu3);
+                    System.out.println(network);
+                    System.out.println(network_rx);
+                    System.out.println(ID);
+                    System.out.println(mem);
+                    System.out.println(timestamp);
+                    rs.close();
+    	        	stmt.close();
+    	        	conn.close();
+    	        
+    	        	theValue = "{\"jamount\":\""+amount+"\","
+    	        			+ "\"jcpu0\":"+cpu0+","
+    	    	        			+ "\"jcpu1\":"+cpu1+","
+    	    	    	        			+ "\"jcpu2\":"+cpu2+","
+    	    	    	    	        			+ "\"jcpu3\":"+cpu3+","
+    	        			+"\"jmem1\":"+mem+","
+    	        			+"\"jnetwork1\":"+network+","
+    	    	        			+"\"jnetwork_rx\":"+network_rx+","
+    	        			+"\"jtimestamp1\":"+timestamp+","
+    	        			+"\"jID1\":"+ID
+    	        			+"}";
+    	        	System.out.println(theValue);
+    	    		JSONObject JSONvalue = new JSONObject(theValue);
+    	    		System.out.println(JSONvalue);
+    	    		 //response.setCharacterEncoding("UTF-8");//设置Response的编码方式为UTF-8
 
-	    		    writer.write(JSONvalue.toString());
+    	    		    //response.setHeader("Content-type","text/html;charset=UTF-8");//向浏览器发送一个响应头，设置浏览器的解码方式为UTF-8,其实设置了本句，也默认设置了Response的编码方式为UTF-8，但是开发中最好两句结合起来使用
+
+    	    		    //response.setContentType("text/html;charset=UTF-8");同上句代码作用一样
+
+    	    		    //PrintWriter writer = response.getWriter();
+
+    	    		    writer.write(JSONvalue.toString());
+            }
+            
             
         } catch (SQLException e) {
             System.out.println("helloservlet_MySQL操作错误");

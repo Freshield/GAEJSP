@@ -305,7 +305,7 @@ xmlhttp3.onreadystatechange = function(){
         document.getElementById("PANEL_cal_word").innerText = jTime;
 
         for(var i = 1;i<=4;i++){
-            if(document.getElementById("panel_vm"+i+"_smallword").innerText.indexOf("TERMINATED")>-1){
+            if(document.getElementById("panel_vm"+i+"_smallword").innerText.indexOf("HALTED")>-1){
                 document.getElementById("PANEL_VM"+i).style.color = "#333333";
                 if(i<3){
                     document.getElementById("data_vm"+i+"_img").src = "image/panel_data_pm2.png";
@@ -331,8 +331,8 @@ xmlhttp3.onreadystatechange = function(){
 }
 
 function toVmLocation(locationNumber){
-    if(document.getElementById("panel_vm"+locationNumber+"_smallword").innerText.indexOf("TERMINATED")>-1){
-        alert("Sorry, the panel is Terminated");
+    if(document.getElementById("panel_vm"+locationNumber+"_smallword").innerText.indexOf("HALTED")>-1){
+        alert("Sorry, the panel is Halted");
     }else if(document.getElementById("panel_vm"+locationNumber+"_smallword").innerText.indexOf("RUNNING")>-1) {
         window.location.href = "VM" + locationNumber + ".html";
     }else{

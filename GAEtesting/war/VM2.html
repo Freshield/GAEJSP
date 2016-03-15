@@ -156,13 +156,16 @@ var chart1_title = "CPU performance";
 var chart1_subtitle = "%";
 var chartm_title = "Mem performance";
 var chartm_subtitle = "GB";
-var chartn_title = "Network performance";
+var chartn_title = "Network transferred ";
 var chartn_subtitle = "kbs";
-var foot_height = padding;
+var foot_height = 50;
 
 var xmlhttp;
 var receJSON1 = [];
+var receCpu0 = [];
 var receCpu1 = [];
+var receCpu2 = [];
+var receCpu3 = [];
 var receMem1 = [];
 var receNetwork1 = [];
 var receTime1 = [];
@@ -172,8 +175,19 @@ var finalTime = 0;
 
 var ajaxReq = new AjaxRequest();
 var xmlhttp2;
+var lineNames=["cpu0","cpu1","cpu2","cpu3"]; //保存系列名称
+var lineColor=["#F00","#09F","#0F0","#000"];
+var lineNamesm=["Memory"];
+var lineColorm=["#9F79EE"];
+var lineNamesn=["Net tx"];
+var lineColorn=["#FF4040"];
+var lineNamesr=["Net rx"];
+var lineColorr=["#87CEFA"];
 
 var dataset = [];
+var dataset1 = [];
+var dataset2 = [];
+var dataset3 = [];
 var xMarks = [];
 var datasetm = [];
 var xMarksm = [];
@@ -181,6 +195,8 @@ var datasetn = [];
 var xMarksn = [];
 var w = 500;
 var h = 225;
+
+var highestValue = 0;
 
 
 //create data
@@ -234,20 +250,20 @@ var xScale = d3.scale.linear()
     .range([padding,w-padding]);
 
 var yScale = d3.scale.linear()
-    .domain([0,100])
-    .range([h-padding,padding]);
+    .domain([0,1])
+    .range([h-foot_height,padding]);
 
 //define inner line
 
 var xInner = d3.svg.axis()
     .scale(xScale)
-    .tickSize(-(h-padding*2),0,0)
+    .tickSize(-(h-padding-foot_height),0,0)
     .orient("bottom")
     .ticks(dataset.length);
 
 svg.append("g")
     .attr("class","chart1_inner_line")
-    .attr("transform","translate(0,"+(h-padding)+")")
+    .attr("transform","translate(0,"+(h-foot_height)+")")
     .call(xInner)
     .selectAll("text")
     .text("");
@@ -276,7 +292,7 @@ var xAxis = d3.svg.axis()
 
 var xBar = svg.append("g")
     .attr("class","axis")
-    .attr("transform","translate(0,"+(h-padding)+")")
+    .attr("transform","translate(0,"+(h-foot_height)+")")
     .call(xAxis)
     .selectAll("text")
     .text(function(d){
@@ -297,6 +313,43 @@ var yBar = svg.append("g")
     .attr("transform","translate("+padding+",0)")
     .call(yAxis);
 
+//add legend
+
+var legend=svg.append("g");
+addLegend();
+
+
+//添加图例
+function addLegend()
+{
+    var textGroup=legend.selectAll("text")
+        .data(lineNames);
+    textGroup.exit().remove();
+    legend.selectAll("text")
+        .data(lineNames)
+        .enter()
+        .append("text")
+        .text(function(d){return d;})
+        .attr("class","legend")
+        .attr("x", function(d,i) {return i*100;})
+        .attr("y",0)
+        .attr("fill",function(d,i){ return lineColor[i];});
+    var rectGroup=legend.selectAll("rect")
+        .data(lineNames);
+    rectGroup.exit().remove();
+    legend.selectAll("rect")
+        .data(lineNames)
+        .enter()
+        .append("rect")
+        .attr("x", function(d,i) {return i*100-20;})
+        .attr("y",-10)
+        .attr("width",12)
+        .attr("height",12)
+        .attr("fill",function(d,i){ return lineColor[i];});
+    legend.attr("transform","translate("+((w-lineNames.length*100)/2)+","+(h-10)+")");
+}
+
+
 
 //add lines
 
@@ -316,8 +369,33 @@ var path = svg.append("path")
     .attr("d",lineFunction(dataset))
     .attr("class","thepath")
     .style("fill","none")
-    .style("stroke-width",2)
-    .style("stroke","#F00")
+    .style("stroke-width",1)
+    .style("stroke",lineColor[0])
+    .style("stroke-opacity",0.9);
+
+
+var path2 = svg.append("path")
+    .attr("d",lineFunction(dataset1))
+    .attr("class","thepath")
+    .style("fill","none")
+    .style("stroke-width",1)
+    .style("stroke",lineColor[1])
+    .style("stroke-opacity",0.9);
+
+var path3 = svg.append("path")
+    .attr("d",lineFunction(dataset2))
+    .attr("class","thepath")
+    .style("fill","none")
+    .style("stroke-width",1)
+    .style("stroke",lineColor[2])
+    .style("stroke-opacity",0.9);
+
+var path4 = svg.append("path")
+    .attr("d",lineFunction(dataset3))
+    .attr("class","thepath")
+    .style("fill","none")
+    .style("stroke-width",1)
+    .style("stroke",lineColor[3])
     .style("stroke-opacity",0.9);
 
 //-----------------------------for cpu chart end-----------------
@@ -372,20 +450,20 @@ var xScalem = d3.scale.linear()
 
 var yScalem = d3.scale.linear()
     .domain([0,100])
-    .range([h-padding,padding]);
+    .range([h-foot_height,padding]);
 
 //define inner line
 
 var xInnerm = d3.svg.axis()
     .scale(xScalem)
-    .tickSize(-(h-padding*2),0,0)
+    .tickSize(-(h-padding-foot_height),0,0)
     .orient("bottom")
     .ticks(datasetm.length);
 
 
 svg_m.append("g")
     .attr("class","chart1_inner_line")
-    .attr("transform","translate(0,"+(h-padding)+")")
+    .attr("transform","translate(0,"+(h-foot_height)+")")
     .call(xInnerm)
     .selectAll("text")
     .text("");
@@ -414,7 +492,7 @@ var xAxism = d3.svg.axis()
 
 var xBarm = svg_m.append("g")
     .attr("class","axis")
-    .attr("transform","translate(0,"+(h-padding)+")")
+    .attr("transform","translate(0,"+(h-foot_height)+")")
     .call(xAxism)
     .selectAll("text")
     .text(function(d){
@@ -434,6 +512,42 @@ var yBarm = svg_m.append("g")
     .attr("class","axis")
     .attr("transform","translate("+padding+",0)")
     .call(yAxism);
+
+
+var legendm=svg_m.append("g");
+addLegendm();
+
+
+//添加图例
+function addLegendm()
+{
+    var textGroup=legendm.selectAll("text")
+        .data(lineNamesm);
+    textGroup.exit().remove();
+    legendm.selectAll("text")
+        .data(lineNamesm)
+        .enter()
+        .append("text")
+        .text(function(d){return d;})
+        .attr("class","legend")
+        .attr("x", function(d,i) {return i*100;})
+        .attr("y",0)
+        .attr("fill",function(d,i){ return lineColorm[i];});
+    var rectGroup=legendm.selectAll("rect")
+        .data(lineNamesm);
+    rectGroup.exit().remove();
+    legendm.selectAll("rect")
+        .data(lineNamesm)
+        .enter()
+        .append("rect")
+        .attr("x", function(d,i) {return i*100-20;})
+        .attr("y",-10)
+        .attr("width",12)
+        .attr("height",12)
+        .attr("fill",function(d,i){ return lineColorm[i];});
+    legendm.attr("transform","translate("+((w-lineNamesm.length*100)/2)+","+(h-10)+")");
+}
+
 
 
 //add lines
@@ -456,7 +570,7 @@ var pathm = svg_m.append("path")
     .attr("class","thepath")
     .style("fill","none")
     .style("stroke-width",2)
-    .style("stroke","#0F0")
+    .style("stroke",lineColorm[0])
     .style("stroke-opacity",0.9);
 
 //-----------------------------for mem chart end-----------------
@@ -512,20 +626,20 @@ var xScalen = d3.scale.linear()
 
 var yScalen = d3.scale.linear()
     .domain([0,100])
-    .range([h-padding,padding]);
+    .range([h-foot_height,padding]);
 
 //define inner line
 
 var xInnern = d3.svg.axis()
     .scale(xScalen)
-    .tickSize(-(h-padding*2),0,0)
+    .tickSize(-(h-padding-foot_height),0,0)
     .orient("bottom")
     .ticks(datasetn.length);
 
 
 svg_n.append("g")
     .attr("class","chart1_inner_line")
-    .attr("transform","translate(0,"+(h-padding)+")")
+    .attr("transform","translate(0,"+(h-foot_height)+")")
     .call(xInnern)
     .selectAll("text")
     .text("");
@@ -554,7 +668,7 @@ var xAxisn = d3.svg.axis()
 
 var xBarn = svg_n.append("g")
     .attr("class","axis")
-    .attr("transform","translate(0,"+(h-padding)+")")
+    .attr("transform","translate(0,"+(h-foot_height)+")")
     .call(xAxisn)
     .selectAll("text")
     .text(function(d){
@@ -574,6 +688,41 @@ var yBarn = svg_n.append("g")
     .attr("class","axis")
     .attr("transform","translate("+padding+",0)")
     .call(yAxisn);
+
+
+var legendn=svg_n.append("g");
+addLegendn();
+
+
+//添加图例
+function addLegendn()
+{
+    var textGroup=legendn.selectAll("text")
+        .data(lineNamesn);
+    textGroup.exit().remove();
+    legendn.selectAll("text")
+        .data(lineNamesn)
+        .enter()
+        .append("text")
+        .text(function(d){return d;})
+        .attr("class","legend")
+        .attr("x", function(d,i) {return i*100;})
+        .attr("y",0)
+        .attr("fill",function(d,i){ return lineColorn[i];});
+    var rectGroup=legendn.selectAll("rect")
+        .data(lineNamesn);
+    rectGroup.exit().remove();
+    legendn.selectAll("rect")
+        .data(lineNamesn)
+        .enter()
+        .append("rect")
+        .attr("x", function(d,i) {return i*100-20;})
+        .attr("y",-10)
+        .attr("width",12)
+        .attr("height",12)
+        .attr("fill",function(d,i){ return lineColorn[i];});
+    legendn.attr("transform","translate("+((w-lineNamesn.length*100)/2)+","+(h-10)+")");
+}
 
 
 //add lines
@@ -596,7 +745,7 @@ var pathn = svg_n.append("path")
     .attr("class","thepath")
     .style("fill","none")
     .style("stroke-width",2)
-    .style("stroke","#00F")
+    .style("stroke",lineColorn[0])
     .style("stroke-opacity",0.9);
 
 //-----------------------------for network chart end-----------------
@@ -624,6 +773,9 @@ var timeNum;
 function getData(){
     var dataNum = 40;
     dataset = [];
+    dataset1 = [];
+    dataset2 = [];
+    dataset3 = [];
     xMarks = [];
     datasetm = [];
     xMarksm = [];
@@ -633,6 +785,9 @@ function getData(){
     for(var i = 1;i<dataNum;i++){
         //dataset.push(Math.round(Math.random()*h));
         dataset.push(0);
+        dataset1.push(0);
+        dataset2.push(0);
+        dataset3.push(0);
         xMarks.push("");
         datasetm.push(0);
         xMarksm.push("");
@@ -648,10 +803,16 @@ function changeData(){
 
     for(var i = 0;i<receAmount;i++){
         dataset.shift();
+        dataset1.shift();
+        dataset2.shift();
+        dataset3.shift();
         datasetm.shift();
         datasetn.shift();
         //dataset.push(Math.round(Math.random()*h));
-        dataset.push(receCpu1[i].cpu);
+        dataset.push(receCpu0[i].cpu0);
+        dataset1.push(receCpu1[i].cpu1);
+        dataset2.push(receCpu2[i].cpu2);
+        dataset3.push(receCpu3[i].cpu3);
         datasetm.push(receMem1[i].mem);
         datasetn.push(receNetwork1[i].network);
         finalTime = receTime1[i].timestamp;
@@ -720,6 +881,17 @@ function drawChart() {
     path//.transition()
         //.duration(1000)
         .attr("d", lineFunction(dataset));
+    path2//.transition()
+        //.duration(1000)
+        .attr("d", lineFunction(dataset1));
+    path3//.transition()
+        //.duration(1000)
+        .attr("d", lineFunction(dataset2));
+    path4//.transition()
+        //.duration(1000)
+        .attr("d", lineFunction(dataset3));
+
+
 
     //--------------------------------for cpu chart end--------------------------
 
@@ -927,7 +1099,10 @@ function callhandle()
 
         receNetwork1 = obj.jnetwork1;
         receMem1 = obj.jmem1;
+        receCpu0 = obj.jcpu0;
         receCpu1 = obj.jcpu1;
+        receCpu2 = obj.jcpu2;
+        receCpu3 = obj.jcpu3;
         receTime1 = obj.jtimestamp1;
         receID1 = obj.jID1;
 
