@@ -229,7 +229,7 @@ import com.google.appengine.api.utils.SystemProperty;
             System.out.println("success connect");
             conn = DriverManager.getConnection(url);
             Statement stmt = conn.createStatement();
-            sql = "select * from performance_"+rname+" where timestamp>"+rtimestamp;
+            sql = "select * from performance_"+rname+" where id>700";
             System.out.println(sql);
             
             //for the pysical machines
@@ -291,7 +291,7 @@ import com.google.appengine.api.utils.SystemProperty;
                     	
                     	temp = rs.getString("mem");
                     	if(temp.equals("")){
-                    		temp = "34359738368";
+                    		temp = "0";
                     	}
                     	System.out.println("temp"+temp);
 

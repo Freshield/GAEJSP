@@ -238,51 +238,27 @@ import com.google.appengine.api.utils.SystemProperty;
                 String temp = "";
                 System.out.println("1");
                     while (rs.next() && (amount <1)) {
-                    	temp = rs.getString("cpu0");
-                    	if(temp.equals("")){
-                    		temp = "0";
-                    	}
-                    	double buf = Double.parseDouble(temp);
+                    	double buf = Double.parseDouble(rs.getString("cpu0"));
                     	String result = String.format("%.3f", buf);
                     	cpu0.add(result);
                     	
-                    	temp = rs.getString("cpu1");
-                    	if(temp.equals("")){
-                    		temp = "0";
-                    	}
-                        buf = Double.parseDouble(temp);
+                        buf = Double.parseDouble(rs.getString("cpu1"));
                     	result = String.format("%.3f", buf);
                     	cpu1.add(result);
                     	
-                    	temp = rs.getString("cpu2");
-                    	if(temp.equals("")){
-                    		temp = "0";
-                    	}
-                    	buf = Double.parseDouble(temp);
+                    	buf = Double.parseDouble(rs.getString("cpu2"));
                     	result = String.format("%.3f", buf);
                     	cpu2.add(result);
                     	
-                    	temp = rs.getString("cpu3");
-                    	if(temp.equals("")){
-                    		temp = "0";
-                    	}
-                    	buf = Double.parseDouble(temp);
+                    	buf = Double.parseDouble(rs.getString("cpu3"));
                     	result = String.format("%.3f", buf);
                     	cpu3.add(result);
                     	
-                    	temp = rs.getString("network_tx");
-                    	if(temp.equals("")){
-                    		temp = "0";
-                    	}
-                    	buf = Double.parseDouble(temp);
+                    	buf = Double.parseDouble(rs.getString("network_tx"));
                     	result = String.format("%.3f", buf);
                     	network.add(result);
                     	
-                    	temp = rs.getString("network_rx");
-                    	if(temp.equals("")){
-                    		temp = "0";
-                    	}
-                    	buf = Double.parseDouble(temp);
+                    	buf = Double.parseDouble(rs.getString("network_rx"));
                     	result = String.format("%.3f", buf);
                     	network_rx.add(result);
                     	
@@ -290,9 +266,6 @@ import com.google.appengine.api.utils.SystemProperty;
                     	
                     	
                     	temp = rs.getString("mem");
-                    	if(temp.equals("")){
-                    		temp = "34359738368";
-                    	}
                     	System.out.println("temp"+temp);
 
                     	System.out.println("34359738368l- Double.parseDouble(temp)"+(34359738368l- Double.parseDouble(temp))/34359738368l);
