@@ -229,7 +229,7 @@ import com.google.appengine.api.utils.SystemProperty;
             System.out.println("success connect");
             conn = DriverManager.getConnection(url);
             Statement stmt = conn.createStatement();
-            sql = "select * from performance_"+rname+" where timestamp>"+rtimestamp;
+            sql = "select * from tryunhand where timestamp>"+rtimestamp;
             System.out.println(sql);
             
             //for the pysical machines
@@ -238,45 +238,19 @@ import com.google.appengine.api.utils.SystemProperty;
                 String temp = "";
                 System.out.println("1");
                     while (rs.next() && (amount <1)) {
-                    	double buf = Double.parseDouble(rs.getString("cpu0"));
-                    	String result = String.format("%.3f", buf);
-                    	cpu0.add(result);
-                    	
-                        buf = Double.parseDouble(rs.getString("cpu1"));
-                    	result = String.format("%.3f", buf);
-                    	cpu1.add(result);
-                    	
-                    	buf = Double.parseDouble(rs.getString("cpu2"));
-                    	result = String.format("%.3f", buf);
-                    	cpu2.add(result);
-                    	
-                    	buf = Double.parseDouble(rs.getString("cpu3"));
-                    	result = String.format("%.3f", buf);
-                    	cpu3.add(result);
-                    	
-                    	buf = Double.parseDouble(rs.getString("network_tx"));
-                    	result = String.format("%.3f", buf);
-                    	network.add(result);
-                    	
-                    	buf = Double.parseDouble(rs.getString("network_rx"));
-                    	result = String.format("%.3f", buf);
-                    	network_rx.add(result);
-                    	
+                    	cpu0.add(rs.getString("cpu0"));
+                    	cpu1.add(rs.getString("cpu1"));
+                    	cpu2.add(rs.getString("cpu2"));
+                    	cpu3.add(rs.getString("cpu3"));
+                    	network.add(rs.getString("network_tx"));
+                    	network_rx.add(rs.getString("network_rx"));
                     	ID.add(rs.getString("id"));
                     	
-                    	
+                    	long highest = 34359738368;
                     	temp = rs.getString("mem");
-                    	System.out.println("temp"+temp);
-
-                    	System.out.println("34359738368l- Double.parseDouble(temp)"+(34359738368l- Double.parseDouble(temp))/34359738368l);
-                    	buf = ((34359738368l- Double.parseDouble(temp))*100)/34359738368l;
-                    	System.out.println("buf"+buf);
-                    	result = String.format("%.3f",buf);
-                    	System.out.println("result"+result);
-                    	mem.add(result);
-                    	
+                    	long buf = (highest- Long.parseLong(temp))*100;
+                    	mem.add(rs.getString("mem"));
                     	timestamp.add(rs.getString("timestamp"));
-                    	
                     	amount++;
 
                         System.out.println("2");

@@ -232,11 +232,11 @@ var head_height = 20;
 var chart1_title = "CPU performance";
 var chart1_subtitle = "%";
 var chartm_title = "Mem performance";
-var chartm_subtitle = "GB";
+var chartm_subtitle = "%";
 var chartn_title = "Network transferred ";
 var chartn_subtitle = "kbs";
 var chartrx_title = "Network received ";
-var chartrx_subtitle = "kbs";
+var chartrx_subtitle = "kps";
 var foot_height = 50;
 
 var xmlhttp;
@@ -707,7 +707,7 @@ var xScalen = d3.scale.linear()
     .range([padding,w-padding]);
 
 var yScalen = d3.scale.linear()
-    .domain([0,100])
+    .domain([0,1000])
     .range([h-foot_height,padding]);
 
 //define inner line
@@ -881,7 +881,7 @@ var xScalerx = d3.scale.linear()
     .range([padding,w-padding]);
 
 var yScalerx = d3.scale.linear()
-    .domain([0,100])
+    .domain([0,1000])
     .range([h-foot_height,padding]);
 
 //define inner line
@@ -1164,7 +1164,7 @@ function drawChart() {
 
     //----------------------------for mem chart----------------------------
     yAxism = d3.svg.axis()
-        .scale(yScale)
+        .scale(yScalem)
         .orient("left")
         .ticks(10);
 
