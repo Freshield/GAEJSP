@@ -52,7 +52,7 @@
         <div id="resources">
             <div id="DashBoard" class="resources_row"
                  onclick="window.location.href='dashboard.html'">
-                <div class="resources_cell cell_img"><img src="image/nav_home.png" class="nav_img" height="24" ></div>
+                <div class="resources_cell cell_img"><img src="image/nav_home.png" class="nav_img"  height="24"></div>
                 <div class="resources_cell cell_word">Dashboard</div>
                 <div class="resources_cell cell_res"><</div>
             </div>
@@ -68,16 +68,15 @@
                 <div id="navname_vm2" class="resources_cell cell_word">PM2</div>
                 <div class="resources_cell cell_res"><</div>
             </div>
-            <div id="VM3" class="resources_row"  style="background-color: red"
+            <div id="VM3" class="resources_row"
                  onclick="toVmLocation('3');">
                 <div class="resources_cell cell_img"><img src="image/nav_data_vm.png"  class="nav_img" height="24"></div>
                 <div id="navname_vm3" class="resources_cell cell_word">VM1</div>
                 <div class="resources_cell cell_res"><</div>
             </div>
-            <div id="VM4" class="resources_row"
+            <div id="VM4" class="resources_row"  style="background-color: red"
                  onclick="toVmLocation('4');">
-                <div class="resources_cell cell_img"><img src="image/nav_data_vm.png" class="nav_img"
-height="24"></div>
+                <div class="resources_cell cell_img"><img src="image/nav_data_vm.png"  class="nav_img" height="24"></div>
                 <div id="navname_vm4" class="resources_cell cell_word">VM2</div>
                 <div class="resources_cell cell_res"><</div>
             </div>
@@ -118,7 +117,14 @@ height="24"></div>
                 <svg id="chart_mem"></svg>
             </div>
             <div id="secondrow_chart3" class="secondrow_cell">
-                <svg id="chart_net"></svg>
+                <svg id="chart_net">
+                    <defs>
+                        <linearGradient id="grad1" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:rgb(255,255,0);stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                </svg>
             </div>
             <div id="secondrow_chart4" class="secondrow_cell">
                 <svg id="chart_net_rx"></svg>
@@ -207,8 +213,8 @@ height="24"></div>
             document.getElementById("navname_vm2").innerText = jPM2_name;
             document.getElementById("navname_vm3").innerText = jVM1_name;
             document.getElementById("navname_vm4").innerText = jVM2_name;
-            document.getElementById("PANEL_header_word").innerText = jVM1_name;
-            document.getElementById("PANEL_path_word").innerText = "Home  >  "+jVM1_name;
+            document.getElementById("PANEL_header_word").innerText = jVM2_name;
+            document.getElementById("PANEL_path_word").innerText = "Home  >  "+jVM2_name;
 
             document.getElementById("PANEL_cal_word").innerText = jTime;
 
@@ -791,15 +797,14 @@ height="24"></div>
         });
 
     //add polyline
-
-
     var pathn = svg_n.append("path")
-        .attr("d",lineFunctionn(datasetn))
+        .attr("d",lineFunctionn(datasetn)+" L "+(w-padding)+","+(h-foot_height)+" L "+padding+","+(h-foot_height))
         .attr("class","thepath")
-        .style("fill","none")
-        .style("stroke-width",2)
+        .style("fill","url(#grad1)")
+        .style("fill-opacity",0.6)
+        .style("stroke-width",1)
         .style("stroke",lineColorn[0])
-        .style("stroke-opacity",0.9);
+        .style("stroke-opacity",0.6);
 
     //-----------------------------for network chart end-----------------
 
@@ -968,10 +973,11 @@ height="24"></div>
 
 
     var pathrx = svg_rx.append("path")
-        .attr("d",lineFunctionrx(datasetrx))
+        .attr("d",lineFunctionrx(datasetrx)+" L "+(w-padding)+","+(h-foot_height)+" L "+padding+","+(h-foot_height))
         .attr("class","thepath")
-        .style("fill","none")
-        .style("stroke-width",2)
+        .style("fill",lineColorrx[0])
+        .style("fill-opacity",0.5)
+        .style("stroke-width",1)
         .style("stroke",lineColorrx[0])
         .style("stroke-opacity",0.9);
 
@@ -1178,7 +1184,7 @@ height="24"></div>
 
         pathn//.transition()
             //.duration(1000)
-            .attr("d", lineFunctionn(datasetn));
+            .attr("d", lineFunctionn(datasetn)+" L "+(w-padding)+","+(h-foot_height)+" L "+padding+","+(h-foot_height));
 
         //--------------------------------for network chart end--------------------------
 
@@ -1214,7 +1220,7 @@ height="24"></div>
 
         pathrx//.transition()
             //.duration(1000)
-            .attr("d", lineFunctionrx(datasetrx));
+            .attr("d", lineFunctionrx(datasetrx)+" L "+(w-padding)+","+(h-foot_height)+" L "+padding+","+(h-foot_height));
 
         //--------------------------------for network rx chart end--------------------------
 
@@ -1269,7 +1275,7 @@ height="24"></div>
 
      */
 
-    str = "name=flask" + "&timestamp=" + finalTime;
+    str = "name=flake" + "&timestamp=" + finalTime;
 
     CreateXMLHttpRequest();
     xmlhttp2.onreadystatechange = callhandle;
@@ -1296,7 +1302,7 @@ height="24"></div>
          }
          }*/
 
-        str = "name=flask" + "&timestamp=" + finalTime;
+        str = "name=flake" + "&timestamp=" + finalTime;
 
         CreateXMLHttpRequest();
         xmlhttp2.onreadystatechange = callhandle;

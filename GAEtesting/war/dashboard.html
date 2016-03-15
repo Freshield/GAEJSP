@@ -51,30 +51,30 @@
         <div id="resources">
             <div id="DashBoard" class="resources_row" style="background-color: red"
                  onclick="window.location.href='dashboard.html'">
-                <div class="resources_cell cell_img"><img src="image/nav_home.png" height="24"></div>
+                <div class="resources_cell cell_img"><img src="image/nav_home.png" class="nav_img" height="24"></div>
                 <div class="resources_cell cell_word">Dashboard</div>
                 <div class="resources_cell cell_res"><</div>
             </div>
             <div id="VM1" class="resources_row">
-                <div class="resources_cell cell_img"><img src="image/nav_vm.png" height="24"></div>
+                <div class="resources_cell cell_img"><img src="image/nav_data_pm.png"  class="nav_img" height="24"></div>
                 <div id="navname_vm1" class="resources_cell cell_word"
                      onclick="toVmLocation('1');">PM1</div>
                 <div class="resources_cell cell_res"><</div>
             </div>
             <div id="VM2" class="resources_row">
-                <div class="resources_cell cell_img"><img src="image/nav_vm.png" height="24"></div>
+                <div class="resources_cell cell_img"><img src="image/nav_data_pm.png"  class="nav_img" height="24"></div>
                 <div id="navname_vm2" class="resources_cell cell_word"
                      onclick="toVmLocation('2');">PM2</div>
                 <div class="resources_cell cell_res"><</div>
             </div>
             <div id="VM3" class="resources_row">
-                <div class="resources_cell cell_img"><img src="image/nav_vm.png" height="24"></div>
+                <div class="resources_cell cell_img"><img src="image/nav_data_vm.png"  class="nav_img" height="24"></div>
                 <div id="navname_vm3" class="resources_cell cell_word"
                      onclick="toVmLocation('3');">VM1</div>
                 <div class="resources_cell cell_res"><</div>
             </div>
             <div id="VM4" class="resources_row">
-                <div class="resources_cell cell_img"><img src="image/nav_vm.png" height="24"></div>
+                <div class="resources_cell cell_img"><img src="image/nav_data_vm.png"  class="nav_img" height="24"></div>
                 <div id="navname_vm4" class="resources_cell cell_word"
                      onclick="toVmLocation('4');">VM2</div>
                 <div class="resources_cell cell_res"><</div>
@@ -125,9 +125,9 @@
                         <ul class="nav_menu">
                             <li class="nav_menu-item"><a  target="_blank">Control<img src="image/data_right.png" class="data_right_img"></a>
                                 <ul id="nav_submenu_3" class="nav_submenu">
-                                    <li class="nav_submenu-item"> <a onclick="CMD('shutdown','VM1');" target="_blank">Shutdown</a></li>
+                                    <li class="nav_submenu-item"> <a onclick="CMD('halted','VM1');" target="_blank">Halted</a></li>
                                     <li class="nav_submenu-item"> <a onclick="CMD('restart','VM1');" target="_blank">Restart</a></li>
-                                    <li class="nav_submenu-item"> <a  onclick="CMD('stop','VM1');" target="_blank">Stop</a></li>
+                                    <li class="nav_submenu-item"> <a  onclick="CMD('pauses','VM1');" target="_blank">Pauses</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -151,9 +151,9 @@
                         <ul class="nav_menu">
                             <li class="nav_menu-item"><a  target="_blank">Control<img src="image/data_right.png" class="data_right_img"></a>
                                 <ul id="nav_submenu_4" class="nav_submenu">
-                                    <li class="nav_submenu-item"> <a onclick="CMD('shutdown','VM2');" target="_blank">Shutdown</a></li>
+                                    <li class="nav_submenu-item"> <a onclick="CMD('halted','VM2');" target="_blank">Halted</a></li>
                                     <li class="nav_submenu-item"> <a onclick="CMD('restart','VM2');" target="_blank">Restart</a></li>
-                                    <li class="nav_submenu-item"> <a  onclick="CMD('sleep','VM2');" target="_blank">Sleep</a></li>
+                                    <li class="nav_submenu-item"> <a  onclick="CMD('pauses','VM2');" target="_blank">Pauses</a></li>
                                 </ul>
                             </li>
                         </ul>

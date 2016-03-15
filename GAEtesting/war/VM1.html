@@ -52,31 +52,31 @@
         <div id="resources">
             <div id="DashBoard" class="resources_row"
                  onclick="window.location.href='dashboard.html'">
-                <div class="resources_cell cell_img"><img src="image/nav_home.png" height="24"></div>
+                <div class="resources_cell cell_img"><img src="image/nav_home.png" class="nav_img" height="24"></div>
                 <div class="resources_cell cell_word">Dashboard</div>
                 <div class="resources_cell cell_res"><</div>
             </div>
             <div id="VM1" class="resources_row" style="background-color: red"
                  onclick="toVmLocation('1');">
-                <div class="resources_cell cell_img"><img src="image/nav_vm.png" height="24"></div>
+                <div class="resources_cell cell_img"><img src="image/nav_data_pm.png"  class="nav_img" height="24"></div>
                 <div id="navname_vm1" class="resources_cell cell_word">PM1</div>
                 <div class="resources_cell cell_res"><</div>
             </div>
             <div id="VM2" class="resources_row"
                  onclick="toVmLocation('2');">
-                <div class="resources_cell cell_img"><img src="image/nav_vm.png" height="24"></div>
+                <div class="resources_cell cell_img"><img src="image/nav_data_pm.png"  class="nav_img" height="24"></div>
                 <div id="navname_vm2" class="resources_cell cell_word">PM2</div>
                 <div class="resources_cell cell_res"><</div>
             </div>
             <div id="VM3" class="resources_row"
                  onclick="toVmLocation('3');">
-                <div class="resources_cell cell_img"><img src="image/nav_vm.png" height="24"></div>
+                <div class="resources_cell cell_img"><img src="image/nav_data_vm.png"  class="nav_img" height="24"></div>
                 <div id="navname_vm3" class="resources_cell cell_word">VM1</div>
                 <div class="resources_cell cell_res"><</div>
             </div>
             <div id="VM4" class="resources_row"
                  onclick="toVmLocation('4');">
-                <div class="resources_cell cell_img"><img src="image/nav_vm.png" height="24"></div>
+                <div class="resources_cell cell_img"><img src="image/nav_data_vm.png"  class="nav_img" height="24"></div>
                 <div id="navname_vm4" class="resources_cell cell_word">VM2</div>
                 <div class="resources_cell cell_res"><</div>
             </div>
@@ -227,14 +227,14 @@
     }
 
     //---------------------chart cpu----------------------------------------------------
-    var padding = 30;
+    var padding = 40;
     var head_height = 20;
     var chart1_title = "CPU performance";
     var chart1_subtitle = "%";
     var chartm_title = "Mem performance";
     var chartm_subtitle = "%";
     var chartn_title = "Network transferred ";
-    var chartn_subtitle = "kbs";
+    var chartn_subtitle = "kps";
     var chartrx_title = "Network received ";
     var chartrx_subtitle = "kps";
     var foot_height = 50;

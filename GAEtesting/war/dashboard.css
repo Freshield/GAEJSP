@@ -141,9 +141,14 @@ header#top_header{
     vertical-align: middle;
 }
 
-.cell_image{
+.cell_image img{
     width: 40px;
-    text-align: center;
+
+
+}
+
+.nav_img{
+    margin-left: 5px;
 }
 
 .cell_word{

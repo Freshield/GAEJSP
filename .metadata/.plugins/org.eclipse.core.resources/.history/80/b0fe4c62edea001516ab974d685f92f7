@@ -55,7 +55,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
    throws ServletException, IOException {
 	//generate the timestamp
 	
-	long timeNow = System.currentTimeMillis();
+	long timeNow = System.currentTimeMillis()/1000;
 	
 	//store the info get
 	
