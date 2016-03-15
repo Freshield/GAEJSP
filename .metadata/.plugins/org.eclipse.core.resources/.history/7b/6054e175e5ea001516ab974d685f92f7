@@ -404,12 +404,12 @@ import com.google.appengine.api.utils.SystemProperty;
                     	
                     	temp = rs.getString("mem");
                     	if(temp.equals("")){
-                    		temp = "4294967296";
+                    		temp = "4294934528";
                     	}
                     	System.out.println("temp"+temp);
 
-                    	System.out.println("4294967296- Double.parseDouble(temp)"+(4294967296l- Double.parseDouble(temp))/4294967296l);
-                    	buf = ((4294967296l- Double.parseDouble(temp))*100)/4294967296l;
+                    	System.out.println("4294934528- Double.parseDouble(temp)"+(4294934528l- Double.parseDouble(temp))/4294934528l);
+                    	buf = ((4294934528l- Double.parseDouble(temp))*100)/4294934528l;
                     	System.out.println("buf"+buf);
                     	result = String.format("%.3f",buf);
                     	System.out.println("result"+result);
