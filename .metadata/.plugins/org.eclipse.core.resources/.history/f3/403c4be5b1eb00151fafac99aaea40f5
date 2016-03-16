@@ -97,26 +97,24 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
 		   ArrayList<String> PMs = new ArrayList<String>(); 
 		   
 		   
-		   long timeNow = System.currentTimeMillis()-70000;
+		   long timeNow = System.currentTimeMillis()-10000;
 	       //Class.forName("com.mysql.jdbc.Driver");// 动态加载mysql驱动
 	   	//Class.forName("com.mysql.jdbc.GoogleDriver");
 		   System.out.println("statusget_success connect");
            conn = DriverManager.getConnection(url);
            Statement stmt = conn.createStatement();
-           
-           
            //get all data from vm_table
            sql = "select * from vm_table where timestamp>"+timeNow+" and vmname='flask'";
            System.out.println(sql);
            ResultSet rs = stmt.executeQuery(sql);// executeQuery会返回结果的集合，否则返回空值
-           System.out.println(rs.next());
+           System.out.println(rs);
            String temp = "";
            if(rs.next()) {
            	System.out.println(rs);
            	temp = rs.getString("vmname");
            	System.out.println(temp);
            	VMs.add(temp);
-           	temp = rs.getString("status").toLowerCase();
+           	temp = rs.getString("status");
            	System.out.println(temp);
            	VMs.add(temp);
            	System.out.println(VMs);
@@ -136,7 +134,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
            	temp = rs.getString("vmname");
            	System.out.println(temp);
            	VMs.add(temp);
-           	temp = rs.getString("status").toLowerCase();
+           	temp = rs.getString("status");
            	System.out.println(temp);
            	VMs.add(temp);
            	System.out.println(VMs);
@@ -156,7 +154,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
            	temp = rs.getString("hostname");
            	System.out.println(temp);
            	PMs.add(temp);
-           	temp = rs.getString("status").toLowerCase();
+           	temp = rs.getString("status");
            	System.out.println(temp);
            	PMs.add(temp);
            	System.out.println(PMs);
@@ -174,7 +172,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
            	temp = rs.getString("hostname");
            	System.out.println(temp);
            	PMs.add(temp);
-           	temp = rs.getString("status").toLowerCase();
+           	temp = rs.getString("status");
            	System.out.println(temp);
            	PMs.add(temp);
            	System.out.println(PMs);

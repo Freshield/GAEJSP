@@ -97,7 +97,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
 		   ArrayList<String> PMs = new ArrayList<String>(); 
 		   
 		   
-		   long timeNow = System.currentTimeMillis()-70000;
+		   long timeNow = System.currentTimeMillis()-20000;
 	       //Class.forName("com.mysql.jdbc.Driver");// ¶¯Ì¬¼ÓÔØmysqlÇý¶¯
 	   	//Class.forName("com.mysql.jdbc.GoogleDriver");
 		   System.out.println("statusget_success connect");
@@ -116,7 +116,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
            	temp = rs.getString("vmname");
            	System.out.println(temp);
            	VMs.add(temp);
-           	temp = rs.getString("status").toLowerCase();
+           	temp = rs.getString("status");
            	System.out.println(temp);
            	VMs.add(temp);
            	System.out.println(VMs);
@@ -136,7 +136,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
            	temp = rs.getString("vmname");
            	System.out.println(temp);
            	VMs.add(temp);
-           	temp = rs.getString("status").toLowerCase();
+           	temp = rs.getString("status");
            	System.out.println(temp);
            	VMs.add(temp);
            	System.out.println(VMs);
@@ -156,7 +156,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
            	temp = rs.getString("hostname");
            	System.out.println(temp);
            	PMs.add(temp);
-           	temp = rs.getString("status").toLowerCase();
+           	temp = rs.getString("status");
            	System.out.println(temp);
            	PMs.add(temp);
            	System.out.println(PMs);
@@ -174,7 +174,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
            	temp = rs.getString("hostname");
            	System.out.println(temp);
            	PMs.add(temp);
-           	temp = rs.getString("status").toLowerCase();
+           	temp = rs.getString("status");
            	System.out.println(temp);
            	PMs.add(temp);
            	System.out.println(PMs);

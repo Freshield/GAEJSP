@@ -165,7 +165,7 @@ import com.google.appengine.api.utils.SystemProperty;
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 	    throws ServletException, IOException {
-		long timeNow = System.currentTimeMillis()-50000;
+		long timeNow = System.currentTimeMillis();
 		//store the info get
 		
 		response.setContentType("charset=UTF-8");
@@ -175,8 +175,7 @@ import com.google.appengine.api.utils.SystemProperty;
 		String rname = request.getParameter("name");
 		System.out.println(rtimestamp);
 		if(rtimestamp.equals("0")){
-			//rtimestamp = "1457935421398";
-			rtimestamp = timeNow+"";
+			rtimestamp = "1457935421398";
 		}
 		System.out.println(rtimestamp);
 		System.out.println(rname);
@@ -238,7 +237,7 @@ import com.google.appengine.api.utils.SystemProperty;
             	ResultSet rs = stmt.executeQuery(sql);// executeQuery会返回结果的集合，否则返回空值
                 String temp = "";
                 System.out.println("1");
-                    while (rs.next() && (amount <5)) {
+                    while (rs.next() && (amount <1)) {
                     	temp = rs.getString("cpu0");
                     	if(temp.equals("")){
                     		temp = "0";
@@ -374,7 +373,7 @@ import com.google.appengine.api.utils.SystemProperty;
             	ResultSet rs = stmt.executeQuery(sql);// executeQuery会返回结果的集合，否则返回空值
                 String temp = "";
                 System.out.println("1");
-                    while (rs.next() && (amount <5)) {
+                    while (rs.next() && (amount <1)) {
                     	
                     	temp = rs.getString("cpu");
                     	if(temp.equals("")){

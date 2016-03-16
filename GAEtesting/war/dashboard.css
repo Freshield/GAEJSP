@@ -3,6 +3,7 @@ html, body {
     font-family:      Georgia, "Times New Roman", Times, serif;
     font-size:        medium;
     margin:           0px;
+    background-color: rgb(47,50,58);
 }
 /*---------------------header part-----------------------*/
 header#top_header{
@@ -77,7 +78,7 @@ header#top_header{
 }
 /*-----------------------navigator part----------------------*/
 #navigator{
-    background-color: #444444;
+    background-color: rgb(248,248,248);
     margin: 0px;
     padding: 0px;
     width: 200px;
@@ -94,7 +95,7 @@ header#top_header{
     list-style-type: none;
     padding: 0px;
 
-    color: #cccccc;
+    color: #aaaaaa;
 }
 
 #none{
@@ -114,9 +115,9 @@ header#top_header{
 #input_search{
     border: 0px;
     outline: none;
-    background: #444444;
-    color: #cccccc;
-    border-bottom: 1px solid #cccccc;
+    background: rgb(248,248,248);
+    color: #aaaaaa;
+    border-bottom: 1px solid #aaaaaa;
     margin-left: 10px;
 }
 #resources{
@@ -153,16 +154,16 @@ header#top_header{
 
 .cell_word{
     text-align: center;
-    /*width: 70px;*/
+    width: 146px;
 }
 
 .cell_res{
-    width: 15px;
+    width: 16px;
 }
 
 
 #DashBoard:hover,#VM1:hover,#VM2:hover,#VM3:hover,#VM4:hover{
-    background-color: red;
+    background-color: rgb(47,50,58);
     cursor: pointer;
 }
 /*---------------------------------PANEL part------------------------*/
@@ -188,11 +189,11 @@ header#top_header{
 #PANEL_header_word{
     line-height: 55px;
     font-size: xx-large;
-    color: #666666;
+    color: white;
 }
 
 #PANEL_header_word2{
-    color: #888888;
+    color: white;
 }
 
 #PANEL_header_img{
@@ -205,14 +206,16 @@ header#top_header{
     margin: 0px;
     height: 25px;
     line-height: 25px;
-    background-color: rgb(238,238,238);
+    background-color: rgb(47,50,58);
+    border-bottom: 1px solid white;
 
-    color: #555555;
+    color: white;
 }
 #PANEL_calendar{
     /*width: 150px;*/
     float: right;
-    background-color:rgb(231,81,81);
+    background-color:#E83015;
+    border-radius: 5px 5px 0px 0px;
     color: white;
 }
 
@@ -225,6 +228,10 @@ header#top_header{
     height: 470px;
     border-spacing: 10px;
 
+}
+
+#PANEL_cal_word{
+    color: white;
 }
 
 
@@ -344,30 +351,36 @@ header#top_header{
 .axis path,
 .axis line {
     fill: none;
-    stroke: black;
+    stroke: rgb(61,64,73);
     shape-rendering: crispEdges;
+    color: white;
 }
 .axis text {
     font-family: sans-serif;
     font-size: 11px;
+    color: white;
+    fill: white;
 }
 
 .chart1_title{
     font-family: Verdana,sans-serif;
     font-size: 18px;
     text-anchor: middle;
+    fill: white;
+    color: white;
 }
 
 .chart1_subtitle{
     font-family: Verdana;
     font-size: 12px;
     text-anchor: middle;
-    fill: #666;
+    fill: white;
+    color: white;
 }
 
 .chart1_inner_line{
     fill: none;
-    stroke:#E7E7E7;
+    stroke:rgb(61,64,73);
     shape-rendering: crispEdges;
 }
 
