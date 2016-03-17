@@ -5335,3 +5335,27 @@ GIF89a  � ��  ,       D ;
 !ENTRY com.google.gdt.eclipse.suite.ext 1 0 2016-03-16 20:23:17.864
 !MESSAGE Analytics ping response: 200: OK
 GIF89a  � ��  ,       D ;
+
+!ENTRY com.google.gdt.eclipse.core 4 0 2016-03-16 20:41:00.176
+!MESSAGE Could not change permissions on the launch config file
+
+!ENTRY com.google.gdt.eclipse.core 4 0 2016-03-16 20:42:44.508
+!MESSAGE Could not change permissions on the launch config file
+
+!ENTRY com.google.gdt.eclipse.core 4 0 2016-03-16 20:43:53.143
+!MESSAGE Could not change permissions on the launch config file
+
+!ENTRY com.google.gdt.eclipse.core 4 0 2016-03-16 20:45:23.574
+!MESSAGE Could not change permissions on the launch config file
+
+!ENTRY com.google.gdt.eclipse.core 4 0 2016-03-16 20:47:42.704
+!MESSAGE Could not change permissions on the launch config file
+
+!ENTRY com.google.gdt.eclipse.core 4 0 2016-03-16 20:49:05.141
+!MESSAGE Could not change permissions on the launch config file
+
+!ENTRY com.google.gdt.eclipse.core 4 0 2016-03-16 20:50:31.916
+!MESSAGE Could not change permissions on the launch config file
+
+!ENTRY com.google.gdt.eclipse.core 4 0 2016-03-16 20:54:01.618
+!MESSAGE Could not change permissions on the launch config file
