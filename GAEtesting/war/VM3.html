@@ -1296,6 +1296,37 @@ height="24"></div>
          }
          }*/
 
+        xmlhttp3 = CreateXHR();
+        xmlhttp3.open("GET","/STATUSget",true);
+        xmlhttp3.send();
+
+        xmlhttp3.onreadystatechange = function(){
+            if(xmlhttp3.readyState == 4 && xmlhttp3.status == 200){
+                var getedJSON = xmlhttp3.responseText;
+                var obj = JSON.parse(getedJSON);
+
+
+
+                jVM1_name = obj.vm1_name;
+                jVM1_status = obj.vm1_status;
+                jVM2_name = obj.vm2_name;
+                jVM2_status = obj.vm2_status;
+                jPM1_name = obj.pm1_name;
+                jPM1_status =  obj.pm1_status;
+                jPM2_name =  obj.pm2_name;
+                jPM2_status =  obj.pm2_status;
+                jTime = obj.time_now;
+
+                statusQueue = [];
+                statusQueue.push(jPM1_status);
+                statusQueue.push(jPM2_status);
+                statusQueue.push(jVM1_status);
+                statusQueue.push(jVM2_status);
+
+
+            }
+        }
+
         str = "name=flask" + "&timestamp=" + finalTime;
 
         CreateXMLHttpRequest();
