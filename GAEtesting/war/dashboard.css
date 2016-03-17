@@ -246,7 +246,12 @@ header#top_header{
 }
 
 #PANEL_VM1{
-    background-color: rgb(39,196,227);
+    background: -webkit-linear-gradient(left,rgba(255,64,64,0),rgba(255,64,64,1)); /* Safari 5.1 - 6 */
+    background: -o-linear-gradient(right,rgba(255,64,64,0),rgba(255,64,64,1)); /* Opera 11.1 - 12*/
+    background: -moz-linear-gradient(right,rgba(255,64,64,0),rgba(255,64,64,1)); /* Firefox 3.6 - 15*/
+    background: linear-gradient(to right, rgba(255,64,64,0), rgba(255,64,64,1)); /* 标准的语法 */
+
+    /*fill-opacity: 0.7;*/
 }
 #PANEL_VM1_up, .panel_up{
     height: 180px;
@@ -280,7 +285,7 @@ header#top_header{
     height: 40px;
     line-height: 30px;
     border-radius: 0px 0px 10px 10px;
-    background-color: rgb(33,149,201);
+    background-color: rgba(255,64,64,0.9);
 }
 .panel_downword{
 
@@ -297,26 +302,39 @@ header#top_header{
     margin: 7px 5px 5px 5px;
 }
 #PANEL_VM2{
-    background-color: rgb(40,183,121);
+    /*background-color: rgba(147,123,242,0.8);*/
+    background: -webkit-linear-gradient(left,rgba(0,122,225,0),rgba(0,122,225,1)); /* Safari 5.1 - 6 */
+    background: -o-linear-gradient(right,rgba(0,122,225,0),rgba(0,122,225,1)); /* Opera 11.1 - 12*/
+    background: -moz-linear-gradient(right,rgba(0,122,225,0),rgba(0,122,225,1)); /* Firefox 3.6 - 15*/
+    background: linear-gradient(to right, rgba(0,122,225,0), rgba(0,122,225,1)); /* 标准的语法 */
+
 }
 #PANEL_VM2_down{
-    background-color: rgb(23,166,104);
+    background-color: rgba(0,122,225,0.9);
 }
 
 
 #PANEL_VM3{
-    background-color: rgb(133,43,153);
+    background: -webkit-linear-gradient(left,rgba(28,168,221,0),rgba(28,168,221,1)); /* Safari 5.1 - 6 */
+    background: -o-linear-gradient(right,rgba(28,168,221,0),rgba(28,168,221,1)); /* Opera 11.1 - 12*/
+    background: -moz-linear-gradient(right,rgba(28,168,221,0),rgba(28,168,221,1)); /* Firefox 3.6 - 15*/
+    background: linear-gradient(to right, rgba(28,168,221,0), rgba(28,168,221,1)); /* 标准的语法 */
+
 }
 #PANEL_VM3_down{
-    background-color: rgb(116,29,136);
+    background-color: rgba(28,168,221,0.9);
 }
 
 #PANEL_VM4{
-    background-color: rgb(255,196,103);
+    background: -webkit-linear-gradient(left,rgba(106,73,237,0),rgba(106,73,237,1)); /* Safari 5.1 - 6 */
+    background: -o-linear-gradient(right,rgba(106,73,237,0),rgba(106,73,237,1)); /* Opera 11.1 - 12*/
+    background: -moz-linear-gradient(right,rgba(106,73,237,0),rgba(106,73,237,1)); /* Firefox 3.6 - 15*/
+    background: linear-gradient(to right, rgba(106,73,237,0), rgba(106,73,237,1)); /* 标准的语法 */
+
 }
 
 #PANEL_VM4_down{
-    background-color: rgb(224,167,74);
+    background-color: rgba(106,73,237,0.9);
 }
 /*-------------------------chart------------------------------------*/
 #PANEL_chart{
@@ -443,9 +461,9 @@ nav ul {
 }
 #nav_submenu_3{
 
-    background-color: rgb(116,29,136);
+    background-color: rgba(28,168,221,0.9);
 }
 #nav_submenu_4{
 
-    background-color: rgb(224,167,74);
+    background-color: rgba(106,73,237,0.9);
 }

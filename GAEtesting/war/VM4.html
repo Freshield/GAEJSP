@@ -1113,6 +1113,11 @@
                 .domain([0,10])
                 .range([h-foot_height,padding]);
 
+        }else if(Math.max.apply(Math,dataset) >=10){
+            yScale = d3.scale.linear()
+                .domain([0,100])
+                .range([h-foot_height,padding]);
+
         }else{
 
             yScale = d3.scale.linear()
