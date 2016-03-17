@@ -99,7 +99,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
 		   
 		   long timeNow = System.currentTimeMillis()-70000;
 		   //cause the pm unhand problem
-		   //timeNow = 1458180682530l;
+		   timeNow = 1458180682530l;
 	       //Class.forName("com.mysql.jdbc.Driver");// ¶¯Ì¬¼ÓÔØmysqlÇý¶¯
 	   	//Class.forName("com.mysql.jdbc.GoogleDriver");
 		   System.out.println("statusget_success connect");

@@ -7,7 +7,7 @@
     <script type="text/javascript" src="d3/d3.js"></script>
     <script type="text/javascript" src="ajax.js"></script>
     <link type="text/css" rel="stylesheet" href="dashboard.css">
-
+    <link rel="shortcut icon" href="image/favicon.ico">
 </head>
 <!------------------body part----------------->
 <body>
@@ -59,26 +59,26 @@
             <div id="VM1" class="resources_row"
                  onclick="toVmLocation('1');">
                 <div class="resources_cell cell_img"><img src="image/nav_data_pm.png"  class="nav_img" height="24"></div>
-                <div id="navname_vm1" class="resources_cell cell_word">PM1</div>
+                <div id="navname_vm1" class="resources_cell cell_word">PM1 <img id="status_vm1" src="image/halted.png" height="12"></div>
                 <div class="resources_cell cell_res"><</div>
             </div>
             <div id="VM2" class="resources_row"
                  onclick="toVmLocation('2');">
                 <div class="resources_cell cell_img"><img src="image/nav_data_pm.png"  class="nav_img" height="24"></div>
-                <div id="navname_vm2" class="resources_cell cell_word">PM2</div>
+                <div id="navname_vm2" class="resources_cell cell_word">PM2 <img id="status_vm2" src="image/halted.png" height="12"></div>
                 <div class="resources_cell cell_res"><</div>
             </div>
             <div id="VM3" class="resources_row"   style="background-color: rgb(47,50,58)"
                  onclick="toVmLocation('3');">
                 <div class="resources_cell cell_img"><img src="image/nav_data_vm.png"  class="nav_img" height="24"></div>
-                <div id="navname_vm3" class="resources_cell cell_word"style="color: rgb(28,168,221)">VM1</div>
+                <div id="navname_vm3" class="resources_cell cell_word"style="color: rgb(28,168,221)">VM1 <img id="status_vm3" src="image/halted.png" height="12"></div>
                 <div class="resources_cell cell_res"><</div>
             </div>
             <div id="VM4" class="resources_row"
                  onclick="toVmLocation('4');">
                 <div class="resources_cell cell_img"><img src="image/nav_data_vm.png" class="nav_img"
 height="24"></div>
-                <div id="navname_vm4" class="resources_cell cell_word">VM2</div>
+                <div id="navname_vm4" class="resources_cell cell_word">VM2 <img id="status_vm4" src="image/halted.png" height="12"></div>
                 <div class="resources_cell cell_res"><</div>
             </div>
 
@@ -232,14 +232,29 @@ height="24"></div>
             statusQueue.push(jVM1_status);
             statusQueue.push(jVM2_status);
 
-            document.getElementById("navname_vm1").innerText = jPM1_name;
-            document.getElementById("navname_vm2").innerText = jPM2_name;
-            document.getElementById("navname_vm3").innerText = jVM1_name;
-            document.getElementById("navname_vm4").innerText = jVM2_name;
+            document.getElementById("navname_vm1").firstChild.nodeValue = jPM1_name+" ";
+            document.getElementById("navname_vm2").firstChild.nodeValue = jPM2_name+" ";
+            document.getElementById("navname_vm3").firstChild.nodeValue = jVM1_name+" ";
+            document.getElementById("navname_vm4").firstChild.nodeValue = jVM2_name+" ";
+
             document.getElementById("PANEL_header_word").innerText = jVM1_name;
             document.getElementById("PANEL_path_word").innerText = "Home  >  "+jVM1_name;
 
             document.getElementById("PANEL_cal_word").innerText = jTime;
+
+            for(var i = 1;i<=4;i++){
+                if(statusQueue[i-1] == "halted"){
+
+                    document.getElementById("status_vm"+i).src = "image/halted.png";
+
+                }else if(statusQueue[i-1] == "running"){
+
+                    document.getElementById("status_vm"+i).src = "image/running.png";
+
+                }else{
+
+                }
+            }
 
 
 
@@ -1108,15 +1123,15 @@ height="24"></div>
 
 
         //----------------------------for cpu chart----------------------------
-        if(Math.max.apply(Math,dataset) >=1){
+        if(Math.max.apply(Math,dataset) >=10){
 
-            yScale = d3.scale.linear()
-                .domain([0,10])
-                .range([h-foot_height,padding]);
-
-        }else if(Math.max.apply(Math,dataset) >=10){
             yScale = d3.scale.linear()
                 .domain([0,100])
+                .range([h-foot_height,padding]);
+
+        }else if(Math.max.apply(Math,dataset) >=1){
+            yScale = d3.scale.linear()
+                .domain([0,10])
                 .range([h-foot_height,padding]);
 
         }else{
@@ -1407,11 +1422,41 @@ height="24"></div>
                 jPM2_status =  obj.pm2_status;
                 jTime = obj.time_now;
 
-                statusQueue = [];
-                statusQueue.push(jPM1_status);
-                statusQueue.push(jPM2_status);
-                statusQueue.push(jVM1_status);
-                statusQueue.push(jVM2_status);
+
+
+                if((jPM1_status!=statusQueue[0])||
+                    (jPM2_status!=statusQueue[1])||
+                    (jVM1_status!=statusQueue[2])||
+                    (jVM2_status!=statusQueue[3])) {
+
+                    statusQueue = [];
+                    statusQueue.push(jPM1_status);
+                    statusQueue.push(jPM2_status);
+                    statusQueue.push(jVM1_status);
+                    statusQueue.push(jVM2_status);
+
+                    document.getElementById("navname_vm1").firstChild.nodeValue = jPM1_name + " ";
+                    document.getElementById("navname_vm2").firstChild.nodeValue = jPM2_name + " ";
+                    document.getElementById("navname_vm3").firstChild.nodeValue = jVM1_name + " ";
+                    document.getElementById("navname_vm4").firstChild.nodeValue = jVM2_name + " ";
+
+                    for(var i = 1;i<=4;i++){
+                        if(statusQueue[i-1] == "halted"){
+
+                            document.getElementById("status_vm"+i).src = "image/halted.png";
+
+                        }else if(statusQueue[i-1] == "running"){
+
+                            alert("2");
+
+                            document.getElementById("status_vm"+i).src = "image/running.png";
+
+                        }else{
+
+                        }
+                    }
+
+                }
 
 
             }

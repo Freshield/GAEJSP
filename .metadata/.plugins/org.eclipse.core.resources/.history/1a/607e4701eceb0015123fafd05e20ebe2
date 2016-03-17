@@ -24,7 +24,6 @@ public class test {
 	        
 	        long ct = System.currentTimeMillis();
 	        String t = String.valueOf(ct);
-	        long dt = 1458180989194l;
 	        
 	        ArrayList<String> timestampB = new ArrayList<String>();
 	        ArrayList<String> cpu0B = new ArrayList<String>();
@@ -35,14 +34,14 @@ public class test {
 	        System.out.println(ct);
 	        System.out.println(t);
 	        
-	        Date nowTime = new Date(dt);
+	        Date nowTime = new Date(System.currentTimeMillis());
 	        SimpleDateFormat sdFormatter = new SimpleDateFormat("MMM d'th', yyyy",Locale.ENGLISH);
 	        String retStrFormatNowDate = sdFormatter.format(nowTime);
 	        
 	        System.out.println(nowTime);
 	        System.out.println(sdFormatter);
 	        System.out.println(retStrFormatNowDate);
-	        /*
+	        
 	        try {
 	            // 之所以要使用下面这条语句，是因为要使用MySQL的驱动，所以我们要把它驱动起来，
 	            // 可以通过Class.forName把它加载进去，也可以通过初始化来驱动起来，下面三种形式都可以
@@ -133,7 +132,7 @@ public class test {
 	        } finally {
 	            
 	        }
-	        */
+	        
 	        
 	 /*
 	        try {
