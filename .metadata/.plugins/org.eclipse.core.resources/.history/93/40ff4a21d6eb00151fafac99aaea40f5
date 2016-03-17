@@ -198,7 +198,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
                rs.close();
 	        	stmt.close();
 	        	conn.close();
-	        	TimeZone.setDefault(TimeZone.getTimeZone("GMT-5:00"));
+	        	
 	        	Date nowTime = new Date(System.currentTimeMillis());
 		        SimpleDateFormat sdFormatter = new SimpleDateFormat("MMM d'th', yyyy",Locale.ENGLISH);
 		        String jTime = sdFormatter.format(nowTime);

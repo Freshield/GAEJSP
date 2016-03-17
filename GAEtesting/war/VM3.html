@@ -112,16 +112,45 @@ height="24"></div>
         <div id="PANEL_chart">
 
             <div id="secondrow_chart1" class="secondrow_cell">
-                <svg id="chart_cpu"></svg>
+                <svg id="chart_cpu">
+                    <defs>
+                        <linearGradient id="grad0" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:rgb(23,142,187);stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:rgb(63,185,231);stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                </svg>
             </div>
             <div id="secondrow_chart2" class="secondrow_cell">
-                <svg id="chart_mem"></svg>
+                <svg id="chart_mem">
+                    <defs>
+                        <linearGradient id="grad1" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:rgb(50,17,181);stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:rgb(147,123,242);stop-opacity:1" />
+
+                        </linearGradient>
+                    </defs>
+                </svg>
             </div>
             <div id="secondrow_chart3" class="secondrow_cell">
-                <svg id="chart_net"></svg>
+                <svg id="chart_net">
+                    <defs>
+                        <linearGradient id="grad2" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:rgb(241,124,103);stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                </svg>
             </div>
             <div id="secondrow_chart4" class="secondrow_cell">
-                <svg id="chart_net_rx"></svg>
+                <svg id="chart_net_rx">
+                    <defs>
+                        <linearGradient id="grad3" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:rgb(1,104,188);stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:rgb(88,196,255);stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                </svg>
             </div>
 
 
@@ -254,13 +283,13 @@ height="24"></div>
     var ajaxReq = new AjaxRequest();
     var xmlhttp2;
     var lineNames=["cpu"]; //保存系列名称
-    var lineColor=["#0F0"];
+    var lineColor=["rgb(28,168,221)"];
     var lineNamesm=["Memory"];
-    var lineColorm=["#9F79EE"];
+    var lineColorm=["rgb(106,73,237)"];
     var lineNamesn=["Net tx"];
     var lineColorn=["#FF4040"];
     var lineNamesrx=["Net rx"];
-    var lineColorrx=["#87CEFA"];
+    var lineColorrx=["rgb(0,122,225)"];
 
     var dataset = [];
     var xMarks = [];
@@ -293,9 +322,9 @@ height="24"></div>
         .attr("y",0)
         .attr("width",w)
         .attr("height",h)
-        .style("fill","#FFF")
-        .style("stroke-width",2)
-        .style("stroke","#E7E7E7");
+        .style("fill","rgb(47,50,58)")
+        .style("stroke-width",1)
+        .style("stroke","rgb(47,50,58)");
 
     //add titles
 
@@ -443,12 +472,13 @@ height="24"></div>
 
 
     var path = svg.append("path")
-        .attr("d",lineFunction(dataset))
+        .attr("d",lineFunction(dataset)+" L "+(w-padding)+","+(h-foot_height)+" L "+padding+","+(h-foot_height))
         .attr("class","thepath")
-        .style("fill","none")
-        .style("stroke-width",2)
+        .style("fill","url(#grad0)")
+        .style("fill-opacity",0.6)
+        .style("stroke-width",1)
         .style("stroke",lineColor[0])
-        .style("stroke-opacity",0.9);
+        .style("stroke-opacity",0.6);
 
 
     //-----------------------------for cpu chart end-----------------
@@ -468,9 +498,9 @@ height="24"></div>
         .attr("y",0)
         .attr("width",w)
         .attr("height",h)
-        .style("fill","#FFF")
+        .style("fill","rgb(47,50,58)")
         .style("stroke-width",2)
-        .style("stroke","#E7E7E7");
+        .style("stroke","rgb(47,50,58)");
 
     //add titles
 
@@ -502,7 +532,7 @@ height="24"></div>
         .range([padding,w-padding]);
 
     var yScalem = d3.scale.linear()
-        .domain([0,100])
+        .domain([0,10])
         .range([h-foot_height,padding]);
 
     //define inner line
@@ -619,12 +649,13 @@ height="24"></div>
 
 
     var pathm = svg_m.append("path")
-        .attr("d",lineFunctionm(datasetm))
+        .attr("d",lineFunctionm(datasetm)+" L "+(w-padding)+","+(h-foot_height)+" L "+padding+","+(h-foot_height))
         .attr("class","thepath")
-        .style("fill","none")
-        .style("stroke-width",2)
+        .style("fill","url(#grad1)")
+        .style("fill-opacity",0.6)
+        .style("stroke-width",1)
         .style("stroke",lineColorm[0])
-        .style("stroke-opacity",0.9);
+        .style("stroke-opacity",0.6);
 
     //-----------------------------for mem chart end-----------------
 
@@ -644,9 +675,9 @@ height="24"></div>
         .attr("y",0)
         .attr("width",w)
         .attr("height",h)
-        .style("fill","#FFF")
+        .style("fill","rgb(47,50,58)")
         .style("stroke-width",2)
-        .style("stroke","#E7E7E7");
+        .style("stroke","rgb(47,50,58)");
 
     //add titles
 
@@ -678,7 +709,7 @@ height="24"></div>
         .range([padding,w-padding]);
 
     var yScalen = d3.scale.linear()
-        .domain([0,1000])
+        .domain([0,100])
         .range([h-foot_height,padding]);
 
     //define inner line
@@ -794,12 +825,13 @@ height="24"></div>
 
 
     var pathn = svg_n.append("path")
-        .attr("d",lineFunctionn(datasetn))
+        .attr("d",lineFunctionn(datasetn)+" L "+(w-padding)+","+(h-foot_height)+" L "+padding+","+(h-foot_height))
         .attr("class","thepath")
-        .style("fill","none")
-        .style("stroke-width",2)
+        .style("fill","url(#grad2)")
+        .style("fill-opacity",0.6)
+        .style("stroke-width",1)
         .style("stroke",lineColorn[0])
-        .style("stroke-opacity",0.9);
+        .style("stroke-opacity",0.6);
 
     //-----------------------------for network chart end-----------------
 
@@ -818,9 +850,9 @@ height="24"></div>
         .attr("y",0)
         .attr("width",w)
         .attr("height",h)
-        .style("fill","#FFF")
+        .style("fill","rgb(47,50,58)")
         .style("stroke-width",2)
-        .style("stroke","#E7E7E7");
+        .style("stroke","rgb(47,50,58)");
 
     //add titles
 
@@ -852,7 +884,7 @@ height="24"></div>
         .range([padding,w-padding]);
 
     var yScalerx = d3.scale.linear()
-        .domain([0,1000])
+        .domain([0,100])
         .range([h-foot_height,padding]);
 
     //define inner line
@@ -968,12 +1000,13 @@ height="24"></div>
 
 
     var pathrx = svg_rx.append("path")
-        .attr("d",lineFunctionrx(datasetrx))
+        .attr("d",lineFunctionrx(datasetrx)+" L "+(w-padding)+","+(h-foot_height)+" L "+padding+","+(h-foot_height))
         .attr("class","thepath")
-        .style("fill","none")
-        .style("stroke-width",2)
+        .style("fill","url(#grad3)")
+        .style("fill-opacity",0.6)
+        .style("stroke-width",1)
         .style("stroke",lineColorrx[0])
-        .style("stroke-opacity",0.9);
+        .style("stroke-opacity",0.6);
 
     //-----------------------------for network rx chart end-----------------
 
@@ -1033,10 +1066,10 @@ height="24"></div>
             datasetn.shift();
             datasetrx.shift();
             //dataset.push(Math.round(Math.random()*h));
-            dataset.push(receCpu1[i].cpu1);
-            datasetm.push(receMem1[i].mem);
-            datasetn.push(receNetwork1[i].network);
-            datasetrx.push(receNetworkrx[i].network_rx);
+            dataset.push(parseFloat(receCpu1[i].cpu1));
+            datasetm.push(parseFloat(receMem1[i].mem));
+            datasetn.push(parseFloat(receNetwork1[i].network));
+            datasetrx.push(parseFloat(receNetworkrx[i].network_rx));
             finalTime = receTime1[i].timestamp;
 
             //alert(finalTime);
@@ -1075,6 +1108,19 @@ height="24"></div>
 
 
         //----------------------------for cpu chart----------------------------
+        if(Math.max.apply(Math,dataset) >=1){
+
+            yScale = d3.scale.linear()
+                .domain([0,10])
+                .range([h-foot_height,padding]);
+
+        }else{
+
+            yScale = d3.scale.linear()
+                .domain([0,1])
+                .range([h-foot_height,padding]);
+        }
+
         yAxis = d3.svg.axis()
             .scale(yScale)
             .orient("left")
@@ -1105,7 +1151,7 @@ height="24"></div>
 
         path//.transition()
             //.duration(1000)
-            .attr("d", lineFunction(dataset));
+            .attr("d", lineFunction(dataset)+" L "+(w-padding)+","+(h-foot_height)+" L "+padding+","+(h-foot_height));
 
 
 
@@ -1113,6 +1159,19 @@ height="24"></div>
 
 
         //----------------------------for mem chart----------------------------
+        if(Math.max.apply(Math,datasetm) >=10){
+
+            yScalem = d3.scale.linear()
+                .domain([0,100])
+                .range([h-foot_height,padding]);
+
+        }else{
+
+            yScalem = d3.scale.linear()
+                .domain([0,10])
+                .range([h-foot_height,padding]);
+        }
+
         yAxism = d3.svg.axis()
             .scale(yScalem)
             .orient("left")
@@ -1143,11 +1202,24 @@ height="24"></div>
 
         pathm//.transition()
             //.duration(1000)
-            .attr("d", lineFunctionm(datasetm));
+            .attr("d", lineFunctionm(datasetm)+" L "+(w-padding)+","+(h-foot_height)+" L "+padding+","+(h-foot_height));
 
         //--------------------------------for mem chart end--------------------------
 
         //----------------------------for network chart----------------------------
+        if(Math.max.apply(Math,datasetn) >=100){
+
+            yScalen = d3.scale.linear()
+                .domain([0,1000])
+                .range([h-foot_height,padding]);
+
+        }else{
+
+            yScalen = d3.scale.linear()
+                .domain([0,100])
+                .range([h-foot_height,padding]);
+        }
+
         yAxisn = d3.svg.axis()
             .scale(yScalen)
             .orient("left")
@@ -1178,12 +1250,25 @@ height="24"></div>
 
         pathn//.transition()
             //.duration(1000)
-            .attr("d", lineFunctionn(datasetn));
+            .attr("d", lineFunctionn(datasetn)+" L "+(w-padding)+","+(h-foot_height)+" L "+padding+","+(h-foot_height));
 
         //--------------------------------for network chart end--------------------------
 
 
         //----------------------------for network rx chart----------------------------
+        if(Math.max.apply(Math,datasetrx) >=100){
+
+            yScalerx = d3.scale.linear()
+                .domain([0,1000])
+                .range([h-foot_height,padding]);
+
+        }else{
+
+            yScalerx = d3.scale.linear()
+                .domain([0,100])
+                .range([h-foot_height,padding]);
+        }
+
         yAxisrx = d3.svg.axis()
             .scale(yScalerx)
             .orient("left")
@@ -1214,7 +1299,7 @@ height="24"></div>
 
         pathrx//.transition()
             //.duration(1000)
-            .attr("d", lineFunctionrx(datasetrx));
+            .attr("d", lineFunctionrx(datasetrx)+" L "+(w-padding)+","+(h-foot_height)+" L "+padding+","+(h-foot_height));
 
         //--------------------------------for network rx chart end--------------------------
 
