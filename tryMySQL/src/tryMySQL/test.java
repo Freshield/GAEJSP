@@ -34,10 +34,24 @@ public class test {
 	        
 	        System.out.println(ct);
 	        System.out.println(t);
-	        
-	        Date nowTime = new Date(dt);
-	        SimpleDateFormat sdFormatter = new SimpleDateFormat("MMM d'th', yyyy",Locale.ENGLISH);
+	                               
+	        Date nowTime = new Date(1458333952857l);
+	        SimpleDateFormat sdFormatter = new SimpleDateFormat("hh:mm:ss MMM d'th', yyyy",Locale.ENGLISH);
 	        String retStrFormatNowDate = sdFormatter.format(nowTime);
+	        
+	        System.out.println("time1"+retStrFormatNowDate);
+	        
+	        nowTime = new Date(1458333961780l);
+	        sdFormatter = new SimpleDateFormat("hh:mm:ss MMM d'th', yyyy",Locale.ENGLISH);
+	        retStrFormatNowDate = sdFormatter.format(nowTime);
+
+	        System.out.println("time2"+retStrFormatNowDate);
+
+	        nowTime = new Date(ct);
+	        sdFormatter = new SimpleDateFormat("hh:mm:ss MMM d'th', yyyy",Locale.ENGLISH);
+	        retStrFormatNowDate = sdFormatter.format(nowTime);
+
+	        System.out.println("time3"+retStrFormatNowDate);
 	        
 	        System.out.println(nowTime);
 	        System.out.println(sdFormatter);

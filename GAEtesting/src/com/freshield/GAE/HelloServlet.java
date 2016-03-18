@@ -224,6 +224,7 @@ import com.google.appengine.api.utils.SystemProperty;
         	ArrayList<String> mem = new ArrayList<String>();
         	ArrayList<String> timestamp = new ArrayList<String>();
         	int amount = 0;
+        	double kpstemp = 0;
             //Class.forName("com.mysql.jdbc.Driver");// ¶¯Ì¬¼ÓÔØmysqlÇý¶¯
         	//Class.forName("com.mysql.jdbc.GoogleDriver");
             //url = "jdbc:google:mysql://vimms-project:userinfo/realTimeValue?user=yangyu&password=8888&useUnicode=true&characterEncoding=UTF8";
@@ -309,7 +310,7 @@ import com.google.appengine.api.utils.SystemProperty;
 
                         System.out.println("2");
                     }
-
+                    
                     System.out.println("3");
                     for(int i = 0;i<amount;i++){
                     	String temped = cpu0.get(i);
@@ -321,8 +322,13 @@ import com.google.appengine.api.utils.SystemProperty;
                     	 temped = cpu3.get(i);
                     	cpu3.set(i, "{\"cpu3\":\""+temped+"\"}");
                     	temped = network.get(i);
+                    	System.out.println(temped);
+                    	kpstemp = Double.parseDouble(temped)/1000;
+                    	temped = String.format("%.3f", kpstemp);
                     	network.set(i, "{\"network\":\""+temped+"\"}");
                     	temped = network_rx.get(i);
+                    	kpstemp = Double.parseDouble(temped)/1000;
+                    	temped = String.format("%.3f", kpstemp);
                     	network_rx.set(i, "{\"network_rx\":\""+temped+"\"}");
                     	 temped = ID.get(i);
                     	 ID.set(i, "{\"ID\":\""+temped+"\"}");
@@ -388,7 +394,7 @@ import com.google.appengine.api.utils.SystemProperty;
                     	if(temp.equals("")){
                     		temp = "0";
                     	}
-                    	buf = Double.parseDouble(temp);
+                    	buf = Double.parseDouble(temp)/1000;
                     	result = String.format("%.3f", buf);
                     	network.add(result);
                     	
@@ -396,7 +402,7 @@ import com.google.appengine.api.utils.SystemProperty;
                     	if(temp.equals("")){
                     		temp = "0";
                     	}
-                    	buf = Double.parseDouble(temp);
+                    	buf = Double.parseDouble(temp)/1000;
                     	result = String.format("%.3f", buf);
                     	network_rx.add(result);
                     	

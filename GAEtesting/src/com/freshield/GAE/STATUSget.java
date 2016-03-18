@@ -23,6 +23,7 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
+
 import com.google.appengine.api.utils.SystemProperty;
 
 
@@ -122,7 +123,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
            	temp = rs.getString("status").toLowerCase();
            	
            	timeTemp = rs.getString("timestamp");
-           	if((timeNow - Long.parseLong(timeTemp))>18000){
+           	if((timeNow - Long.parseLong(timeTemp))>180000){
            		temp = "unknow";
            	
            	}
@@ -148,7 +149,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
            	temp = rs.getString("status").toLowerCase();
            	
            	timeTemp = rs.getString("timestamp");
-           	if((timeNow - Long.parseLong(timeTemp))>18000){
+           	if((timeNow - Long.parseLong(timeTemp))>180000){
            		temp = "unknow";
            	
            	}
@@ -175,7 +176,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
            	temp = rs.getString("status").toLowerCase();
            	
            	timeTemp = rs.getString("timestamp");
-           	if((timeNow - Long.parseLong(timeTemp))>18000){
+           	if((timeNow - Long.parseLong(timeTemp))>180000){
            		temp = "unknow";
            	
            	}
@@ -202,7 +203,15 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
            	temp = rs.getString("status").toLowerCase();
            	
            	timeTemp = rs.getString("timestamp");
-           	if((timeNow - Long.parseLong(timeTemp))>18000){
+           	
+           	Date nowTime = new Date(Long.parseLong(timeTemp));
+	        SimpleDateFormat sdFormatter = new SimpleDateFormat("hh:mm MMM d'th', yyyy",Locale.ENGLISH);
+	        String retStrFormatNowDate = sdFormatter.format(nowTime);
+	        
+           	System.out.println("timenow"+timeNow);
+           	
+           	System.out.println("timeget"+Long.parseLong(timeTemp));
+           	if((timeNow - Long.parseLong(timeTemp))>180000){
            		temp = "unknow";
            	
            	}

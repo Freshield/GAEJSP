@@ -1274,7 +1274,7 @@ height="24"></div>
                 .duration(2000)
                 .call(yAxisn);
 
-            chartsubn.text("Mbs");
+            chartsubn.text("Mps");
 
             lineFunctionn = d3.svg.line()
                 .interpolate("linear")
@@ -1292,9 +1292,19 @@ height="24"></div>
 
         }else{
 
-            yScalen = d3.scale.linear()
-                .domain([0,100])
-                .range([h-foot_height,padding]);
+            if(Math.max.apply(Math,datasetn) >=10){
+                yScalen = d3.scale.linear()
+                    .domain([0,100])
+                    .range([h-foot_height,padding]);
+            }else if(Math.max.apply(Math,datasetn) >=1){
+                yScalen = d3.scale.linear()
+                    .domain([0,10])
+                    .range([h-foot_height,padding]);}
+            else{
+                yScalen = d3.scale.linear()
+                    .domain([0, 1])
+                    .range([h - foot_height, padding]);
+            }
 
             yAxisn = d3.svg.axis()
                 .scale(yScalen)
@@ -1384,7 +1394,7 @@ height="24"></div>
                 .duration(2000)
                 .call(yAxisrx);
 
-            chartsubrx.text("Mbs");
+            chartsubrx.text("Mps");
 
             lineFunctionrx = d3.svg.line()
                 .interpolate("linear")
@@ -1395,6 +1405,7 @@ height="24"></div>
                     return yScalerx(d/1000);
                 });
 
+
             pathrx//.transition()
                 //.duration(1000)
                 .attr("d", lineFunctionrx(datasetrx)+" L "+(w-padding)+","+(h-foot_height)+" L "+padding+","+(h-foot_height));
@@ -1402,9 +1413,19 @@ height="24"></div>
 
         }else{
 
-            yScalerx = d3.scale.linear()
-                .domain([0,100])
-                .range([h-foot_height,padding]);
+            if(Math.max.apply(Math,datasetrx) >=10){
+                yScalerx = d3.scale.linear()
+                    .domain([0,100])
+                    .range([h-foot_height,padding]);
+            }else if(Math.max.apply(Math,datasetrx) >=1){
+                yScalerx = d3.scale.linear()
+                    .domain([0,10])
+                    .range([h-foot_height,padding]);}
+            else{
+                yScalerx = d3.scale.linear()
+                    .domain([0, 1])
+                    .range([h - foot_height, padding]);
+            }
 
             yAxisrx = d3.svg.axis()
                 .scale(yScalerx)

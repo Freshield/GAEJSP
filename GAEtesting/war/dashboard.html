@@ -511,7 +511,7 @@ setTimeout(function(){
 
 
 function toVmLocation(locationNumber){
-   
+
     if((document.getElementById("panel_vm"+locationNumber+"_smallword").innerText.indexOf("HALTED")>-1)||(document.getElementById("panel_vm"+locationNumber+"_smallword").innerText.indexOf("UNKNOW")>-1)){
         alert("Sorry, the panel is Not Running");
     }else if(document.getElementById("panel_vm"+locationNumber+"_smallword").innerText.indexOf("RUNNING")>-1) {
