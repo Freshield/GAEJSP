@@ -95,10 +95,9 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
 		   String jPM2_status = "";
 		   ArrayList<String> VMs = new ArrayList<String>();
 		   ArrayList<String> PMs = new ArrayList<String>(); 
-		   String timeTemp = "";
 		   
 		   
-		   long timeNow = System.currentTimeMillis();
+		   long timeNow = System.currentTimeMillis()-70000;
 		   //cause the pm unhand problem
 		   //timeNow = 1458243590409l;
 	       //Class.forName("com.mysql.jdbc.Driver");// ¶¯Ì¬¼ÓÔØmysqlÇý¶¯
@@ -120,16 +119,10 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
            	System.out.println(temp);
            	VMs.add(temp);
            	temp = rs.getString("status").toLowerCase();
-           	
-           	timeTemp = rs.getString("timestamp");
-           	if((timeNow - Long.parseLong(timeTemp))>18000){
-           		temp = "unknow";
-           	
-           	}
-           	
            	System.out.println(temp);
            	VMs.add(temp);
            	System.out.println(VMs);
+           	
            	
             }
            
@@ -146,13 +139,6 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
            	System.out.println(temp);
            	VMs.add(temp);
            	temp = rs.getString("status").toLowerCase();
-           	
-           	timeTemp = rs.getString("timestamp");
-           	if((timeNow - Long.parseLong(timeTemp))>18000){
-           		temp = "unknow";
-           	
-           	}
-           	
            	System.out.println(temp);
            	VMs.add(temp);
            	System.out.println(VMs);
@@ -173,13 +159,6 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
            	System.out.println(temp);
            	PMs.add(temp);
            	temp = rs.getString("status").toLowerCase();
-           	
-           	timeTemp = rs.getString("timestamp");
-           	if((timeNow - Long.parseLong(timeTemp))>18000){
-           		temp = "unknow";
-           	
-           	}
-           	
            	System.out.println(temp);
            	PMs.add(temp);
            	System.out.println(PMs);
@@ -200,13 +179,6 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
            	System.out.println(temp);
            	PMs.add(temp);
            	temp = rs.getString("status").toLowerCase();
-           	
-           	timeTemp = rs.getString("timestamp");
-           	if((timeNow - Long.parseLong(timeTemp))>18000){
-           		temp = "unknow";
-           	
-           	}
-           	
            	System.out.println(temp);
            	PMs.add(temp);
            	System.out.println(PMs);

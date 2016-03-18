@@ -328,7 +328,8 @@ xmlhttp3.onreadystatechange = function(){
         document.getElementById("PANEL_cal_word").innerText = jTime;
 
         for(var i = 1;i<=4;i++){
-            if(document.getElementById("panel_vm"+i+"_smallword").innerText.indexOf("HALTED")>-1){
+            if((document.getElementById("panel_vm"+i+"_smallword").innerText.indexOf("HALTED")>-1)||
+                (document.getElementById("panel_vm"+i+"_smallword").innerText.indexOf("UNKNOW")>-1)){
                 document.getElementById("PANEL_VM"+i).style.color = "#333333";
                 document.getElementById("status_vm"+i).src = "image/halted.png";
                 if(i<3){
@@ -470,7 +471,7 @@ setTimeout(function(){
                 document.getElementById("PANEL_cal_word").innerText = jTime;
 
                 for(var i = 1;i<=4;i++){
-                    if(document.getElementById("panel_vm"+i+"_smallword").innerText.indexOf("HALTED")>-1){
+                    if((document.getElementById("panel_vm"+i+"_smallword").innerText.indexOf("HALTED")>-1)||(document.getElementById("panel_vm"+i+"_smallword").innerText.indexOf("UNKNOW")>-1)){
                         document.getElementById("PANEL_VM"+i).style.color = "#333333";
 
                         document.getElementById("status_vm"+i).src = "image/halted.png";
@@ -510,8 +511,9 @@ setTimeout(function(){
 
 
 function toVmLocation(locationNumber){
-    if(document.getElementById("panel_vm"+locationNumber+"_smallword").innerText.indexOf("HALTED")>-1){
-        alert("Sorry, the panel is Halted");
+   
+    if((document.getElementById("panel_vm"+locationNumber+"_smallword").innerText.indexOf("HALTED")>-1)||(document.getElementById("panel_vm"+locationNumber+"_smallword").innerText.indexOf("UNKNOW")>-1)){
+        alert("Sorry, the panel is Not Running");
     }else if(document.getElementById("panel_vm"+locationNumber+"_smallword").innerText.indexOf("RUNNING")>-1) {
         window.location.href = "VM" + locationNumber + ".html";
     }else{
@@ -527,7 +529,7 @@ var xmlhttp2;
 function CMD(value,name){
     var command = value;
     var truename = "";
-    
+
     switch (name){
         case "PM1": truename = jPM1_name;
             vmflag1 = "true";

@@ -242,7 +242,7 @@
             document.getElementById("PANEL_cal_word").innerText = jTime;
 
             for(var i = 1;i<=4;i++){
-                if(statusQueue[i-1] == "halted"){
+                if((statusQueue[i-1] == "halted")||(statusQueue[i-1] == "unknow")){
 
                     document.getElementById("status_vm"+i).src = "image/halted.png";
 
@@ -261,8 +261,8 @@
     }
 
     function toVmLocation(locationNumber){
-        if(statusQueue[locationNumber-1] == "halted"){
-            alert("Sorry, the panel is Halted");
+        if((statusQueue[locationNumber-1] == "halted")||(statusQueue[locationNumber-1] == "unknow")){
+            alert("Sorry, the panel is Not Running");
         }else if(statusQueue[locationNumber-1] == "running") {
             window.location.href = "VM" + locationNumber + ".html";
         }else{
@@ -1624,7 +1624,7 @@
                     document.getElementById("navname_vm4").firstChild.nodeValue = jVM2_name + " ";
 
                     for(var i = 1;i<=4;i++){
-                        if(statusQueue[i-1] == "halted"){
+                        if((statusQueue[i-1] == "halted")||(statusQueue[i-1] == "unknow")){
 
                             document.getElementById("status_vm"+i).src = "image/halted.png";
 
