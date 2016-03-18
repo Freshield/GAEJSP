@@ -933,7 +933,7 @@ var xScalerx = d3.scale.linear()
     .range([padding,w-padding]);
 
 var yScalerx = d3.scale.linear()
-    .domain([0,1000])
+    .domain([0,100])
     .range([h-foot_height,padding]);
 
 //define inner line
@@ -1383,7 +1383,7 @@ function drawChart() {
             .call(yAxisn);
 
 
-        chartsubn.text("kbs");
+        chartsubn.text("kps");
 
 
         pathn//.transition()
@@ -1493,7 +1493,7 @@ function drawChart() {
             .call(yAxisrx);
 
 
-        chartsubrx.text("kbs");
+        chartsubrx.text("kps");
 
 
         pathrx//.transition()

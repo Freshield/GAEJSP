@@ -99,7 +99,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
 		   
 		   long timeNow = System.currentTimeMillis()-70000;
 		   //cause the pm unhand problem
-		   //timeNow = 1458243590409l;
+		   timeNow = 1458243590409l;
 	       //Class.forName("com.mysql.jdbc.Driver");// 动态加载mysql驱动
 	   	//Class.forName("com.mysql.jdbc.GoogleDriver");
 		   System.out.println("statusget_success connect");
@@ -108,10 +108,10 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
            
            
            //get all data from vm_table
-           sql = "select * from vm_table where vmname='flask'";
+           sql = "select * from vm_table where timestamp>"+timeNow+" and vmname='flask'";
            System.out.println(sql);
            ResultSet rs = stmt.executeQuery(sql);// executeQuery会返回结果的集合，否则返回空值
-           System.out.println(rs);
+           System.out.println(rs.next());
            String temp = "";
            if(rs.next()) {
            	System.out.println(rs);
@@ -128,7 +128,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
            
            
 
-           sql = "select * from vm_table where vmname='flake'";
+           sql = "select * from vm_table where timestamp>"+timeNow+" and vmname='flake'";
            System.out.println(sql);
            rs = stmt.executeQuery(sql);// executeQuery会返回结果的集合，否则返回空值
            System.out.println(rs);
@@ -149,7 +149,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
          
            
          //get all data from host_table
-           sql = "select * from host_table where hostname='worth'";
+           sql = "select * from host_table where timestamp>"+timeNow+" and hostname='worth'";
            System.out.println(sql);
            rs = stmt.executeQuery(sql);// executeQuery会返回结果的集合，否则返回空值
            System.out.println(rs);
@@ -167,7 +167,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
             }
            
            
-           sql = "select * from host_table where hostname='unhand'";
+           sql = "select * from host_table where timestamp>"+timeNow+" and hostname='unhand'";
            System.out.println(sql);
            rs = stmt.executeQuery(sql);// executeQuery会返回结果的集合，否则返回空值
            System.out.println(rs);

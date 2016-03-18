@@ -112,7 +112,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
        Statement stmt = conn.createStatement();
        String resultVm3 = "";
        
-       if(vm3.equals("true")){
+       if(vm3 == "true"){
        sql = "select * from cmd where host='flask' and flag='true'";
        System.out.println(sql);
        ResultSet rs = stmt.executeQuery(sql);// executeQuery会返回结果的集合，否则返回空值
@@ -126,7 +126,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
        }   
        
        String resultVm4 = "";
-       if(vm4.equals("true")){
+       if(vm4 == "true"){
        sql = "select * from cmd where host='flake' and flag='true'";
        System.out.println(sql);
        ResultSet rs = stmt.executeQuery(sql);// executeQuery会返回结果的集合，否则返回空值

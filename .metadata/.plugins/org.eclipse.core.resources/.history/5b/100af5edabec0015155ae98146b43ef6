@@ -42,7 +42,7 @@ public class test {
 	        System.out.println(nowTime);
 	        System.out.println(sdFormatter);
 	        System.out.println(retStrFormatNowDate);
-	        /*
+	        
 	        try {
 	            // 之所以要使用下面这条语句，是因为要使用MySQL的驱动，所以我们要把它驱动起来，
 	            // 可以通过Class.forName把它加载进去，也可以通过初始化来驱动起来，下面三种形式都可以
@@ -89,7 +89,6 @@ public class test {
 	        	
 	            conn.close();
 	        }
-	        */
 	        /*
 	        url = "jdbc:mysql://173.194.82.26:3306/javademo?"
 	                + "user=yangyu&password=8888";

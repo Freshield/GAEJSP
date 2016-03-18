@@ -354,14 +354,74 @@ xmlhttp3.onreadystatechange = function(){
 
     }
 }
+var vmflag1 = "false";
+var vmflag2 = "false";
+var vmflag3 = "false";
+var vmflag4 = "false";
 
-var vmflag1 = "flase";
-var vmflag2 = "flase";
-var vmflag3 = "flase";
-var vmflag4 = "flase";
+var xmlhttp4;
 
 
 setTimeout(function(){
+
+    if((vmflag1!="false")||
+        (vmflag2!="false")||
+        (vmflag3!="false")||
+        (vmflag4!="false")){
+
+        CreateXMLHttpRequest2();
+        xmlhttp4.onreadystatechange = function(){
+            if(xmlhttp4.readyState == 4 && xmlhttp4.status == 200){
+                var jsonstr = xmlhttp4.responseText;
+                var obj = JSON.parse(jsonstr);
+
+                if(obj.vm3 == "finished"){
+
+                    document.getElementById("nav_menu_3").onmouseover = function(){
+
+                        document.getElementById("nav_submenu_3").style.display = "block";
+                    }
+                    vmflag3 = "false";
+                    alert("VM1 flask's control finished");
+                }else if(obj.vm3 == "not_yet"){
+                    document.getElementById("nav_menu_3").onmouseover = function(){
+                        document.getElementById("nav_submenu_3").style.display = "none";
+                    }
+                }else{
+
+                }
+
+                if(obj.vm4 == "finished"){
+                    document.getElementById("nav_menu_4").onmouseover = function(){
+
+                        document.getElementById("nav_submenu_4").style.display = "block";
+                    }
+                    vmflag4 = "false";
+                    alert("VM2 flake's control finished");
+                }else if(obj.vmt == "not_yet"){
+                    document.getElementById("nav_menu_4").onmouseover = function(){
+                        document.getElementById("nav_submenu_4").style.display = "none";
+                    }
+                }else{
+
+                }
+            }
+        };
+        str = "vm1=" + vmflag1 + "&vm2=" + vmflag2 + "&vm3=" + vmflag3 + "&vm4=" + vmflag4;
+
+        //xmlhttp.open("GET","Default.aspx?goback=yes&arg=" + arg,true);
+        xmlhttp4.open("POST","/CMDflag",true);
+
+        xmlhttp4.setRequestHeader("Content-Length",str.length);
+        xmlhttp4.setRequestHeader("Content-Type","application/x-www-form-urlencoded;");  //鐢≒OST鐨勬椂鍊欎竴瀹氳鏈夎繖鍙�
+
+
+        xmlhttp4.send(str);
+
+    }
+
+
+
 
 
     xmlhttp3 = CreateXHR();
@@ -384,12 +444,7 @@ setTimeout(function(){
             jPM2_status =  obj.pm2_status;
             jTime = obj.time_now;
 
-            if((vmflag1!="false")||
-                (vmflag2!="false")||
-                (vmflag3!="false")||
-                (vmflag4!="false")){
 
-            }
 
             if((jPM1_status!=statusQueue[0])||
                 (jPM2_status!=statusQueue[1])||
@@ -472,7 +527,7 @@ var xmlhttp2;
 function CMD(value,name){
     var command = value;
     var truename = "";
-
+    
     switch (name){
         case "PM1": truename = jPM1_name;
             vmflag1 = "true";
@@ -533,6 +588,17 @@ function CreateXMLHttpRequest()
     }
 }
 
+function CreateXMLHttpRequest2()
+{
+    if (window.ActiveXObject)
+    {
+        xmlhttp4 = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    else if (window.XMLHttpRequest)
+    {
+        xmlhttp4 = new XMLHttpRequest();
+    }
+}
 
 function callhandle()
 {
