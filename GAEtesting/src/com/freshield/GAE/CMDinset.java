@@ -113,7 +113,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
            
        	stmt.close();
        	conn.close();
-       String temp = "The command "+command+" success.";
+       String temp = "The command "+command+" insert success.";
        	theValue = "{'value':'"+temp+"'}";
 
    		JSONObject JSONvalue = new JSONObject(theValue);

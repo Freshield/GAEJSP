@@ -738,8 +738,9 @@ if(chartn_title != ""){
 
 }
 
+var chartsubn;
 if(chartn_subtitle != ""){
-    svg_n.append("g")
+    chartsubn = svg_n.append("g")
         .append("text")
         .text(chartn_subtitle)
         .attr("class","chart1_subtitle")
@@ -913,8 +914,9 @@ if(chartrx_title != ""){
 
 }
 
+var chartsubrx;
 if(chartrx_subtitle != ""){
-    svg_rx.append("g")
+    chartsubrx = svg_rx.append("g")
         .append("text")
         .text(chartrx_subtitle)
         .attr("class","chart1_subtitle")
@@ -1205,7 +1207,7 @@ function drawChart() {
         .ticks(dataset.length);
 
     xBar.transition()
-        .duration(300)
+        .duration(2000)
         .text(function(d){
 
                 return xMarks[d];
@@ -1215,7 +1217,7 @@ function drawChart() {
         .call(xAxis);
 
     yBar.transition()
-        .duration(300)
+        .duration(2000)
         .call(yAxis);
 
     path//.transition()
@@ -1265,7 +1267,7 @@ function drawChart() {
         .ticks(datasetm.length);
 
     xBarm.transition()
-        .duration(300)
+        .duration(2000)
         .text(function(d){
 
             return xMarksm[d];
@@ -1275,7 +1277,7 @@ function drawChart() {
         .call(xAxism);
 
     yBarm.transition()
-        .duration(300)
+        .duration(2000)
         .call(yAxism);
 
     pathm//.transition()
@@ -1286,96 +1288,219 @@ function drawChart() {
 
     //----------------------------for network chart----------------------------
     if(Math.max.apply(Math,datasetn) >=100){
+        if(Math.max.apply(Math,datasetn) >=10000){
+            yScalen = d3.scale.linear()
+                .domain([0,100])
+                .range([h-foot_height,padding]);
+        }else if(Math.max.apply(Math,datasetn) >=1000) {
+            yScalen = d3.scale.linear()
+                .domain([0, 10])
+                .range([h - foot_height, padding]);
+        }else{
+            yScalen = d3.scale.linear()
+                .domain([0,1])
+                .range([h-foot_height,padding]);
+        }
 
-        yScalen = d3.scale.linear()
-            .domain([0,1000])
-            .range([h-foot_height,padding]);
+
+
+        yAxisn = d3.svg.axis()
+            .scale(yScalen)
+            .orient("left")
+            .ticks(10);
+
+        xScalen = d3.scale.linear()
+            .domain([0,datasetn.length-1])
+            .range([padding,w-padding]);
+
+        xAxisn = d3.svg.axis()
+            .scale(xScalen)
+            .orient("bottom")
+            .ticks(datasetn.length);
+
+        xBarn.transition()
+            .duration(2000)
+            .text(function(d){
+
+                return xMarksn[d];
+
+
+            })
+            .call(xAxisn);
+
+        yBarn.transition()
+            .duration(2000)
+            .call(yAxisn);
+
+        chartsubn.text("Mbs");
+
+        lineFunctionn = d3.svg.line()
+            .interpolate("linear")
+            .x(function(d,i){
+                return xScalen(i);
+            })
+            .y(function(d){
+                return yScalen(d/1000);
+            });
+
+        pathn//.transition()
+            //.duration(1000)
+            .attr("d", lineFunctionn(datasetn)+" L "+(w-padding)+","+(h-foot_height)+" L "+padding+","+(h-foot_height));
+
 
     }else{
 
         yScalen = d3.scale.linear()
             .domain([0,100])
             .range([h-foot_height,padding]);
+
+        yAxisn = d3.svg.axis()
+            .scale(yScalen)
+            .orient("left")
+            .ticks(10);
+
+        xScalen = d3.scale.linear()
+            .domain([0,datasetn.length-1])
+            .range([padding,w-padding]);
+
+        xAxisn = d3.svg.axis()
+            .scale(xScalen)
+            .orient("bottom")
+            .ticks(datasetn.length);
+
+        xBarn.transition()
+            .duration(2000)
+            .text(function(d){
+
+                return xMarksn[d];
+
+
+            })
+            .call(xAxisn);
+
+        yBarn.transition()
+            .duration(2000)
+            .call(yAxisn);
+
+
+        chartsubn.text("kbs");
+
+
+        pathn//.transition()
+            //.duration(1000)
+            .attr("d", lineFunctionn(datasetn)+" L "+(w-padding)+","+(h-foot_height)+" L "+padding+","+(h-foot_height));
     }
-    yAxisn = d3.svg.axis()
-        .scale(yScalen)
-        .orient("left")
-        .ticks(10);
 
-    xScalen = d3.scale.linear()
-        .domain([0,datasetn.length-1])
-        .range([padding,w-padding]);
-
-    xAxisn = d3.svg.axis()
-        .scale(xScalen)
-        .orient("bottom")
-        .ticks(datasetn.length);
-
-    xBarn.transition()
-        .duration(300)
-        .text(function(d){
-
-            return xMarksn[d];
-
-
-        })
-        .call(xAxisn);
-
-    yBarn.transition()
-        .duration(300)
-        .call(yAxisn);
-
-    pathn//.transition()
-        //.duration(1000)
-        .attr("d", lineFunctionn(datasetn)+" L "+(w-padding)+","+(h-foot_height)+" L "+padding+","+(h-foot_height));
 
     //--------------------------------for network chart end--------------------------
 
 
     //----------------------------for network rx chart----------------------------
-    if(Math.max.apply(Math,datasetrx) >=100){
 
-        yScalerx = d3.scale.linear()
-            .domain([0,1000])
-            .range([h-foot_height,padding]);
+    if(Math.max.apply(Math,datasetrx) >=100){
+        if(Math.max.apply(Math,datasetrx) >=10000){
+            yScalerx = d3.scale.linear()
+                .domain([0,100])
+                .range([h-foot_height,padding]);
+        }else if(Math.max.apply(Math,datasetrx) >=1000) {
+            yScalerx = d3.scale.linear()
+                .domain([0, 10])
+                .range([h - foot_height, padding]);
+        }else{
+            yScalerx = d3.scale.linear()
+                .domain([0,1])
+                .range([h-foot_height,padding]);
+        }
+
+
+
+        yAxisrx = d3.svg.axis()
+            .scale(yScalerx)
+            .orient("left")
+            .ticks(10);
+
+        xScalerx = d3.scale.linear()
+            .domain([0,datasetrx.length-1])
+            .range([padding,w-padding]);
+
+        xAxisrx = d3.svg.axis()
+            .scale(xScalerx)
+            .orient("bottom")
+            .ticks(datasetrx.length);
+
+        xBarrx.transition()
+            .duration(2000)
+            .text(function(d){
+
+                return xMarksrx[d];
+
+
+            })
+            .call(xAxisrx);
+
+        yBarrx.transition()
+            .duration(2000)
+            .call(yAxisrx);
+
+        chartsubrx.text("Mbs");
+
+        lineFunctionrx = d3.svg.line()
+            .interpolate("linear")
+            .x(function(d,i){
+                return xScalerx(i);
+            })
+            .y(function(d){
+                return yScalerx(d/1000);
+            });
+
+        pathrx//.transition()
+            //.duration(1000)
+            .attr("d", lineFunctionrx(datasetrx)+" L "+(w-padding)+","+(h-foot_height)+" L "+padding+","+(h-foot_height));
+
 
     }else{
 
         yScalerx = d3.scale.linear()
             .domain([0,100])
             .range([h-foot_height,padding]);
+
+        yAxisrx = d3.svg.axis()
+            .scale(yScalerx)
+            .orient("left")
+            .ticks(10);
+
+        xScalerx = d3.scale.linear()
+            .domain([0,datasetrx.length-1])
+            .range([padding,w-padding]);
+
+        xAxisrx = d3.svg.axis()
+            .scale(xScalerx)
+            .orient("bottom")
+            .ticks(datasetrx.length);
+
+        xBarrx.transition()
+            .duration(2000)
+            .text(function(d){
+
+                return xMarksrx[d];
+
+
+            })
+            .call(xAxisrx);
+
+        yBarrx.transition()
+            .duration(2000)
+            .call(yAxisrx);
+
+
+        chartsubrx.text("kbs");
+
+
+        pathrx//.transition()
+            //.duration(1000)
+            .attr("d", lineFunctionrx(datasetrx)+" L "+(w-padding)+","+(h-foot_height)+" L "+padding+","+(h-foot_height));
     }
-    yAxisrx = d3.svg.axis()
-        .scale(yScalerx)
-        .orient("left")
-        .ticks(10);
 
-    xScalerx = d3.scale.linear()
-        .domain([0,datasetrx.length-1])
-        .range([padding,w-padding]);
-
-    xAxisrx = d3.svg.axis()
-        .scale(xScalerx)
-        .orient("bottom")
-        .ticks(datasetrx.length);
-
-    xBarrx.transition()
-        .duration(300)
-        .text(function(d){
-
-            return xMarksrx[d];
-
-
-        })
-        .call(xAxisrx);
-
-    yBarrx.transition()
-        .duration(300)
-        .call(yAxisrx);
-
-    pathrx//.transition()
-        //.duration(1000)
-        .attr("d", lineFunctionrx(datasetrx)+" L "+(w-padding)+","+(h-foot_height)+" L "+padding+","+(h-foot_height));
 
     //--------------------------------for network rx chart end--------------------------
 
@@ -1503,8 +1628,6 @@ setTimeout(function(){
                         document.getElementById("status_vm"+i).src = "image/halted.png";
 
                     }else if(statusQueue[i-1] == "running"){
-
-                        alert("2");
 
                         document.getElementById("status_vm"+i).src = "image/running.png";
 

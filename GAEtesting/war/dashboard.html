@@ -124,11 +124,10 @@
                 <div id="PANEL_VM3_down" class="panel_down">
                     <nav class="nav">
                         <ul class="nav_menu">
-                            <li class="nav_menu-item"><a  target="_blank">Control<img src="image/data_right.png" class="data_right_img"></a>
+                            <li   id="nav_menu_3" class="nav_menu-item"><a  target="_blank">Control<img src="image/data_right.png" class="data_right_img"></a>
                                 <ul id="nav_submenu_3" class="nav_submenu">
-                                    <li class="nav_submenu-item"> <a onclick="CMD('halted','VM1');" target="_blank">Halted</a></li>
-                                    <li class="nav_submenu-item"> <a onclick="CMD('restart','VM1');" target="_blank">Restart</a></li>
-                                    <li class="nav_submenu-item"> <a  onclick="CMD('pauses','VM1');" target="_blank">Pauses</a></li>
+                                    <li class="nav_submenu-item"> <a onclick="CMD('pause','VM1');" target="_blank">Pause</a></li>
+                                    <li class="nav_submenu-item"> <a  onclick="CMD('resume','VM1');" target="_blank">Resume</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -150,11 +149,10 @@
                 <div id="PANEL_VM4_down" class="panel_down">
                     <nav class="nav">
                         <ul class="nav_menu">
-                            <li class="nav_menu-item"><a  target="_blank">Control<img src="image/data_right.png" class="data_right_img"></a>
+                            <li  id="nav_menu_4" class="nav_menu-item"><a  target="_blank">Control<img src="image/data_right.png" class="data_right_img"></a>
                                 <ul id="nav_submenu_4" class="nav_submenu">
-                                    <li class="nav_submenu-item"> <a onclick="CMD('halted','VM2');" target="_blank">Halted</a></li>
-                                    <li class="nav_submenu-item"> <a onclick="CMD('restart','VM2');" target="_blank">Restart</a></li>
-                                    <li class="nav_submenu-item"> <a  onclick="CMD('pauses','VM2');" target="_blank">Pauses</a></li>
+                                    <li class="nav_submenu-item"> <a onclick="CMD('pause','VM2');" target="_blank">Pause</a></li>
+                                    <li class="nav_submenu-item"> <a  onclick="CMD('resume','VM2');" target="_blank">Resume</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -245,6 +243,21 @@
 
         document.getElementById("top_menu").src = "image/top_menu.png";
     }
+
+
+document.getElementById("nav_menu_4").onmouseover = function(){
+    document.getElementById("nav_submenu_4").style.display = "block";
+}
+document.getElementById("nav_menu_4").onmouseout = function(){
+    document.getElementById("nav_submenu_4").style.display = "none";
+}
+
+document.getElementById("nav_menu_3").onmouseover = function(){
+    document.getElementById("nav_submenu_3").style.display = "block";
+}
+document.getElementById("nav_menu_3").onmouseout = function(){
+    document.getElementById("nav_submenu_3").style.display = "none";
+}
 
 
                    //*********ajax********
@@ -342,6 +355,11 @@ xmlhttp3.onreadystatechange = function(){
     }
 }
 
+var vmflag1 = "flase";
+var vmflag2 = "flase";
+var vmflag3 = "flase";
+var vmflag4 = "flase";
+
 
 setTimeout(function(){
 
@@ -365,6 +383,13 @@ setTimeout(function(){
             jPM2_name =  obj.pm2_name;
             jPM2_status =  obj.pm2_status;
             jTime = obj.time_now;
+
+            if((vmflag1!="false")||
+                (vmflag2!="false")||
+                (vmflag3!="false")||
+                (vmflag4!="false")){
+
+            }
 
             if((jPM1_status!=statusQueue[0])||
                 (jPM2_status!=statusQueue[1])||
@@ -450,15 +475,33 @@ function CMD(value,name){
 
     switch (name){
         case "PM1": truename = jPM1_name;
+            vmflag1 = "true";
+            document.getElementById("nav_menu_1").onmouseover = function(){
+                document.getElementById("nav_submenu_1").style.display = "none";
+            }
+
 
             break;
         case "PM2": truename = jPM2_name;
+            vmflag2 = "true";
+            document.getElementById("nav_menu_2").onmouseover = function(){
+                document.getElementById("nav_submenu_2").style.display = "none";
+            }
 
             break;
         case "VM1": truename = jVM1_name;
+            vmflag3 = "true";
+            document.getElementById("nav_menu_3").onmouseover = function(){
+                document.getElementById("nav_submenu_3").style.display = "none";
+            }
 
             break;
         case "VM2": truename = jVM2_name;
+            vmflag4 = "true";
+
+            document.getElementById("nav_menu_4").onmouseover = function(){
+                document.getElementById("nav_submenu_4").style.display = "none";
+            }
 
             break;
         default :alert("error");
@@ -489,6 +532,8 @@ function CreateXMLHttpRequest()
         xmlhttp2 = new XMLHttpRequest();
     }
 }
+
+
 function callhandle()
 {
 

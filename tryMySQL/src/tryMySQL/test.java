@@ -42,7 +42,7 @@ public class test {
 	        System.out.println(nowTime);
 	        System.out.println(sdFormatter);
 	        System.out.println(retStrFormatNowDate);
-	        /*
+	        
 	        try {
 	            // 之所以要使用下面这条语句，是因为要使用MySQL的驱动，所以我们要把它驱动起来，
 	            // 可以通过Class.forName把它加载进去，也可以通过初始化来驱动起来，下面三种形式都可以
@@ -60,20 +60,19 @@ public class test {
 	            
 	                //System.out.println("创建数据表成功");
 	                
-	                sql = "select * from performance_unhand where id<660";
+	                sql = "select * from cmd where host='flask' and flag='true'";
 	                ResultSet rs = stmt.executeQuery(sql);// executeQuery会返回结果的集合，否则返回空值
 	                System.out.println("ID\ttime\tvalue");
-	                while(rs.next() == true){
-	                	timestampB.add(rs.getString("timestamp"));
-	                	cpu0B.add(rs.getString("cpu0"));
-	                	cpu1B.add(rs.getString("cpu1"));
-	                	cpu2B.add(rs.getString("cpu2"));
-	                	cpu3B.add(rs.getString("cpu3"));
-	                	System.out.println(rs.getString("timestamp"));
+	                String result = "";
+	                if(rs.next() == true){
+	                	
+	                	result = "not finished";
 	                	//System.out.println(rs.getString("name")+rs.getString("password"));
-	                }//else{
-	                //	System.out.println("error");
-	                //}
+	                }else{
+	                	result = "finished";
+	                }
+	                
+	                System.out.println(result);
 	                
 	                //while (rs.next()) {
 	                //    System.out.println(rs.getInt("ID")+"\t"+rs.getString("time")+"\t"+rs.getString("value") );//+ "\t" + rs.getString() 入如果返回的是int类型可以用getInt()
@@ -90,7 +89,7 @@ public class test {
 	        	
 	            conn.close();
 	        }
-	        
+	        /*
 	        url = "jdbc:mysql://173.194.82.26:3306/javademo?"
 	                + "user=yangyu&password=8888";
 	        
@@ -99,7 +98,7 @@ public class test {
             // com.mysql.jdbc.Driver driver = new com.mysql.jdbc.Driver();
             // or：
             // new com.mysql.jdbc.Driver();
- 
+
 	        
 	        try {
 	            long timeNow = System.currentTimeMillis();
@@ -133,8 +132,8 @@ public class test {
 	        } finally {
 	            
 	        }
-	        */
 	        
+	        */
 	 /*
 	        try {
 	            // 之所以要使用下面这条语句，是因为要使用MySQL的驱动，所以我们要把它驱动起来，

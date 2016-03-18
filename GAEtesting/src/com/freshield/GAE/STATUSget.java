@@ -99,7 +99,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
 		   
 		   long timeNow = System.currentTimeMillis()-70000;
 		   //cause the pm unhand problem
-		   //timeNow = 1458180682530l;
+		   timeNow = 1458243590409l;
 	       //Class.forName("com.mysql.jdbc.Driver");// 动态加载mysql驱动
 	   	//Class.forName("com.mysql.jdbc.GoogleDriver");
 		   System.out.println("statusget_success connect");
@@ -172,6 +172,8 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response)
            rs = stmt.executeQuery(sql);// executeQuery会返回结果的集合，否则返回空值
            System.out.println(rs);
            temp = "";
+           
+           
            if(rs.next()) {
            	temp = rs.getString("hostname");
            	System.out.println(temp);

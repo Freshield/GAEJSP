@@ -438,9 +438,9 @@ nav ul {
 .nav_menu-item:hover {
 
 }
-.nav_menu-item:hover .nav_submenu {
-    display: block;
-}
+/*.nav_menu-item:hover .nav_submenu {*/
+    /*display: block;*/
+/*}*/
 .nav_submenu {
     text-transform: none;
     display: none;
