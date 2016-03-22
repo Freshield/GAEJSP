@@ -12,9 +12,9 @@ public class HelloWorld extends HttpServlet implements javax.servlet.Servlet{
 	   /* (non-Java-doc)
 		 * @see javax.servlet.http.HttpServlet#HttpServlet()
 		 */
-		//public HelloWorld() {
-		//	super();
-		//}   	
+		public HelloWorld() {
+			super();
+		}   	
 		
 		/* (non-Java-doc)
 		 * @see javax.servlet.http.HttpServlet#doGet(HttpServletRequest request, 
