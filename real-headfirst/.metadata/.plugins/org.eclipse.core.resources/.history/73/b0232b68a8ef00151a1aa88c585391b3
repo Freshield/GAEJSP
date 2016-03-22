@@ -1,0 +1,23 @@
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class Ch1Servlet extends HttpServlet{
+	
+	public void doGet (HttpServletRequest request,
+			HttpServletResponse response)
+			throws IOException{
+		
+		PrintWriter outPrintWriter = response.getWriter();
+		java.util.Date today = new java.util.Date();
+		outPrintWriter.println("<html>"
+				+ "<body>"
+				+ "<h1 align=center>HF\'s Chapter1 Servlet</h1>"
+				+ "<br>"+today+"</body> </html>");
+	}
+
+}
