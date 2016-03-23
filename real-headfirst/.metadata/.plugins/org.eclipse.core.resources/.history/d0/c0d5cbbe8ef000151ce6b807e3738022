@@ -25,7 +25,7 @@ public class servletTest extends HttpServlet {
 			throws IOException, ServletException{
 
 
-		String client = request.getHeader("Host");
+		String client = request.getHeader("User-Agent");
 		System.out.println(client);
 		
 		HttpSession session = request.getSession();
@@ -34,17 +34,8 @@ public class servletTest extends HttpServlet {
 		String theMethod = request.getMethod();
 		System.out.println(theMethod);
 		
-		String address = request.getRequestURI();
+		String address = request.getRemoteAddr();
 		System.out.println(address);
-
-		int localport = request.getLocalPort();
-		System.out.println(address);
-
-		int serverport = request.getServerPort();
-		System.out.println(serverport);
-		
-		response.sendRedirect("http://baidu.com");
-		
 		
 	}
 

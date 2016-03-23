@@ -36,15 +36,6 @@ public class servletTest extends HttpServlet {
 		
 		String address = request.getRequestURI();
 		System.out.println(address);
-
-		int localport = request.getLocalPort();
-		System.out.println(address);
-
-		int serverport = request.getServerPort();
-		System.out.println(serverport);
-		
-		response.sendRedirect("http://baidu.com");
-		
 		
 	}
 

@@ -43,8 +43,6 @@ public class servletTest extends HttpServlet {
 		int serverport = request.getServerPort();
 		System.out.println(serverport);
 		
-		response.sendRedirect("http://baidu.com");
-		
 		
 	}
 
