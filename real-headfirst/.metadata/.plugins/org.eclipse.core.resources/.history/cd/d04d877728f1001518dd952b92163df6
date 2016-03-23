@@ -16,10 +16,6 @@
   <servlet>
   	<servlet-name>servletTest</servlet-name>
   	<servlet-class>com.example.web.servletTest</servlet-class>
-  	<init-param>
-  		<param-name>adminEmail</param-name>
-  		<param-value>likewecare@wickedlysmart.com</param-value>
-  	</init-param>
   </servlet>
   <servlet-mapping>
   	<servlet-name>servletTest</servlet-name>
