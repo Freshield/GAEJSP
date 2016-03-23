@@ -13,6 +13,14 @@
   	<servlet-name>Ch3Beer</servlet-name>
   	<servlet-class>com.example.web.BeerSelect</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>servletTest</servlet-name>
+  	<servlet-class>com.example.web.servletTest</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>servletTest</servlet-name>
+  	<url-pattern>/servletTest.do</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>Ch3Beer</servlet-name>
   	<url-pattern>/SelectBeer.do</url-pattern>
