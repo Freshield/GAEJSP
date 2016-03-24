@@ -25,20 +25,4 @@
   	<servlet-name>BeerParamTests</servlet-name>
   	<url-pattern>/Tester.do</url-pattern>
   </servlet-mapping>
-  <servlet>
-  	<servlet-name>CookieTest</servlet-name>
-  	<servlet-class>com.example.CookieTest</servlet-class>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>CookieTest</servlet-name>
-  	<url-pattern>/cookietest.do</url-pattern>
-  </servlet-mapping>
-  <servlet>
-  	<servlet-name>checkcookie</servlet-name>
-  	<servlet-class>com.example.CheckCookie</servlet-class>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>checkcookie</servlet-name>
-  	<url-pattern>/checkcookie.do</url-pattern>
-  </servlet-mapping>
 </web-app>

@@ -31,7 +31,7 @@
   </servlet>
   <servlet-mapping>
   	<servlet-name>CookieTest</servlet-name>
-  	<url-pattern>/cookietest.do</url-pattern>
+  	<url-pattern>cookietest.do</url-pattern>
   </servlet-mapping>
   <servlet>
   	<servlet-name>checkcookie</servlet-name>
@@ -39,6 +39,6 @@
   </servlet>
   <servlet-mapping>
   	<servlet-name>checkcookie</servlet-name>
-  	<url-pattern>/checkcookie.do</url-pattern>
+  	<url-pattern>checkcookie.do</url-pattern>
   </servlet-mapping>
 </web-app>
