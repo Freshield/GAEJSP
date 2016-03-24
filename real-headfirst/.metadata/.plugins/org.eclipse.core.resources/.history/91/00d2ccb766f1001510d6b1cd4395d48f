@@ -17,6 +17,4 @@
   	<servlet-name>SessionTest</servlet-name>
   	<url-pattern>/SessionTest.do</url-pattern>
   </servlet-mapping>
-  <session-config>
-  	<session-timeout>20</session-timeout></session-config>
 </web-app>

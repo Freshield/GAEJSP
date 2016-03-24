@@ -27,8 +27,7 @@ public class SessionTest extends HttpServlet {
 		out.println("test session attributes<br>"+counter);
 		Cookie[] cookies = request.getCookies();
 		
-		if(cookies != null){
-			for(int i = 0;i<cookies.length;i++){
+		for(int i = 0;i<cookies.length;i++){
 			Cookie cookietemp = cookies[i];
 			if(cookietemp.getName().equals("username")){
 				String username = cookietemp.getValue();
@@ -36,9 +35,6 @@ public class SessionTest extends HttpServlet {
 				break;
 			}
 		}
-		}
-		
-		
 
 		
 		 
