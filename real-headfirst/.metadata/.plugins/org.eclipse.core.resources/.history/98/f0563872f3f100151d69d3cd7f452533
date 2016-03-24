@@ -29,21 +29,10 @@ public class CheckCookie extends HttpServlet {
 			
 			for(int i = 0;i<cookies.length;i++){
 				Cookie cookie = cookies[i];
-				System.out.println(cookie.getName());
 				if(cookie.getName().equals("username")){
 					String username = cookie.getValue();
 					out.println("Hello "+username+cookie.getMaxAge());
-					
-				}
-				if(cookie.getName().equals("user_Name")){
-					String username = cookie.getValue();
-					out.println("Hello "+username+cookie.getMaxAge());
-					
-				}
-				if(cookie.getName().equals("_ga")){
-					String username = cookie.getValue();
-					out.println("Hello "+username+cookie.getMaxAge());
-					
+					break;
 				}
 			}
 		}

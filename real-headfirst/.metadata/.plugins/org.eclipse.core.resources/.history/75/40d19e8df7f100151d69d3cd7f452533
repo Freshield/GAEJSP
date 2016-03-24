@@ -35,16 +35,6 @@ public class CheckCookie extends HttpServlet {
 					out.println("Hello "+username+cookie.getMaxAge());
 					
 				}
-				if(cookie.getName().equals("user_Name")){
-					String username = cookie.getValue();
-					out.println("Hello "+username+cookie.getMaxAge());
-					
-				}
-				if(cookie.getName().equals("_ga")){
-					String username = cookie.getValue();
-					out.println("Hello "+username+cookie.getMaxAge());
-					
-				}
 			}
 		}
 	}
