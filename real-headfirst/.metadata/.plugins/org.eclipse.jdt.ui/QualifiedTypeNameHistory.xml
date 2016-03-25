@@ -21,6 +21,7 @@
 <fullyQualifiedTypeName name="java.io.PrintWriter"/>
 <fullyQualifiedTypeName name="javax.servlet.http.Cookie"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="foo.Person"/>
 <fullyQualifiedTypeName name="foo.Employee"/>
+<fullyQualifiedTypeName name="foo.Person"/>
+<fullyQualifiedTypeName name="foo.Dog"/>
 </qualifiedTypeNameHistroy>
