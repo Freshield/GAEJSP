@@ -10,36 +10,36 @@
 <body>
 <% int x=2; %>
 <% int y=5+x; %>
-<% out.println(x+"<br>"); %>
-<% out.println(y+"<br>"); %>
+<% out.println(x); %>
+<% out.println(y); %>
 
 <% ArrayList list = new ArrayList();
    list.add(new String("foo"));
    %>
-<%= list.get(0)+"<br>" %>
+<%= list.get(0) %>
 
 <%! int w = 42; %>
 <% int w = 22; %>
-<%= w+"<br>" %>
+<%= w %>
 
 <%
 	Float one = new  Float(42.5);
 	pageContext.setAttribute("foo", one);
 %>
-<%= pageContext.getAttribute("foo")+"<br>" %>
+<%= pageContext.getAttribute("foo") %>
 
 <%
 	Float two = new Float(22.4);
 	pageContext.setAttribute("foo", two,PageContext.SESSION_SCOPE);
 %>
-<%= session.getAttribute("foo")+"<br>" %>
+<%= session.getAttribute("foo") %>
 
 <%
 	Float three = new Float(24.4);
 	pageContext.setAttribute("mail", three,PageContext.APPLICATION_SCOPE);
 %>
-<%= application.getAttribute("mail")+"<br>" %>
-<%= pageContext.findAttribute("foo")+"<br>" %>
+<%= application.getAttribute("mail") %>
+<%= pageContext.findAttribute("foo") %>
 
 
 </body>
