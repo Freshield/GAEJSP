@@ -36,10 +36,9 @@
 
 <%
 	Float three = new Float(24.4);
-	pageContext.setAttribute("mail", three,PageContext.APPLICATION_SCOPE);
+	pageContext.setAttribute("mail", two,PageContext.APPLICATION_SCOPE);
 %>
 <%= application.getAttribute("mail") %>
-<%= pageContext.findAttribute("foo") %>
 
 
 </body>

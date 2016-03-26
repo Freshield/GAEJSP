@@ -39,7 +39,6 @@
 	pageContext.setAttribute("mail", three,PageContext.APPLICATION_SCOPE);
 %>
 <%= application.getAttribute("mail") %>
-<%= pageContext.findAttribute("foo") %>
 
 
 </body>

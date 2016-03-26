@@ -28,19 +28,6 @@
 %>
 <%= pageContext.getAttribute("foo") %>
 
-<%
-	Float two = new Float(22.4);
-	pageContext.setAttribute("foo", two,PageContext.SESSION_SCOPE);
-%>
-<%= session.getAttribute("foo") %>
-
-<%
-	Float three = new Float(24.4);
-	pageContext.setAttribute("mail", three,PageContext.APPLICATION_SCOPE);
-%>
-<%= application.getAttribute("mail") %>
-<%= pageContext.findAttribute("foo") %>
-
 
 </body>
 </html>
