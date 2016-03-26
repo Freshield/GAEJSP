@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="HobbyPage.do" method="post">
+	Choose a hobby:
+	<option>horse skiing
+	<option>extreme knitting
+	<option>alpine scuba
+	<option>speed dating
+	<center>
+		<input type="SUBMIT">
+	</center>
+</form>
+
+</body>
+</html>
