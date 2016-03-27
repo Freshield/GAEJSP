@@ -1,15 +1,28 @@
 package foo;
 
-public abstract class Person {
+import foo.Dog;
+
+public class Person {
 	
-	private String name1;
+	private String name;
+	
+	private Dog dog;
 	
 	public void setName(String n){
-		name1 = n;
+		name = n;
 	}
 	
 	public String getName(){
-		return name1;
+		return name;
+	}
+	
+	public Dog getDog(){
+		return dog;
+	}
+	
+	public void setDog(Dog dd){
+		dog = dd;
+		
 	}
 
 }

@@ -9,9 +9,9 @@
 </head>
 <body>
 
-The Person is:<br>
-<jsp:useBean id="person" type="foo.Person" class="foo.Employee" >
-	<jsp:setProperty name="person" property="name" value='<%= request.getParameter("hobby") %>' />
+The Person is:
+<jsp:useBean id="person" class="foo.Person" scope="request">
+	<% System.out.println("here"); %>
 </jsp:useBean>
 <%-- person.setName(request.getParameter("hobby")); --%>
 <%-- Person is = (Person) request.getAttribute("person"); 
@@ -19,7 +19,7 @@ The Person is:<br>
 	
 
 --%>
+	Dog's name is:<jsp:getProperty name="person" property="dog" />
 
-<jsp:getProperty property="name" name="person"/>
 </body>
 </html>

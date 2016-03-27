@@ -1,0 +1,28 @@
+package foo;
+
+import foo.Dog;
+
+public class Person {
+	
+	private String name1;
+	
+	private Dog d;
+	
+	public void setName(String n){
+		name1 = n;
+	}
+	
+	public String getName(){
+		return name1;
+	}
+	
+	public Dog getDog(){
+		return d;
+	}
+	
+	public void setDog(Dog dd){
+		d = dd;
+		
+	}
+
+}

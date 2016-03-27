@@ -1,6 +1,7 @@
 package com.example;
 
 import javax.servlet.*;
+
 import javax.servlet.http.*;
 
 import foo.*;
@@ -23,7 +24,7 @@ public class HobbyPage extends HttpServlet {
 	public void doGet(HttpServletRequest request,
 			HttpServletResponse response)
 			throws IOException, ServletException{
-		
+		/*
 		response.setContentType("text/html");
 		String hobby = request.getParameter("hobby");
 		ArrayList names = new ArrayList();
@@ -37,7 +38,16 @@ public class HobbyPage extends HttpServlet {
 		
 		request.setAttribute("person", p);
 		
-		request.setAttribute("names", names);
+		request.setAttribute("names", names);*/
+		
+		foo.Person p = new foo.Person();
+		p.setName("evan");
+		
+		foo.Dog dog = new foo.Dog();
+		dog.setName("spike");
+		p.setDog(dog);
+		
+		request.setAttribute("person", p);
 		
 		RequestDispatcher view = request.getRequestDispatcher("tester.jsp");
 		view.forward(request, response);

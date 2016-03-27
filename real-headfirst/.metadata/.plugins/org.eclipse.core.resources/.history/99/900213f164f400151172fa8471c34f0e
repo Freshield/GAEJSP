@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="/HobbyPage.do" method="post">
+	Choose a hobby:
+	<select name="name" size="1">
+		<option>horse skiing
+		<option>extreme knitting
+		<option>alpine scuba
+		<option>speed dating
+	
+	</select>
+	ID#:<input type="text" name="empID">
+	
+		<input type="SUBMIT">
+	
+</form>
+
+</body>
+</html>
