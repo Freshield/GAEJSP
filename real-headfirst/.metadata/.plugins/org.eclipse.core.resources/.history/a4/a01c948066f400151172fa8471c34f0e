@@ -9,19 +9,17 @@
 </head>
 <body>
 
-The Person is:${ person.name }<br>
+The Person is:
+<jsp:useBean id="person" class="foo.Person" scope="request">
+	<% System.out.println("here"); %>
+</jsp:useBean>
 <%-- person.setName(request.getParameter("hobby")); --%>
 <%-- Person is = (Person) request.getAttribute("person"); 
 	out.println(is.getName());
 	
-<jsp:useBean id="person" class="foo.Person" scope="request">
-	<% System.out.println("here"); %>
-</jsp:useBean>
-
-<jsp:getProperty name="person" property="dog" />
-
 
 --%>
-	Dog's name is:${ person.dog.name }
+	Dog's name is:<jsp:getProperty name="person" property="dog" />
+
 </body>
 </html>

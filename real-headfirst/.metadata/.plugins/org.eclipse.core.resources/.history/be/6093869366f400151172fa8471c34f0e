@@ -9,7 +9,7 @@
 </head>
 <body>
 
-The Person is:${ person.name }<br>
+The Person is:
 <%-- person.setName(request.getParameter("hobby")); --%>
 <%-- Person is = (Person) request.getAttribute("person"); 
 	out.println(is.getName());
