@@ -20,8 +20,11 @@
 <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
 <fullyQualifiedTypeName name="java.io.PrintWriter"/>
 <fullyQualifiedTypeName name="javax.servlet.http.Cookie"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="foo.Employee"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="foo.Person"/>
 <fullyQualifiedTypeName name="foo.Dog"/>
+<fullyQualifiedTypeName name="foo.Toy"/>
 </qualifiedTypeNameHistroy>
