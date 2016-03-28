@@ -52,11 +52,9 @@ public class HobbyPage extends HttpServlet {
 		favoriteMusic.put("su","tahiti");
 		favoriteMusic.put("dj","bt");
 		favoriteMusic.put("mu","frou frou");
-		
-		String[] musicType = {"am","su","dj","mu"};
 
 		request.setAttribute("musicList", favoriteMusic);
-		request.setAttribute("musicType", musicType);
+		request.setAttribute("genre", "am");
 		
 		RequestDispatcher view = request.getRequestDispatcher("tester.jsp");
 		view.forward(request, response);

@@ -22,8 +22,8 @@ The Person is:${ person.name }<br>
 
 
 --%>
-	Dog's name is:${ musicList[musicType[0]] }<br>
-	${ musicList["am"] }<br>
-	${ musicList.mu }
+	Dog's name is:${ musicList }<br>
+	${ musicList[0] }<br>
+	${ musicList["0"] }
 </body>
 </html>

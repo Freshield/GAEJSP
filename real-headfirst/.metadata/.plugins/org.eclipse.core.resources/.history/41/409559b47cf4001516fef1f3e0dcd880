@@ -22,7 +22,7 @@ The Person is:${ person.name }<br>
 
 
 --%>
-	Dog's name is:${ musicList[musicType[0]] }<br>
+	Dog's name is:${ musicList }<br>
 	${ musicList["am"] }<br>
 	${ musicList.mu }
 </body>

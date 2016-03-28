@@ -48,15 +48,12 @@ public class HobbyPage extends HttpServlet {
 		
 		Map favoriteMusic = new HashMap();
 		
-		favoriteMusic.put("am","zero 7");
-		favoriteMusic.put("su","tahiti");
-		favoriteMusic.put("dj","bt");
-		favoriteMusic.put("mu","frou frou");
-		
-		String[] musicType = {"am","su","dj","mu"};
+		favoriteMusic.add("am","zero 7");
+		favoriteMusic.add("su","tahiti");
+		favoriteMusic.add("dj","bt");
+		favoriteMusic.add("mu","frou frou");
 
 		request.setAttribute("musicList", favoriteMusic);
-		request.setAttribute("musicType", musicType);
 		
 		RequestDispatcher view = request.getRequestDispatcher("tester.jsp");
 		view.forward(request, response);
