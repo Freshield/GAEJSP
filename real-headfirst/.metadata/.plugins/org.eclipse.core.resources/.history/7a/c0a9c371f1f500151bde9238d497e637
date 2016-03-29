@@ -8,6 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-${ mine:rollIt("hhhhhhh") }
+${ mine:rollIt() }
 </body>
 </html>

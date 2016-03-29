@@ -1,3 +1,5 @@
 1459204653990	Rename resource 'NewFile.jsp'
 1459216122829	Delete element
 1459219234065	Move file
+1459284981674	Move 'myFunctions' to 'WEB-INF'
+1459284992846	Rename resource 'myFunctions'
