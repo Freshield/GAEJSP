@@ -1,7 +1,0 @@
-package com.johnny.test;
-
-import HttpServlet;
-
-public class HelloWorld extends HttpServlet {
-
-}
