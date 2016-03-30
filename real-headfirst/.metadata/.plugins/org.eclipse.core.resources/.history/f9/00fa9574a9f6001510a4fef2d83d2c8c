@@ -3,9 +3,6 @@ package foo;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
-import org.apache.catalina.Session;
-import org.apache.catalina.util.SessionConfig;
-
 import foo.*;
 
 import java.io.*;
@@ -32,7 +29,6 @@ public class TestMovie extends HttpServlet {
 		List movieList = new ArrayList();
 		movieList.add(movies1);
 		movieList.add(movies2);
-		request.getSession().setAttribute("userPref", "performance");
 		request.setAttribute("userPref", "performance");
 		RequestDispatcher view = request.getRequestDispatcher("tester3.jsp");
 		view.forward(request, response);
