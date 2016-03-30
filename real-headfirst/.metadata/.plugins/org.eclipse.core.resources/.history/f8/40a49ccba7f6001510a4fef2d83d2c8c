@@ -29,8 +29,8 @@ public class TestMovie extends HttpServlet {
 		List movieList = new ArrayList();
 		movieList.add(movies1);
 		movieList.add(movies2);
-		request.setAttribute("userType", "member1");
-		RequestDispatcher view = request.getRequestDispatcher("tester2.jsp");
+		request.setAttribute("movies", movieList);
+		RequestDispatcher view = request.getRequestDispatcher("tester.jsp");
 		view.forward(request, response);
 		
 	}

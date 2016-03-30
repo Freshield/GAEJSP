@@ -24,13 +24,10 @@ public class TestMovie extends HttpServlet {
 			HttpServletResponse response)
 			throws IOException, ServletException{
 
-		String[] movies1 = {"matrix revolutions","kill bill","boondock saints"};
-		String[] movies2 = {"amelie","return of the king","mean girls"};
-		List movieList = new ArrayList();
-		movieList.add(movies1);
-		movieList.add(movies2);
-		request.setAttribute("userType", "member1");
-		RequestDispatcher view = request.getRequestDispatcher("tester2.jsp");
+
+		String[] movieList = {"amelie","return of the king","mean girls"};
+		request.setAttribute("movieList", movieList);
+		RequestDispatcher view = request.getRequestDispatcher("tester.jsp");
 		view.forward(request, response);
 		
 	}

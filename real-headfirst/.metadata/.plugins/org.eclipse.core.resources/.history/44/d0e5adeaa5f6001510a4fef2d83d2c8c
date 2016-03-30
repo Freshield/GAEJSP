@@ -20,9 +20,9 @@
 		
 		<%-- } --%>
 		<c:forEach var="listElement" items="${ movies }" varStatus="movieLoopCount">
-			<c:forEach var="movie" items="${ listElement }" varStatus="outLoop">
+			<c:forEach>
 				<tr>
-					<td>${ movie }</td><td>Count-out:${ movieLoopCount.count }</td><td>Count-in:${ outLoop.count }</td>
+					<td>${ movie }</td><td>Count:${ movieLoopCount.count }</td>
 				</tr>
 			</c:forEach>
 			

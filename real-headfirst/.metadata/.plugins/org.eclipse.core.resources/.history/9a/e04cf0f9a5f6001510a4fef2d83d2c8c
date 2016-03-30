@@ -22,7 +22,7 @@
 		<c:forEach var="listElement" items="${ movies }" varStatus="movieLoopCount">
 			<c:forEach var="movie" items="${ listElement }" varStatus="outLoop">
 				<tr>
-					<td>${ movie }</td><td>Count-out:${ movieLoopCount.count }</td><td>Count-in:${ outLoop.count }</td>
+					<td>${ movie }</td><td>Count-out:${ movieLoopCount.count }</td><td>Count-out:${ outLoop.count }</td>
 				</tr>
 			</c:forEach>
 			
