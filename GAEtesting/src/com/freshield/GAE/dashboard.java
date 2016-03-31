@@ -24,6 +24,8 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
+import javax.servlet.http.HttpSession;
+
 import com.google.appengine.api.utils.SystemProperty;
 
 
@@ -67,7 +69,17 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	System.out.println("cmdflag_post");
 	String machines = request.getParameter("user");
 	System.out.println(machines);
-	RequestDispatcher view = request.getRequestDispatcher("dashboard.jsp");
-	view.forward(request, response);
+	if(machines != null){
+		HttpSession session = request.getSession();
+		
+		if(session.isNew()){
+			session.setAttribute("username", "");
+		}else {
+			
+		}
+		RequestDispatcher view = request.getRequestDispatcher(response.encodeURL("/dashboard.jsp"));
+		view.forward(request, response);
+	}
+	
 }
 }

@@ -7,7 +7,7 @@
 <head lang="en">
 	<meta charset="UTF-8">
 	<title>VIMMS dashboard</title>
-    <script type="text/javascript" src="d3/d3.js"></script>
+    <script type="text/javascript" src="d3/d3.js" charset="UTF-8"></script>
     <link type="text/css" rel="stylesheet" href="dashboard.css">
     <link rel="shortcut icon" href="image/favicon.ico">
 </head>
@@ -29,7 +29,7 @@
                          onmouseover="top_email_over();" onmouseout="top_email_out();">
                 </div>
                 <div id="LOGO_person" class="LOGO_cell">
-                    <span id="person"></span>
+                    <span id="person"><%= session.getAttribute("username") %></span>
                 </div>
                 <div id="LOGO_menu" class="LOGO_cell">
                     <img id="top_menu" src="image/top_menu.png" height="24"
@@ -53,7 +53,7 @@
         <!-- user resources part-->
         <div id="resources">
             <div id="DashBoard" class="resources_row" style="background-color: rgb(47,50,58)"
-                 onclick="window.location.href='dashboard.html'">
+                 onclick="toDbLocation();">
                 <div class="resources_cell cell_img"><img src="image/nav_home.png" class="nav_img" height="24"></div>
                 <div class="resources_cell cell_word"style="color: rgb(28,168,221)">Dashboard
                 </div>
@@ -512,12 +512,31 @@ setTimeout(function(){
     setTimeout(arguments.callee,5000);
 },5000);
 
+function toDbLocation(){
+	var jsPost = function(action, values) {
+	    var id = Math.random();
+	    document.write('<form id="post' + id + '" name="post'+ id +'" action="' + action + '" method="post">');
+	    for (var key in values) {
+	        document.write('<input type="hidden" name="' + key + '" value="' + values[key] + '" />');
+	    }
+	    document.write('</form>');    
+	    document.getElementById('post' + id).submit();
+	}
+	 
+	jsPost('Machines.do', {
+	    'machines': 'dashboard.jsp'
+	});
+}
 
 function toVmLocation(locationNumber){
 
     if((document.getElementById("panel_vm"+locationNumber+"_smallword").innerText.indexOf("HALTED")>-1)||(document.getElementById("panel_vm"+locationNumber+"_smallword").innerText.indexOf("UNKNOW")>-1)){
-        //alert("Sorry, the panel is Not Running");
-        var jsPost = function(action, values) {
+        alert("Sorry, the panel is Not Running");
+        
+    	
+    }else if(document.getElementById("panel_vm"+locationNumber+"_smallword").innerText.indexOf("RUNNING")>-1) {
+        //window.location.href = "VM" + locationNumber + ".do";
+    	var jsPost = function(action, values) {
     	    var id = Math.random();
     	    document.write('<form id="post' + id + '" name="post'+ id +'" action="' + action + '" method="post">');
     	    for (var key in values) {
@@ -530,9 +549,6 @@ function toVmLocation(locationNumber){
     	jsPost('Machines.do', {
     	    'machines': 'VM' + locationNumber + '.jsp'
     	});
-    }else if(document.getElementById("panel_vm"+locationNumber+"_smallword").innerText.indexOf("RUNNING")>-1) {
-        //window.location.href = "VM" + locationNumber + ".do";
-    	
     }else{
 
     }
