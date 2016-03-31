@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -97,7 +98,9 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
             String theValue = "{'value':'error'}";
             if(rs.next() == true){
             	if(rs.getString("password").equals(password)){
-            		theValue = "{'value':'dashboard.html'}";
+            		theValue = "{'value':'dashboard.do'}";
+            		
+            		
             	}else {
             		theValue = "{'value':'error'}";
 				}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="UTF-8">
+	<title>tryJSON</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+	var str = '{"name": "Geoff Lui","age": 26,"friends":["Lucy","Lily","Gwen"],"Mother": {"name": "Mary Lui", "age": 54}}';
+
+	var obj = JSON.parse(str);  //返回一个 JavaScript 对象
+
+	var jsonstr = JSON.stringify(obj);  //返回一个 JSON 字符串
+
+	var str = '{"age": 26, "money": 10000}';
+
+	var obj = JSON.parse(str,fun);
+
+	function fun(name, value){
+		if( name == "age" )
+			value = 14;
+		return value;
+	}
+
+	function CreateXHR(){
+		if (window.XMLHttpRequest)
+		{
+			//对浏览器 IE7+, Firefox, Chrome, Opera, Safari
+			return new XMLHttpRequest();
+		}
+		else
+		{
+			//对浏览器 IE6, IE5
+			return new ActiveXObject("Microsoft.XMLHTTP");
+		}
+	}
+
+	var xmlhttp;
+
+	xmlhttp = CreateXHR();
+
+	xmlhttp.open("GET","/HelloServlet",true);
+	xmlhttp.send(null);
+
+	xmlhttp.onreadystatechange = function(){
+		if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+			var jsonstr = xmlhttp.responseText;
+			alert(jsonstr);
+		}
+	}
+</script>
+
+</body>
+</html>
