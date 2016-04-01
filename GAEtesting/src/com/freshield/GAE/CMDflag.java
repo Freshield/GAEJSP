@@ -1,7 +1,6 @@
 package com.freshield.GAE;
 
 import java.io.*;
-
 import java.util.*;
 import java.text.*;
 import java.sql.DriverManager;

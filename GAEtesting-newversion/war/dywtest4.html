@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="UTF-8">
+	<title>Test4</title>
+	<script type="text/javascript" src="d3/d3.js"></script>
+	<script type="text/javascript">
+
+	</script>
+	<style type="text/css">
+	body{
+	height: 100%;
+	}
+	.axis path,
+	.axis line {
+	fill: none;
+	stroke: black;
+	shape-rendering: crispEdges;
+	}
+	.axis text {
+	font-family: sans-serif;
+	font-size: 11px;
+	}
+	</style>
+</head>
+<body>
+	<p align="left">
+		<button onclick="drawChart();">Refresh</button>
+	</p>
+
+	<script type="text/javascript">
+
+
+
+
+		var dataset = [];
+		var xMarks = [];
+		var w = 700;
+		var h = 500;
+		var padding = 40;
+
+		//create data
+
+		getData();
+		var data1 = [10,30,45,90,34,26,75,46,37,87,23,45,67,35];
+		var data1 = [30,45,90,34,26,75,46,37,87,23,45,67,35,67];
+		var data1 = [45,90,34,26,75,46,37,87,23,45,67,35,67,89];
+
+		//create svg
+
+		var svg = d3.select("body")
+				.append("svg")
+				.attr("width",w)
+				.attr("height",h);
+
+		//add background
+		svg.append("g")
+				.append("rect")
+				.attr("x",0)
+				.attr("y",0)
+				.attr("width",w)
+				.attr("height",h)
+				.style("fill","#FFF")
+				.style("stroke-width",2)
+				.style("stroke","#E7E7E7");
+
+		//add scaleor
+
+		var xScale = d3.scale.linear()
+				.domain([0,dataset.length-1])
+				.range([padding,w-padding]);
+
+		var yScale = d3.scale.linear()
+				.domain([0,600])
+				.range([h-padding,padding]);
+
+		//define axis
+
+		var xAxis = d3.svg.axis()
+				.scale(xScale)
+				.orient("bottom")
+				.ticks(dataset.length);
+
+		//define axis bar
+
+		var xBar = svg.append("g")
+				.attr("class","axis")
+				.attr("transform","translate(0,"+(h-padding)+")")
+				.call(xAxis)
+				.selectAll("text")
+				.text(function(d){
+					return xMarks[d];
+				});
+
+
+		//define y axis
+
+		var yAxis = d3.svg.axis()
+				.scale(yScale)
+				.orient("left")
+				.ticks(10);
+
+		//define axis bar
+
+		var yBar = svg.append("g")
+				.attr("class","axis")
+				.attr("transform","translate("+padding+",0)")
+				.call(yAxis);
+
+
+		//add lines
+
+		var lineFunction = d3.svg.line()
+				.interpolate("linear")
+				.x(function(d,i){
+					return xScale(i);
+				})
+				.y(function(d){
+					return yScale(d);
+				});
+
+		//add polyline
+
+
+		var path = svg.append("path")
+				.attr("d",lineFunction(dataset))
+				.attr("class","thepath")
+				.style("fill","none")
+				.style("stroke-width",1)
+				.style("stroke","#F00")
+				.style("stroke-opacity",0.9);
+
+		//add point
+
+		svg.selectAll("circle")
+				.data(dataset)
+				.enter()
+				.append("circle")
+				.attr("cx",function(d,i){
+					return xScale(i);
+				})
+				.attr("cy",function(d){
+					return yScale(d);
+				})
+				.attr("r",5)
+				.attr("fill","green");
+
+
+
+		var timeNum;
+
+		function getData(){
+			var dataNum = 40;
+			dataset = [];
+			xMarks = [];
+
+			for(var i = 1;i<dataNum;i++){
+				//dataset.push(Math.round(Math.random()*h));
+				dataset.push(0);
+				xMarks.push(+i);
+				timeNum = i;
+			}
+
+		}
+
+		function changeData(){
+			dataset.shift();
+			//dataset.push(Math.round(Math.random()*h));
+			dataset.push(receJSON);
+			xMarks.shift();
+			xMarks.push((++timeNum));
+		}
+
+		function drawChart() {
+
+			changeData();
+
+
+			//yScale = d3.scale.linear()
+			//		.domain([0, d3.max(dataset)])
+			//		.range([h - padding, padding]);
+
+			yAxis = d3.svg.axis()
+					.scale(yScale)
+					.orient("left")
+					.ticks(10);
+
+			xScale = d3.scale.linear()
+					.domain([0,dataset.length-1])
+					.range([padding,w-padding]);
+
+			xAxis = d3.svg.axis()
+					.scale(xScale)
+					.orient("bottom")
+					.ticks(dataset.length);
+
+			xBar.transition()
+					.duration(300)
+					.text(function(d){
+						return xMarks[d];
+					})
+					.call(xAxis);
+
+			yBar.transition()
+					.duration(300)
+					.call(yAxis);
+
+			path//.transition()
+					//.duration(1000)
+					.attr("d", lineFunction(dataset));
+
+			svg.selectAll("circle")
+					.data(dataset)
+					//.transition()
+					//.duration(1000)
+					.attr("cy", function (d) {
+						return yScale(d);
+					});
+		}
+
+//********************************ajax**************************************************
+		function CreateXHR(){
+			if (window.XMLHttpRequest)
+			{
+				//对浏览器 IE7+, Firefox, Chrome, Opera, Safari
+				return new XMLHttpRequest();
+			}
+			else
+			{
+				//对浏览器 IE6, IE5
+				return new ActiveXObject("Microsoft.XMLHTTP");
+			}
+		}
+
+
+		setTimeout(function(){
+
+			xmlhttp = CreateXHR();
+
+			xmlhttp.open("GET","/HelloServlet",true);
+			xmlhttp.send();
+
+			xmlhttp.onreadystatechange = function(){
+				if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+					var getedJSON = xmlhttp.responseText;
+					var obj = JSON.parse(getedJSON);
+					receJSON = obj.value;
+					drawChart();
+				}
+			}
+
+
+			setTimeout(arguments.callee,2000);
+		},2000);
+
+		var xmlhttp;
+		var receJSON;
+
+
+
+
+
+	</script>
+
+</body>
+</html>

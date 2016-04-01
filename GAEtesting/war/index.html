@@ -232,19 +232,7 @@
 
                 if(obj.value != "error"){
 
-                	var jsPost = function(action, values) {
-                	    var id = Math.random();
-                	    document.write('<form id="post' + id + '" name="post'+ id +'" action="' + action + '" method="post">');
-                	    for (var key in values) {
-                	        document.write('<input type="hidden" name="' + key + '" value="' + values[key] + '" />');
-                	    }
-                	    document.write('</form>');    
-                	    document.getElementById('post' + id).submit();
-                	}
-                	 
-                	jsPost(obj.value, {
-                	    'user': 'dashboard.jsp'
-                	});
+                	window.location.href=obj.value;
                 }else{
                 	alert("Username or Password is not right");
                 }
@@ -260,20 +248,7 @@
         var getter = ajaxReq.ResponseText;
         if(getter != "error"){
 
-        	
-        	var jsPost = function(action, values) {
-        	    var id = Math.random();
-        	    document.write('<form id="post' + id + '" name="post'+ id +'" action="' + action + '" method="post">');
-        	    for (var key in values) {
-        	        document.write('<input type="hidden" name="' + key + '" value="' + values[key] + '" />');
-        	    }
-        	    document.write('</form>');    
-        	    document.getElementById('post' + id).submit();
-        	}
-        	 
-        	jsPost(getter, {
-        	    'user': 'dashboard.jsp'
-        	});
+        	window.location.href=getter;
         }else{
         	alert("Username or Password is not right");
         }

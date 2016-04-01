@@ -1,0 +1,4 @@
+<%@ attribute name="fontClolor" required="true"%>
+<%@ tag body-content="tagdependent" %>
+<img alt="services_img" src="images/Web-Services.jpg"><br>
+<em><strong><jsp:doBody></jsp:doBody></strong></em><br>

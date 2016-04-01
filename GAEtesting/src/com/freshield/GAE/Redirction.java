@@ -9,11 +9,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.json.*;
 
@@ -99,15 +97,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
             String theValue = "{'value':'error'}";
             if(rs.next() == true){
             	if(rs.getString("password").equals(password)){
-            		theValue = "{'value':'"+response.encodeURL("/dashboard.do")+"'}";
-            		HttpSession session = request.getSession();
-            		
-            		if(session.isNew()){
-            			session.setAttribute("username", username);
-            		}else {
-            			session.setAttribute("username", username);
-					}
-            		
+            		theValue = "{'value':'dashboard.html'}";
             	}else {
             		theValue = "{'value':'error'}";
 				}
