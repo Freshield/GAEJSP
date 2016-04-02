@@ -1,0 +1,11 @@
+package foo;
+
+import javax.servlet.jsp.*;
+import javax.servlet.jsp.tagext.*;
+import java.io.*;
+
+public class Classic1 extends TagSupport{
+	
+	
+
+}
