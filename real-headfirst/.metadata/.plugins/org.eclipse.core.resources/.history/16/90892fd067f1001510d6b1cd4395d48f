@@ -1,7 +1,0 @@
-package com.example;
-
-import HttpServlet;
-
-public class CookieTest extends HttpServlet {
-
-}

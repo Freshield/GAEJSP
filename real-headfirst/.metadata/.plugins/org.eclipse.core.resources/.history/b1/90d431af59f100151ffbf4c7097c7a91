@@ -1,7 +1,0 @@
-package com.example;
-
-import HttpServlet;
-
-public class SessionTest extends HttpServlet {
-
-}
