@@ -15,6 +15,13 @@
 	<mine:classicTest>
 		This is the body
 	</mine:classicTest>
+	Classic iterator:<br>
+	<table border="1">
+		<mine:classicItrator>
+			<tr><td>${ movie }</td></tr>
+		</mine:classicItrator>
+	
+	</table>
 
 </body>
 </html>

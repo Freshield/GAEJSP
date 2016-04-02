@@ -19,4 +19,8 @@
   	<name>classicTest</name>
   	<tag-class>foo.ClassicTest</tag-class>
   </tag>
+  <tag>
+  	<name>classicItrator</name>
+  	<tag-class>foo.MyIteratorTag</tag-class>
+  </tag>
 </taglib>
