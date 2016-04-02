@@ -8,7 +8,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<myTags:simple1/>
+	<myTags:simple1>
+		This is the body<br>
+	</myTags:simple1>
+	<myTags:simple3>
+		${ message }<br>
+	</myTags:simple3>
+	<table>
+		<myTags:simple4>
+			<tr><td>${ movie }</td></tr>
+		</myTags:simple4>
+	</table>
 
 </body>
 </html>

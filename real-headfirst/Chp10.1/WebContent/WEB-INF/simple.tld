@@ -8,7 +8,17 @@
   <tag>
     <name>simple1</name>
     <tag-class>foo.SimpleTagTest1</tag-class>
-    <body-content>empty</body-content>
+    <body-content>scriptless</body-content>
     <description>worst use of a custom tag</description>
+  </tag>
+  <tag>
+  	<name>simple3</name>
+  	<tag-class>foo.SimpleTagTest3</tag-class>
+  	<body-content>scriptless</body-content>
+  </tag>
+  <tag>
+  	<name>simple4</name>
+  	<tag-class>foo.SimpleTagTest4</tag-class>
+  	<body-content>scriptless</body-content>
   </tag>
 </taglib>
