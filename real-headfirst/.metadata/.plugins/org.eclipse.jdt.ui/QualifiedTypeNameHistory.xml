@@ -7,7 +7,6 @@
 <fullyQualifiedTypeName name="org.apache.naming.java.javaURLContextFactory"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
-<fullyQualifiedTypeName name="java.io.IOException"/>
 <fullyQualifiedTypeName name="javax.servlet.ServletException"/>
 <fullyQualifiedTypeName name="com.example.model.BeerExpert"/>
 <fullyQualifiedTypeName name="javax.swing.text.html.HTMLDocument.Iterator"/>
@@ -26,7 +25,14 @@
 <fullyQualifiedTypeName name="foo.Dog"/>
 <fullyQualifiedTypeName name="foo.Toy"/>
 <fullyQualifiedTypeName name="java.lang.Math"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="org.apache.catalina.Session"/>
 <fullyQualifiedTypeName name="org.apache.catalina.util.SessionConfig"/>
+<fullyQualifiedTypeName name="javax.servlet.jsp.JspException"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="javax.swing.plaf.basic.BasicInternalFrameTitlePane.MoveAction"/>
+<fullyQualifiedTypeName name="java.util.Iterator"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="javax.servlet.jsp.SkipPageException"/>
 </qualifiedTypeNameHistroy>
