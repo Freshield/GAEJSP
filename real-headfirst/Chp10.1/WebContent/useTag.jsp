@@ -1,3 +1,4 @@
+<%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="myTags" uri="simpleTags" %>
@@ -18,6 +19,18 @@
 		<myTags:simple4>
 			<tr><td>${ movie }</td></tr>
 		</myTags:simple4>
+	</table>
+	<% List movieCollection = new ArrayList();
+		movieCollection.add("monsoon wedding");
+		movieCollection.add("saved");
+		movieCollection.add("fahrenheit 9/11");
+		request.setAttribute("movieCollection", movieCollection);
+		
+	%>
+	<table>
+		<myTags:simple5 movieList="${ movieCollection }">
+			<tr><td>${ movie }</td></tr>
+		</myTags:simple5>
 	</table>
 
 </body>

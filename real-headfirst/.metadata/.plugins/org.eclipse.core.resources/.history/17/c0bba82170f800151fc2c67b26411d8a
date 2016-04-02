@@ -1,0 +1,23 @@
+package foo;
+
+import java.io.IOException;
+import java.util.*;
+
+import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.tagext.SimpleTagSupport;
+
+public class SimpleTagTest5 extends SimpleTagSupport {
+	
+	public void doTag() throws JspException, IOException{
+		
+		private List movieList;
+		
+		
+		for(int i = 0;i<movies.length;i++){
+			getJspContext().setAttribute("movie", movies[i]);
+			getJspBody().invoke(null);
+		}
+		
+	}
+
+}
