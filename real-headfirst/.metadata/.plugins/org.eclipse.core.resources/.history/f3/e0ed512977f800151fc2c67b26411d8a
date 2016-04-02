@@ -32,8 +32,6 @@
 			<tr><td>${ movie }</td></tr>
 		</myTags:simple5>
 	</table>
-	<jsp:include page="badTagInclude.jsp"></jsp:include>
-	<br>back in the page after invoking the tag
 
 </body>
 </html>

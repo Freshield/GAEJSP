@@ -31,9 +31,4 @@
   		<rtexprvalue>true</rtexprvalue>
   	</attribute>
   </tag>
-  <tag>
-  	<name>simple6</name>
-  	<tag-class>foo.SimpleTagTest6</tag-class>
-  	<body-content>scriptless</body-content>
-  </tag>
 </taglib>
