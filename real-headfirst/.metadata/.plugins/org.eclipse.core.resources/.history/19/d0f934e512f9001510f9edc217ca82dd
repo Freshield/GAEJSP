@@ -10,13 +10,4 @@
     <tag-class>foo.Classic1</tag-class>
     <body-content>empty</body-content>
   </tag>
-  <tag>
-  	<name>classicTwo</name>
-  	<tag-class>foo.Classic2</tag-class>
-  	<body-content>empty</body-content>
-  </tag>
-  <tag>
-  	<name>classicTest</name>
-  	<tag-class>foo.ClassicTest</tag-class>
-  </tag>
 </taglib>

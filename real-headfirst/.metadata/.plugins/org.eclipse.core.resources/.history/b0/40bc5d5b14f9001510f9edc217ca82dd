@@ -8,13 +8,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<mine:classicOne/><br>
+	<mine:classicOne/>
 	Classic Tag Two:<br>
-	<mine:classicTwo/><br>
-	Classic test have body
-	<mine:classicTest>
-		This is the body
-	</mine:classicTest>
+	<mine:classicTwo/>
 
 </body>
 </html>

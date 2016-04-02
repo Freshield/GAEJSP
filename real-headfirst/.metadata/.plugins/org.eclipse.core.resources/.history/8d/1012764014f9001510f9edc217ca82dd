@@ -15,8 +15,4 @@
   	<tag-class>foo.Classic2</tag-class>
   	<body-content>empty</body-content>
   </tag>
-  <tag>
-  	<name>classicTest</name>
-  	<tag-class>foo.ClassicTest</tag-class>
-  </tag>
 </taglib>
