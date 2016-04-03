@@ -21,7 +21,12 @@
 			<tr><td>${ movie }</td></tr>
 		</mine:classicItrator>
 	
-	</table>
+	</table><br>
+	
+	test parent:
+	<mine:ClassicParent name="ClassicParentTag">
+		<mine:SimpleInner></mine:SimpleInner>
+	</mine:ClassicParent>
 
 </body>
 </html>

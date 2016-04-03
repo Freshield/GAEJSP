@@ -23,4 +23,17 @@
   	<name>classicItrator</name>
   	<tag-class>foo.MyIteratorTag</tag-class>
   </tag>
+  <tag>
+  	<name>ClassicParent</name>
+  	<tag-class>foo.MyClassicParent</tag-class>
+  	<attribute>
+  		<name>name</name>
+  		<rtexprvalue>true</rtexprvalue>
+  	</attribute>
+  </tag>
+  <tag>
+  	<name>SimpleInner</name>
+  	<tag-class>foo.MySampleTag</tag-class>
+  	<body-content>scriptless</body-content>
+  </tag>
 </taglib>

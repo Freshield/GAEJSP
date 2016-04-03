@@ -1,6 +1,7 @@
 package foo;
 
 import javax.servlet.jsp.*;
+
 import javax.servlet.jsp.tagext.*;
 
 import java.io.*;
@@ -20,8 +21,8 @@ public class MyIteratorTag extends TagSupport{
 		try{
 			count = 0;
 			out.println(" Before the body");
-			//pageContext.setAttribute("movie", movies[count]);
-			//count++;
+			pageContext.setAttribute("movie", movies[count]);
+			count++;
 		}catch(IOException ex){
 			throw new JspException("IOException-"+ex.toString());
 		}
