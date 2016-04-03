@@ -24,8 +24,10 @@
 	</table><br>
 	
 	test parent:
-	<mine:ClassicParent name="ClassicParentTag">
-		<mine:SimpleInner></mine:SimpleInner>
+	<mine:ClassicParent >
+		<mine:SimpleInner itemvalue="Dogs"/>
+		<mine:SimpleInner itemvalue="Cats"/>
+		<mine:SimpleInner itemvalue="Horses"/>
 	</mine:ClassicParent>
 
 </body>

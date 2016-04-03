@@ -1,0 +1,33 @@
+package foo;
+
+import java.io.IOException;
+
+
+
+
+import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.tagext.SimpleTagSupport;
+import javax.servlet.jsp.tagext.TagSupport;
+
+public class MySampleTag extends TagSupport{
+	
+	private String itemvalue;
+	
+	public void doTag() throws JspException, IOException{
+		
+		MyClassicParent parent = (MyClassicParent) getParent();
+		getJspContext().getOut().print("Parent attribute is: " +parent.getName());
+		
+		
+	}
+	
+	public void setItemvalue(String itemvalue){
+		this.itemvalue = itemvalue;
+	}
+	
+	public String getItemvalue(){
+		return itemvalue;
+	}
+	
+
+}

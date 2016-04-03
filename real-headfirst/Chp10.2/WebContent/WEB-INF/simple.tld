@@ -26,14 +26,13 @@
   <tag>
   	<name>ClassicParent</name>
   	<tag-class>foo.MyClassicParent</tag-class>
-  	<attribute>
-  		<name>name</name>
-  		<rtexprvalue>true</rtexprvalue>
-  	</attribute>
   </tag>
   <tag>
   	<name>SimpleInner</name>
   	<tag-class>foo.MySampleTag</tag-class>
   	<body-content>scriptless</body-content>
+  	<attribute>
+  		<name>itemvalue</name>
+  	</attribute>
   </tag>
 </taglib>

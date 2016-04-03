@@ -1,0 +1,33 @@
+package foo;
+
+import javax.servlet.jsp.*;
+import javax.servlet.jsp.tagext.*;
+
+import java.io.*;
+import java.util.ArrayList;
+
+public class MyClassicParent extends TagSupport{
+	private ArrayList items;
+	
+	public int doStartTag() throws JspException{
+		
+		items = new ArrayList();
+		
+		
+		
+		return EVAL_BODY_INCLUDE;
+	}
+	
+	public void addMenuItem(String item){
+		items.add(item);
+	}
+	
+	public String getName(){
+		return name;
+	}
+	
+	public void setName(String name){
+		this.name = name;
+	}
+	
+}
