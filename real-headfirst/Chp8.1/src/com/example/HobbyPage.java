@@ -58,7 +58,7 @@ public class HobbyPage extends HttpServlet {
 		request.setAttribute("musicList", favoriteMusic);
 		request.setAttribute("musicType", musicType);
 		
-		RequestDispatcher view = request.getRequestDispatcher("tester.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("META-INF/tester.jsp");
 		view.forward(request, response);
 		
 	}

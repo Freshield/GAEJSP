@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<c:import url="tester5_sub.jsp">
+	<c:import url="META-INF/tester5_sub.jsp">
 		<c:param name="subTitle" value="We take the sting out of SOAP"></c:param>
 	</c:import>
 	
