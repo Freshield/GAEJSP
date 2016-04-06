@@ -24,6 +24,22 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
   	<servlet-name>STATUSget</servlet-name>
   	<servlet-class>com.freshield.GAE.STATUSget</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>Machines</servlet-name>
+  	<servlet-class>com.freshield.GAE.Machines</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>dashboard</servlet-name>
+  	<servlet-class>com.freshield.GAE.dashboard</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>dashboard</servlet-name>
+  	<url-pattern>/dashboard.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Machines</servlet-name>
+  	<url-pattern>/Machines.do</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>HelloServlet</servlet-name>
   	<url-pattern>/HelloServlet</url-pattern>
