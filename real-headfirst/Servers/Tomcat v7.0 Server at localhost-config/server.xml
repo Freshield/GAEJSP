@@ -80,6 +80,10 @@
                maxThreads="150" SSLEnabled="true" scheme="https" secure="true"
                clientAuth="false" sslProtocol="TLS" />
     -->
+    <Connector port="8443" protocol="HTTP/1.1" SSLEnabled="true"
+              maxThreads="150" scheme="https" secure="true"
+              clientAuth="false" sslProtocol="TLS"
+              keystoreFile="C:\Users\FRESHIELD\.keystore" keystorePass="199182"/>
 
     <!-- Define an AJP 1.3 Connector on port 8009 -->
     <Connector port="8009" protocol="AJP/1.3" redirectPort="8443"/>
