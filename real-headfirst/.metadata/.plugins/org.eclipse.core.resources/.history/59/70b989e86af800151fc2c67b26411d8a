@@ -1,7 +1,0 @@
-package foo;
-
-import SimpleTagSupport;
-
-public class SimpleTagTest1 extends SimpleTagSupport {
-
-}
