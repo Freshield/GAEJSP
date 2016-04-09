@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>Chp13.1</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <filter>
+  	<filter-name>CompressionFilter</filter-name>
+  	<filter-class>com.example.web.CompressionFilter</filter-class>
+  	<init-param>
+  		<param-name>LogFileName</param-name>
+  		<param-value>UserLog.txt</param-value>
+  	</init-param>
+  </filter>
+  <filter-mapping>
+  	<filter-name>CompressionFilter</filter-name>
+  	<url-pattern>*.do</url-pattern>
+  	<servlet-name>Tester</servlet-name>
+  </filter-mapping>
+  <servlet>
+  	<servlet-name>Tester</servlet-name>
+  	<servlet-class>com.example.web.Tester</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Tester</servlet-name>
+  	<url-pattern>/Tester.do</url-pattern>
+  </servlet-mapping>
+</web-app>

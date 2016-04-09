@@ -1,0 +1,12 @@
+package com.example.web;
+
+import javax.servlet.http.*;
+import javax.servlet.*;
+import java.io.*;
+import java.util.zip.*;
+
+public class CompressionResponseWrapper extends HttpServletResponseWrapper{
+	
+	private GZIPServletOutputStream servletGzipOS = null;
+
+}
