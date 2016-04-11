@@ -4,7 +4,6 @@
 <fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="org.apache.naming.java.javaURLContextFactory"/>
-<fullyQualifiedTypeName name="com.example.model.BeerExpert"/>
 <fullyQualifiedTypeName name="javax.swing.text.html.HTMLDocument.Iterator"/>
 <fullyQualifiedTypeName name="java.util.Enumeration"/>
 <fullyQualifiedTypeName name="javax.servlet.ServletContextListener"/>
@@ -40,10 +39,8 @@
 <fullyQualifiedTypeName name="javax.servlet.ServletRequest"/>
 <fullyQualifiedTypeName name="javax.servlet.ServletResponse"/>
 <fullyQualifiedTypeName name="javax.servlet.ServletException"/>
-<fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponseWrapper"/>
 <fullyQualifiedTypeName name="javax.servlet.ServletOutputStream"/>
-<fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
 <fullyQualifiedTypeName name="java.io.IOException"/>
 <fullyQualifiedTypeName name="java.lang.IllegalStateException"/>
 <fullyQualifiedTypeName name="com.example.web.GZIPServletOutputStream"/>
@@ -51,4 +48,12 @@
 <fullyQualifiedTypeName name="com.example.web.CompressionResponseWrapper"/>
 <fullyQualifiedTypeName name="java.util.zip.GZIPOutputStream"/>
 <fullyQualifiedTypeName name="java.io.PrintWriter"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
+<fullyQualifiedTypeName name="com.example.web.BeerSelectForm"/>
+<fullyQualifiedTypeName name="com.example.model.BeerExpert"/>
+<fullyQualifiedTypeName name="org.apache.struts.action.ActionForm"/>
+<fullyQualifiedTypeName name="org.apache.struts.action.ActionMapping"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
+<fullyQualifiedTypeName name="org.apache.struts.action.ActionErrors"/>
+<fullyQualifiedTypeName name="org.apache.struts.action.ActionMessage"/>
 </qualifiedTypeNameHistroy>

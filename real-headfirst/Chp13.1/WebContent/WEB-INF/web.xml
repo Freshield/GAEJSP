@@ -19,7 +19,7 @@
   </filter>
   <filter-mapping>
   	<filter-name>CompressionFilter</filter-name>
-  	<url-pattern>*.do</url-pattern>
+  	<url-pattern>/*</url-pattern>
   </filter-mapping>
   <servlet>
   	<servlet-name>Tester</servlet-name>

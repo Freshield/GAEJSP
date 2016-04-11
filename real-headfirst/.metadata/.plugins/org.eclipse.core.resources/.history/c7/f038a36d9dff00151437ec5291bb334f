@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="UTF-8">
+	<title>Beer Selection Page</title>
+</head>
+<body>
+	<h1 align="center">Beer Selection Page</h1>
+
+	<form method="post"
+	      action="SelectBeer">
+		Select beer characteristics<br>
+		Color:
+		<select name="color" size="1">
+			<option>light</option>
+			<option>amber</option>
+			<option>amber</option>
+			<option>brown</option>
+			<option>dark</option>
+		</select>
+		<br><br>
+		<center>
+			<input type="SUBMIT">
+		</center>
+	</form>
+
+</body>
+</html>
